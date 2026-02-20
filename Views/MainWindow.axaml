@@ -3,11 +3,39 @@
         xmlns:vm="using:HaveItMain.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d"         
+        Width="1280"
+        Height="720"
+        d:DesignWidth="1280"
+        d:DesignHeight="720"
         x:Class="HaveItMain.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="HaveItMain">
+        Title="Have-It">
+
+    <Window.Styles>
+        <Style Selector="Border.round-button">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Background" Value="{StaticResource ColorBackground}"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" 
+                                      BlurRadius="4" 
+                                      OffsetX="-3"
+                                      OffsetY="3"
+                                      Opacity="0.25"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style Selector="Border.round-button:pointerover">
+            <Setter Property="Background" Value="#E0E0E0"/>
+        </Style>
+    </Window.Styles>
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -16,8 +44,102 @@
     </Design.DataContext>
     
     
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    
-    
+    <Grid ColumnDefinitions="72,*">
+        <Border Grid.Column="0"
+                Background="{StaticResource ColorPrimary}"
+                ZIndex="1"> <!-- extra space on the right -->
+            
+            <Border.Effect>
+                <DropShadowEffect 
+                    Color="Black" 
+                    BlurRadius="8" 
+                    OffsetX="3"
+                    OffsetY="0"
+                    Opacity="0.25"/>
+            </Border.Effect>
+            <Grid RowDefinitions="72,*,73">
+                <Border Grid.Row="0">
+                    <Border PointerPressed="InputElement_OnPointerPressed" Cursor="Hand">
+                            <Image Source="avares://HaveItMain/Assets/INVERTED LOGO.png"
+                                   Width="50"
+                                   Height="50"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Bottom"
+                                   Stretch="Uniform"/>
+                    </Border>
+                </Border> <!-- LOGO -->
+                <Border Grid.Row="1">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="15">
+                        <Border Classes="round-button">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" 
+                                                  BlurRadius="4" 
+                                                  OffsetX="-3"
+                                                  OffsetY="3"
+                                                  Opacity="0.25"/>
+                            </Border.Effect>
+                            <Image Source="avares://HaveItMain/Assets/smenu.png"
+                                   Margin="5"
+                                   Stretch="Uniform"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                        </Border>
+                        <Border Classes="round-button">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" 
+                                                  BlurRadius="4" 
+                                                  OffsetX="-3"
+                                                  OffsetY="3"
+                                                  Opacity="0.25"/>
+                            </Border.Effect>
+                            <Image Source="avares://HaveItMain/Assets/tmenu.png"
+                                   Margin="6"
+                                   Stretch="Uniform"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                        </Border>
+                        <Border Classes="round-button">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" 
+                                                  BlurRadius="4" 
+                                                  OffsetX="-3"
+                                                  OffsetY="3"
+                                                  Opacity="0.25"/>
+                            </Border.Effect>
+                            <Image Source="avares://HaveItMain/Assets/setmenu.png"
+                                   Margin="4"
+                                   Stretch="Uniform"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                        </Border>
+                    </StackPanel>
+                </Border> <!-- 3 Buttons -->
+                <Border Grid.Row="2">
+                    <Border Classes="round-button" VerticalAlignment="Top">
+                        <Border.Effect>
+                            <DropShadowEffect Color="Black" 
+                                              BlurRadius="4" 
+                                              OffsetX="-3"
+                                              OffsetY="3"
+                                              Opacity="0.25"/>
+                        </Border.Effect>
+                        <Image Source="avares://HaveItMain/Assets/WriteMenu.png"
+                               Margin="9"
+                               Stretch="Uniform"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                    </Border>
+                </Border> <!-- NEW ROUTINE -->
+            </Grid>
+        </Border>
+        <Border Grid.Column="1" Background="{StaticResource ColorBackground}" ZIndex="0">
+            <Grid RowDefinitions="105, *">
+                <Border Grid.Row="0" Background="Chartreuse"></Border>
+                <Border Grid.Row="1" Background="{StaticResource ColorBackground}">
+                    <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">Dynamic Content</TextBlock>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
 
 </Window>

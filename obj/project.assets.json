@@ -252,6 +252,19 @@
           }
         }
       },
+      "Avalonia.Svg/11.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Avalonia": "11.3.0",
+          "Svg.Model": "3.0.2"
+        },
+        "compile": {
+          "lib/net8.0/Avalonia.Svg.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Avalonia.Svg.dll": {}
+        }
+      },
       "Avalonia.Themes.Fluent/11.3.9": {
         "type": "package",
         "dependencies": {
@@ -339,6 +352,15 @@
         },
         "build": {
           "buildTransitive/netstandard2.1/CommunityToolkit.Mvvm.targets": {}
+        }
+      },
+      "ExCSS/4.3.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/ExCSS.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/ExCSS.dll": {}
         }
       },
       "HarfBuzzSharp/8.3.1.1": {
@@ -473,6 +495,15 @@
           "lib/net5.0/MicroCom.Runtime.dll": {}
         }
       },
+      "ShimSkiaSharp/3.4.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/ShimSkiaSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/ShimSkiaSharp.dll": {}
+        }
+      },
       "SkiaSharp/2.88.9": {
         "type": "package",
         "dependencies": {
@@ -569,6 +600,44 @@
             "assetType": "native",
             "rid": "win-x86"
           }
+        }
+      },
+      "Svg.Controls.Avalonia/11.3.9.2": {
+        "type": "package",
+        "dependencies": {
+          "Avalonia": "11.3.9",
+          "Svg.Model": "3.4.1"
+        },
+        "compile": {
+          "lib/net8.0/Svg.Controls.Avalonia.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Svg.Controls.Avalonia.dll": {}
+        }
+      },
+      "Svg.Custom/3.4.1": {
+        "type": "package",
+        "dependencies": {
+          "ExCSS": "4.3.1"
+        },
+        "compile": {
+          "lib/net8.0/Svg.Custom.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Svg.Custom.dll": {}
+        }
+      },
+      "Svg.Model/3.4.1": {
+        "type": "package",
+        "dependencies": {
+          "ShimSkiaSharp": "3.4.1",
+          "Svg.Custom": "3.4.1"
+        },
+        "compile": {
+          "lib/net8.0/Svg.Model.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Svg.Model.dll": {}
         }
       },
       "System.IO.Pipelines/8.0.0": {
@@ -951,6 +1020,21 @@
         "lib/netstandard2.0/Avalonia.Skia.xml"
       ]
     },
+    "Avalonia.Svg/11.3.0": {
+      "sha512": "hlTTpPDpaS78QD5neVSfaE+l7p38Vp2A8eTtm8WVfh7/04cWDQGGjIGLzJMzNk9Lss9ah7LaxnkWC5ThLhC1Sw==",
+      "type": "package",
+      "path": "avalonia.svg/11.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "avalonia.svg.11.3.0.nupkg.sha512",
+        "avalonia.svg.nuspec",
+        "lib/net461/Avalonia.Svg.dll",
+        "lib/net6.0/Avalonia.Svg.dll",
+        "lib/net8.0/Avalonia.Svg.dll",
+        "lib/netstandard2.0/Avalonia.Svg.dll"
+      ]
+    },
     "Avalonia.Themes.Fluent/11.3.9": {
       "sha512": "XSgQxSRKgK/yNhkKa1rGuEUDISi+VNxwoj1pq4JUhFd1XXk/dqGsc4MfESItwTyGEYJH+HDbWfWEPVDDxAfUJg==",
       "type": "package",
@@ -1058,6 +1142,25 @@
         "lib/netstandard2.1/CommunityToolkit.Mvvm.dll",
         "lib/netstandard2.1/CommunityToolkit.Mvvm.pdb",
         "lib/netstandard2.1/CommunityToolkit.Mvvm.xml"
+      ]
+    },
+    "ExCSS/4.3.1": {
+      "sha512": "A8UtcghHQlWxPJhJF5bsfEYO7068JHGTuJ7tzyyMjd5fE/N/xY1cVOUhzuLLFwMOCJVnM4mqSQc93W9fGfZ1kA==",
+      "type": "package",
+      "path": "excss/4.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "excss.4.3.1.nupkg.sha512",
+        "excss.nuspec",
+        "lib/net48/ExCSS.dll",
+        "lib/net6.0/ExCSS.dll",
+        "lib/net7.0/ExCSS.dll",
+        "lib/net8.0/ExCSS.dll",
+        "lib/netcoreapp3.1/ExCSS.dll",
+        "lib/netstandard2.0/ExCSS.dll",
+        "lib/netstandard2.1/ExCSS.dll",
+        "readme.md"
       ]
     },
     "HarfBuzzSharp/8.3.1.1": {
@@ -1229,6 +1332,22 @@
         "lib/netstandard2.0/MicroCom.Runtime.dll",
         "microcom.runtime.0.11.0.nupkg.sha512",
         "microcom.runtime.nuspec"
+      ]
+    },
+    "ShimSkiaSharp/3.4.1": {
+      "sha512": "ab3J5OGdwYLyXnom90OghS9NyRPH9dtsRtW5B3mL+F43YTlxido3nUtiR9NjB/sI3jvG/J744C29bsSBQ28AfQ==",
+      "type": "package",
+      "path": "shimskiasharp/3.4.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net10.0/ShimSkiaSharp.dll",
+        "lib/net461/ShimSkiaSharp.dll",
+        "lib/net6.0/ShimSkiaSharp.dll",
+        "lib/net8.0/ShimSkiaSharp.dll",
+        "lib/netstandard2.0/ShimSkiaSharp.dll",
+        "shimskiasharp.3.4.1.nupkg.sha512",
+        "shimskiasharp.nuspec"
       ]
     },
     "SkiaSharp/2.88.9": {
@@ -1409,6 +1528,53 @@
         "skiasharp.nativeassets.win32.nuspec"
       ]
     },
+    "Svg.Controls.Avalonia/11.3.9.2": {
+      "sha512": "lBg2jcQhagXHE5+74Mf7I5yIJilgI5iDT6AepmemUXjQqGdFdDEHSoB6K7ioUwbf+z/+YerWHOBt+KfW3CeAuQ==",
+      "type": "package",
+      "path": "svg.controls.avalonia/11.3.9.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net10.0/Svg.Controls.Avalonia.dll",
+        "lib/net461/Svg.Controls.Avalonia.dll",
+        "lib/net6.0/Svg.Controls.Avalonia.dll",
+        "lib/net8.0/Svg.Controls.Avalonia.dll",
+        "lib/netstandard2.0/Svg.Controls.Avalonia.dll",
+        "svg.controls.avalonia.11.3.9.2.nupkg.sha512",
+        "svg.controls.avalonia.nuspec"
+      ]
+    },
+    "Svg.Custom/3.4.1": {
+      "sha512": "ksHa7Zv8X1InxSWAeM0sSSvZM2W6FWgneXjU0bdYrQ20Q6q0nl3g0uaSWe53i/CC1OmR+/JAxsp8E3/wigtcng==",
+      "type": "package",
+      "path": "svg.custom/3.4.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net10.0/Svg.Custom.dll",
+        "lib/net6.0/Svg.Custom.dll",
+        "lib/net8.0/Svg.Custom.dll",
+        "lib/netstandard2.0/Svg.Custom.dll",
+        "svg.custom.3.4.1.nupkg.sha512",
+        "svg.custom.nuspec"
+      ]
+    },
+    "Svg.Model/3.4.1": {
+      "sha512": "Zn04CWWIwV+qlJ4x4vg8FdCYNew5dRcsvkcCpzZggFKHGExIn4WTBtJMuLH8htuiLnbbgF6woIYpUll+seHfjw==",
+      "type": "package",
+      "path": "svg.model/3.4.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net10.0/Svg.Model.dll",
+        "lib/net461/Svg.Model.dll",
+        "lib/net6.0/Svg.Model.dll",
+        "lib/net8.0/Svg.Model.dll",
+        "lib/netstandard2.0/Svg.Model.dll",
+        "svg.model.3.4.1.nupkg.sha512",
+        "svg.model.nuspec"
+      ]
+    },
     "System.IO.Pipelines/8.0.0": {
       "sha512": "FHNOatmUq0sqJOkTx+UF/9YK1f180cnW5FVqnQMvYUN0elp6wFzbtPSiqbo1/ru8ICp43JM1i7kKkk6GsNGHlA==",
       "type": "package",
@@ -1460,36 +1626,31 @@
       "Avalonia.Desktop >= 11.3.9",
       "Avalonia.Diagnostics >= 11.3.9",
       "Avalonia.Fonts.Inter >= 11.3.9",
+      "Avalonia.Svg >= 11.3.0",
       "Avalonia.Themes.Fluent >= 11.3.9",
-      "CommunityToolkit.Mvvm >= 8.2.1"
+      "CommunityToolkit.Mvvm >= 8.2.1",
+      "Svg.Controls.Avalonia >= 11.3.9.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Natsuki\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/franzylmacalua/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Natsuki\\RiderProjects\\HaveItMain\\HaveItMain.csproj",
+      "projectUniqueName": "/Users/franzylmacalua/RiderProjects/HaveItMain/HaveItMain.csproj",
       "projectName": "HaveItMain",
-      "projectPath": "C:\\Users\\Natsuki\\RiderProjects\\HaveItMain\\HaveItMain.csproj",
-      "packagesPath": "C:\\Users\\Natsuki\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Natsuki\\RiderProjects\\HaveItMain\\obj\\",
+      "projectPath": "/Users/franzylmacalua/RiderProjects/HaveItMain/HaveItMain.csproj",
+      "packagesPath": "/Users/franzylmacalua/.nuget/packages/",
+      "outputPath": "/Users/franzylmacalua/RiderProjects/HaveItMain/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Natsuki\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/franzylmacalua/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1508,7 +1669,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -1530,6 +1691,10 @@
             "target": "Package",
             "version": "[11.3.9, )"
           },
+          "Avalonia.Svg": {
+            "target": "Package",
+            "version": "[11.3.0, )"
+          },
           "Avalonia.Themes.Fluent": {
             "target": "Package",
             "version": "[11.3.9, )"
@@ -1537,6 +1702,10 @@
           "CommunityToolkit.Mvvm": {
             "target": "Package",
             "version": "[8.2.1, )"
+          },
+          "Svg.Controls.Avalonia": {
+            "target": "Package",
+            "version": "[11.3.9.2, )"
           }
         },
         "imports": [
@@ -1550,30 +1719,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[9.0.11, 9.0.11]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[9.0.11, 9.0.11]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[9.0.11, 9.0.11]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[9.0.11, 9.0.11]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
