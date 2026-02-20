@@ -1,0 +1,31 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="HaveItMain.App"
+             xmlns:local="using:HaveItMain"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+        
+        <FluentTheme />
+    </Application.Styles>
+    <Application.Resources>
+        <!-- Colors -->
+        <Color x:Key="ColorPrimary">#FFCC00</Color>
+        <Color x:Key="ColorSecondary">#FF8000</Color>
+        <Color x:Key="Complement"> #00B2FF </Color>
+        <Color x:Key="ColorBackground">#FFFFFFFF</Color>
+        <Color x:Key="ColorForeground">#FF000000</Color>
+
+        <!-- Brushes (what UI actually uses) -->
+        <SolidColorBrush x:Key="BrushPrimary" Color="{StaticResource ColorPrimary}"/>
+        <SolidColorBrush x:Key="BrushSecondary" Color="{StaticResource ColorSecondary}"/>
+        <SolidColorBrush x:Key="BrushCompliment" Color="{StaticResource Complement}"/>
+        <SolidColorBrush x:Key="BrushBackground" Color="{StaticResource ColorBackground}"/>
+        <SolidColorBrush x:Key="BrushForeground" Color="{StaticResource ColorForeground}"/>
+    </Application.Resources>
+</Application>
