@@ -15,7 +15,12 @@
         <Style Selector="TextBlock">
             <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
             <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        
+        <Style Selector="TextBlock.Headers">
+            <Setter Property="FontSize" Value="45"></Setter>
+            <Setter Property="FontWeight" Value="ExtraBold"/>
         </Style>
 
         <!-- Button -->

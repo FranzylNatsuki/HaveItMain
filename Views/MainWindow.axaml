@@ -10,14 +10,17 @@
         d:DesignHeight="720"
         x:Class="HaveItMain.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="avares://HaveItMain/Assets/Icon-ForDocker.png"
         Title="Have-It">
 
     <Window.Styles>
-        <Style Selector="Border.round-button">
+        <Style Selector="Button.round-button">
+            <!-- remove default padding and border -->
+            <Setter Property="Background" Value="{StaticResource ColorBackground}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
             <Setter Property="Width" Value="40"/>
             <Setter Property="Height" Value="40"/>
-            <Setter Property="Background" Value="{StaticResource ColorBackground}"/>
             <Setter Property="CornerRadius" Value="20"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -32,8 +35,20 @@
             </Setter>
         </Style>
         
-        <Style Selector="Border.round-button:pointerover">
+        <!-- Hover -->
+        <Style Selector="Button.round-button:pointerover">
             <Setter Property="Background" Value="#E0E0E0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <!-- Press -->
+        <Style Selector="Button.round-button:pressed">
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="0.90" ScaleY="0.90"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="#D0D0D0"/>
         </Style>
     </Window.Styles>
 
@@ -44,7 +59,7 @@
     </Design.DataContext>
     
     
-    <Grid ColumnDefinitions="72,*">
+    <Grid ColumnDefinitions="72,87,* ,30">
         <Border Grid.Column="0"
                 Background="{StaticResource ColorPrimary}"
                 ZIndex="1"> <!-- extra space on the right -->
@@ -70,73 +85,123 @@
                 </Border> <!-- LOGO -->
                 <Border Grid.Row="1">
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="15">
-                        <Border Classes="round-button">
-                            <Border.Effect>
-                                <DropShadowEffect Color="Black" 
-                                                  BlurRadius="4" 
-                                                  OffsetX="-3"
-                                                  OffsetY="3"
-                                                  Opacity="0.25"/>
-                            </Border.Effect>
+                        <Button Classes="round-button">
                             <Image Source="avares://HaveItMain/Assets/smenu.png"
                                    Margin="5"
                                    Stretch="Uniform"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Classes="round-button">
-                            <Border.Effect>
+                        </Button>
+                        <Button Classes="round-button">
+                            <Button.Effect>
                                 <DropShadowEffect Color="Black" 
                                                   BlurRadius="4" 
                                                   OffsetX="-3"
                                                   OffsetY="3"
                                                   Opacity="0.25"/>
-                            </Border.Effect>
+                            </Button.Effect>
                             <Image Source="avares://HaveItMain/Assets/tmenu.png"
-                                   Margin="6"
+                                   Margin="7"
                                    Stretch="Uniform"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Classes="round-button">
-                            <Border.Effect>
+                        </Button>
+                        <Button Classes="round-button">
+                            <Button.Effect>
                                 <DropShadowEffect Color="Black" 
                                                   BlurRadius="4" 
                                                   OffsetX="-3"
                                                   OffsetY="3"
                                                   Opacity="0.25"/>
-                            </Border.Effect>
+                            </Button.Effect>
                             <Image Source="avares://HaveItMain/Assets/setmenu.png"
                                    Margin="4"
                                    Stretch="Uniform"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
-                        </Border>
+                        </Button>
                     </StackPanel>
                 </Border> <!-- 3 Buttons -->
                 <Border Grid.Row="2">
-                    <Border Classes="round-button" VerticalAlignment="Top">
-                        <Border.Effect>
+                    <Button Classes="round-button" VerticalAlignment="Top">
+                        <Button.Effect>
                             <DropShadowEffect Color="Black" 
                                               BlurRadius="4" 
                                               OffsetX="-3"
                                               OffsetY="3"
                                               Opacity="0.25"/>
-                        </Border.Effect>
+                        </Button.Effect>
                         <Image Source="avares://HaveItMain/Assets/WriteMenu.png"
                                Margin="9"
                                Stretch="Uniform"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"/>
-                    </Border>
+                    </Button>
                 </Border> <!-- NEW ROUTINE -->
             </Grid>
-        </Border>
-        <Border Grid.Column="1" Background="{StaticResource ColorBackground}" ZIndex="0">
+        </Border> <!-- LEFT BORDER-->
+        <Border Grid.Column="2" Background="{StaticResource ColorBackground}" ZIndex="0"> <!-- RIGHT BORDER MAIN CONTENT-->
             <Grid RowDefinitions="105, *">
-                <Border Grid.Row="0" Background="Chartreuse"></Border>
-                <Border Grid.Row="1" Background="{StaticResource ColorBackground}">
-                    <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">Dynamic Content</TextBlock>
+                <Border Grid.Row="0" Margin="0,35,0,0" BorderThickness="0,0,0,2" BorderBrush="{StaticResource BrushForeground}" Padding="0,0,0,16">
+                    <Grid ColumnDefinitions="240, 280, *, 300, 60">
+                        <Border Grid.Column="0" >
+                            <TextBlock Classes="Headers" FontSize="36" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"> DASHBOARD </TextBlock>
+                        </Border>
+                        <Border Grid.Column="1">
+                            <!-- SEARCH CONTAINER -->
+                            <Border CornerRadius="10"
+                                    Background="#F0F0F0"
+                                    Padding="4"
+                                    Margin="10,0"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Center">
+
+                                <Grid ColumnDefinitions="Auto,*">
+                                    <!-- Icon -->
+                                    <TextBlock Text="🔍 "
+                                               FontSize="13"
+                                               Margin="13,0,20,0"
+                                               VerticalAlignment="Center"/>
+                                    <!-- Input -->
+                                    <TextBox Grid.Column="1"
+                                             Watermark="Search..."
+                                             BorderThickness="0"
+                                             Background="Transparent"
+                                             HorizontalAlignment="Stretch"
+                                             VerticalAlignment="Center"
+                                             VerticalContentAlignment="Center"/>
+                                </Grid>
+                            </Border>
+                        </Border>
+                        <Border Grid.Column="2"></Border>
+                        <Border Grid.Column="3">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                                <StackPanel Orientation="Vertical" Margin="0,0,20,0" VerticalAlignment="Center">
+                                    <TextBlock HorizontalAlignment="Right" TextAlignment="Right"> Username </TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" TextAlignment="Right"> Pricing Plan </TextBlock>
+                                </StackPanel>
+                                <Border
+                                    Margin="0,0,10,0" 
+                                    CornerRadius="100" 
+                                    Background="Gray" 
+                                    Width="60" 
+                                    Height="60"/>
+                            </StackPanel>
+                        </Border>
+                        <Border Grid.Column="4" Padding="0,0, 0,0">
+                            <Image Source="avares://HaveItMain/Assets/SANDWHICHbutton.png"
+                                   Width="50"
+                                   Height="50"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"
+                                   />
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="1" Background="Aqua">
+                    <Border Background="Red" Margin="0,40,0,40">
+                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">Dynamic Content</TextBlock>
+                    </Border>
                 </Border>
             </Grid>
         </Border>

@@ -7,6 +7,7 @@ using Avalonia.Markup.Xaml;
 using HaveItMain.ViewModels;
 using HaveItMain.Views;
 
+
 namespace HaveItMain;
 
 public partial class App : Application
