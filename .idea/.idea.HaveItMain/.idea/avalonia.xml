@@ -4,7 +4,13 @@
     <option name="projectPerEditor">
       <map>
         <entry key="App.axaml" value="HaveItMain.csproj" />
+        <entry key="ViewModels/Streak.axaml" value="HaveItMain.csproj" />
+        <entry key="Views/AccountSettings.axaml" value="HaveItMain.csproj" />
+        <entry key="Views/Dashboard.axaml" value="HaveItMain.csproj" />
+        <entry key="Views/DashboardView.axaml" value="HaveItMain.csproj" />
         <entry key="Views/MainWindow.axaml" value="HaveItMain.csproj" />
+        <entry key="Views/Settings.axaml" value="HaveItMain.csproj" />
+        <entry key="Views/TimerView.axaml" value="HaveItMain.csproj" />
       </map>
     </option>
   </component>
