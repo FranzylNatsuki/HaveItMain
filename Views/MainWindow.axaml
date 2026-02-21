@@ -85,14 +85,14 @@
                 </Border> <!-- LOGO -->
                 <Border Grid.Row="1">
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="15">
-                        <Button Classes="round-button">
+                        <Button Classes="round-button" Click="Streak_Click">
                             <Image Source="avares://HaveItMain/Assets/smenu.png"
                                    Margin="5"
                                    Stretch="Uniform"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
                         </Button>
-                        <Button Classes="round-button">
+                        <Button Classes="round-button" Click="Timer_Click">
                             <Button.Effect>
                                 <DropShadowEffect Color="Black" 
                                                   BlurRadius="4" 
@@ -106,7 +106,7 @@
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
                         </Button>
-                        <Button Classes="round-button">
+                        <Button Classes="round-button" Click="Settings_Click">
                             <Button.Effect>
                                 <DropShadowEffect Color="Black" 
                                                   BlurRadius="4" 
@@ -145,7 +145,13 @@
                 <Border Grid.Row="0" Margin="0,35,0,0" BorderThickness="0,0,0,2" BorderBrush="{StaticResource BrushForeground}" Padding="0,0,0,16">
                     <Grid ColumnDefinitions="240, 280, *, 300, 60">
                         <Border Grid.Column="0" >
-                            <TextBlock Classes="Headers" FontSize="36" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"> DASHBOARD </TextBlock>
+                            <TextBlock
+                                Text="{Binding CurrentTitle}"
+                                Classes="Headers" 
+                                FontSize="36" 
+                                FontWeight="Bold" 
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Center"/>
                         </Border>
                         <Border Grid.Column="1">
                             <!-- SEARCH CONTAINER -->
@@ -177,10 +183,11 @@
                         <Border Grid.Column="3">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
                                 <StackPanel Orientation="Vertical" Margin="0,0,20,0" VerticalAlignment="Center">
-                                    <TextBlock HorizontalAlignment="Right" TextAlignment="Right"> Username </TextBlock>
-                                    <TextBlock HorizontalAlignment="Right" TextAlignment="Right"> Pricing Plan </TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" TextAlignment="Right" PointerPressed="AccountSettings_Click"> Username </TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" TextAlignment="Right" PointerPressed="AccountSettings_Click"> Pricing Plan </TextBlock>
                                 </StackPanel>
                                 <Border
+                                    PointerPressed="AccountSettings_Click"
                                     Margin="0,0,10,0" 
                                     CornerRadius="100" 
                                     Background="Gray" 
@@ -198,9 +205,10 @@
                         </Border>
                     </Grid>
                 </Border>
-                <Border Grid.Row="1" Background="Aqua">
-                    <Border Background="Red" Margin="0,40,0,40">
-                        <TextBlock TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">Dynamic Content</TextBlock>
+                <Border Grid.Row="1"> <!-- DYNAMIC CONTENTS IS LOCATED HERE -->
+                    <Border Margin="0,40,0,40">
+                        <ContentControl
+                                        Content="{Binding CurrentViewModel}"/>
                     </Border>
                 </Border>
             </Grid>

@@ -1,14 +1,30 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:HaveItMain.ViewModels"
+             xmlns:views="using:HaveItMain.Views"
              x:Class="HaveItMain.App"
              xmlns:local="using:HaveItMain"
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
-
-    <Application.DataTemplates>
-        <local:ViewLocator/>
-    </Application.DataTemplates>
-  
+             
+             <Application.DataTemplates>
+                 <DataTemplate DataType="vm:Dashboard">
+                     <views:DashboardView/>
+                 </DataTemplate>
+                 <DataTemplate DataType="vm:AccountSettings">
+                     <views:AccountSettingsView/>
+                 </DataTemplate>
+                 <DataTemplate DataType="vm:Timer">
+                     <views:TimerView/>
+                 </DataTemplate>
+                 <DataTemplate DataType="vm:Settings">
+                     <views:StreakView/>
+                 </DataTemplate>
+                 <DataTemplate DataType="vm:Streak">
+                     <views:SettingsView/>
+                 </DataTemplate>
+             </Application.DataTemplates>
+             
     <Application.Styles>
         
         <FluentTheme />

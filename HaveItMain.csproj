@@ -8,12 +8,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="Models\"/>
-        <AvaloniaResource Include="Assets\**"/>
+        <Folder Include="Models\" />
+        <AvaloniaResource Include="Assets\**" />
     </ItemGroup>
     
     <ItemGroup>
-        <AvaloniaResource Include="Assets/Nunito-VariableFont_wght.ttf"/>
+        <AvaloniaResource Include="Assets/Nunito-VariableFont_wght.ttf" />
     </ItemGroup>
     
     <ItemGroup>
@@ -21,17 +21,27 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.3.9"/>
-        <PackageReference Include="Avalonia.Desktop" Version="11.3.9"/>
+        <PackageReference Include="Avalonia" Version="11.3.9" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.9" />
+        <PackageReference Include="Avalonia.ReactiveUI" Version="11.3.8" />
         <PackageReference Include="Avalonia.Svg" Version="11.3.0" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.9"/>
-        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.9"/>
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.9" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.9" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Include="Avalonia.Diagnostics" Version="11.3.9">
             <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1"/>
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+        <PackageReference Include="ReactiveUI" Version="20.1.1" />
+        <PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
         <PackageReference Include="Svg.Controls.Avalonia" Version="11.3.9.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\Streak.axaml.cs">
+        <DependentUpon>Streak.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
     </ItemGroup>
 </Project>
