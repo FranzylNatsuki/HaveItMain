@@ -1,0 +1,174 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:Class="HaveItMain.Views.SettingsView">
+    <UserControl.Styles>
+
+        <!-- button toggle-->
+        <Style Selector="ToggleButton">
+            <Setter Property="Width" Value="90"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="4"/>
+        </Style>
+        
+        <Style Selector="ToggleButton:checked">
+            <Setter Property="Background" Value="#FFCC00"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#FFCC00"/>
+        </Style>
+        
+        <Style Selector="ToggleButton:not(:checked)">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#FFCC00"/>
+            <Setter Property="BorderBrush" Value="#FFCC00"/>
+        </Style>
+        
+        <Style Selector="ToggleButton:pointerover">
+            <Setter Property="Opacity" Value="1"/>
+        </Style>
+        
+        <Style Selector="ToggleButton:pressed">
+            <Setter Property="Opacity" Value="1"/>
+        </Style>
+
+    </UserControl.Styles>
+
+    <!--div-->
+    <Grid Margin="40"
+          RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+          ColumnDefinitions="*,Auto"
+          RowSpacing="18">
+
+        <!--text size-->
+        <TextBlock Grid.Row="0"
+                   Text="Adjust Text Size (Ctrl + - / Ctrl + +)"
+                   Foreground="Black"
+                   VerticalAlignment="Center"/>
+
+        <StackPanel Grid.Row="0"
+                    Grid.Column="1"
+                    Orientation="Horizontal"
+                    Spacing="8"
+                    VerticalAlignment="Center">
+
+            <ComboBox Width="60"
+                      SelectedIndex="1">
+                <ComboBoxItem Content="24"/>
+                <ComboBoxItem Content="26"/>
+                <ComboBoxItem Content="28"/>
+            </ComboBox>
+
+            <Button Content="−"
+                    Width="32"
+                    Height="28"
+                    Background="#FFCC00"
+                    Foreground="White"/>
+
+            <Button Content="+"
+                    Width="32"
+                    Height="28"
+                    Background="#FFCC00"
+                    Foreground="White"/>
+        </StackPanel>
+
+        <!--dark mode button-->
+        <TextBlock Grid.Row="1"
+                   Text="Dark Mode"
+                   Foreground="Black"
+                   VerticalAlignment="Center"/>
+
+        <ToggleButton Grid.Row="1"
+                      Grid.Column="1">
+            <TextBlock>
+                <TextBlock.Styles>
+                    <Style Selector="TextBlock">
+                        <Setter Property="Text" Value="Disabled"/>
+                    </Style>
+                    <Style Selector="ToggleButton:checked TextBlock">
+                        <Setter Property="Text" Value="Enabled"/>
+                    </Style>
+                </TextBlock.Styles>
+            </TextBlock>
+        </ToggleButton>
+
+        <!--high contrast button-->
+        <TextBlock Grid.Row="2"
+                   Text="High Contrast Mode"
+                   Foreground="Black"
+                   VerticalAlignment="Center"/>
+
+        <ToggleButton Grid.Row="2"
+                      Grid.Column="1">
+            <TextBlock>
+                <TextBlock.Styles>
+                    <Style Selector="TextBlock">
+                        <Setter Property="Text" Value="Disabled"/>
+                    </Style>
+                    <Style Selector="ToggleButton:checked TextBlock">
+                        <Setter Property="Text" Value="Enabled"/>
+                    </Style>
+                </TextBlock.Styles>
+            </TextBlock>
+        </ToggleButton>
+
+        <!--tactile sfx button-->
+        <TextBlock Grid.Row="3"
+                   Text="Enable Tactile SFX"
+                   Foreground="Black"
+                   VerticalAlignment="Center"/>
+
+        <ToggleButton Grid.Row="3"
+                      Grid.Column="1"
+                      IsChecked="True">
+            <TextBlock>
+                <TextBlock.Styles>
+                    <Style Selector="TextBlock">
+                        <Setter Property="Text" Value="Disabled"/>
+                    </Style>
+                    <Style Selector="ToggleButton:checked TextBlock">
+                        <Setter Property="Text" Value="Enabled"/>
+                    </Style>
+                </TextBlock.Styles>
+            </TextBlock>
+        </ToggleButton>
+
+        <!--sfx volume-->
+        <TextBlock Grid.Row="4"
+                   Text="SFX Volume"
+                   Foreground="Black"
+                   VerticalAlignment="Center"/>
+
+        <Slider Grid.Row="4"
+                Grid.Column="1"
+                Width="120"
+                Minimum="0"
+                Maximum="100"
+                Value="70"/>
+
+        <!--notif ping button-->
+        <TextBlock Grid.Row="5"
+                   Text="Enable Notification Ping"
+                   Foreground="Black"
+                   VerticalAlignment="Center"/>
+
+        <ToggleButton Grid.Row="5"
+                      Grid.Column="1"
+                      IsChecked="True">
+            <TextBlock>
+                <TextBlock.Styles>
+                    <Style Selector="TextBlock">
+                        <Setter Property="Text" Value="Disabled"/>
+                    </Style>
+                    <Style Selector="ToggleButton:checked TextBlock">
+                        <Setter Property="Text" Value="Enabled"/>
+                    </Style>
+                </TextBlock.Styles>
+            </TextBlock>
+        </ToggleButton>
+
+    </Grid>
+</UserControl>
