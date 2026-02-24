@@ -26,6 +26,11 @@
              </Application.DataTemplates>
     <Application.Styles>
         <FluentTheme />
+        <Style Selector="MenuFlyoutPresenter">
+            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+            <Setter Property="FontStyle" Value="Normal"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
         <Style Selector="Button">
             <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
             <Setter Property="FontStyle" Value="Normal"/>

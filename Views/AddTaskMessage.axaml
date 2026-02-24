@@ -38,13 +38,13 @@
                         HorizontalAlignment="Stretch"/>
             <TextBlock> Urgency </TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">
-                <ToggleButton Click="Not_Urgent" Classes="Urgency" x:Name="NUrgent" Background="#A1FFAF">
+                <ToggleButton IsChecked="False" Click="UrgencyToggle" Classes="Urgency" x:Name="NUrgent" Background="#A1FFAF">
                     Not Urgent
                 </ToggleButton>
-                <ToggleButton Click="Pending" Classes="Urgency" x:Name="NPending"  Background="#FFED75">
+                <ToggleButton IsChecked="False"  Click="UrgencyToggle" Classes="Urgency" x:Name="NPending"  Background="#FFED75">
                     Pending
                 </ToggleButton>
-                <ToggleButton Click="Urgent" Classes="Urgency" x:Name="UrgentZ"  Background="#FF9A98">
+                <ToggleButton IsChecked="False"  Click="UrgencyToggle" Classes="Urgency" x:Name="UrgentZ"  Background="#FF9A98">
                     Urgent
                 </ToggleButton>
             </StackPanel>

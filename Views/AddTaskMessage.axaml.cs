@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.Interactivity;
 using HaveItMain.ViewModels;
 
@@ -9,9 +10,36 @@ namespace HaveItMain.Views;
 public partial class AddTaskMessage : Window
 {
     private string _urgency = "";
+    public TaskItemViewModel? PrefillTask { get; set; }
+    
     public AddTaskMessage()
     {
         InitializeComponent();
+        
+
+        // Populate UI if PrefillTask was set
+        this.Opened += (_, _) =>
+        {
+            if (PrefillTask != null)
+            {
+                TaskTitleBox.Text = PrefillTask.Title;
+                DueDatePicker.SelectedDate = PrefillTask.Date;
+                TimePicker.SelectedTime = PrefillTask.Date.TimeOfDay;
+
+                // Set urgency toggle
+                switch (PrefillTask.Urgency)
+                {
+                    case "Not Urgent": NUrgent.IsChecked = true; break;
+                    case "Pending": NPending.IsChecked = true; break;
+                    case "Urgent": UrgentZ.IsChecked = true; break;
+                    default:
+                        NUrgent.IsChecked = false;
+                        NPending.IsChecked = false;
+                        UrgentZ.IsChecked = false;
+                        break;
+                }
+            }
+        };
     }
     public async Task ShowDialogAsync(Window owner)
     {
@@ -48,28 +76,28 @@ public partial class AddTaskMessage : Window
 
         Close(task); // return object to caller
     }
+    private void UrgencyToggle(object? sender, RoutedEventArgs e)
+    {
+        var clicked = sender as ToggleButton;
+        if (clicked == null) return;
 
-    private void Not_Urgent(object? sender, RoutedEventArgs e)
-    {
-        _urgency = "Not Urgent";
-        NUrgent.IsChecked = true;       // The one you clicked
-        NPending.IsChecked = false;     // Others reset
-        UrgentZ.IsChecked = false;
-    }
-    
-    private void Pending(object? sender, RoutedEventArgs e)
-    {
-        _urgency = "Pending";
-        NUrgent.IsChecked = false;       // The one you clicked
-        NPending.IsChecked = true;     // Others reset
-        UrgentZ.IsChecked = false;
-    }
-    
-    private void Urgent(object? sender, RoutedEventArgs e)
-    {
-        _urgency = "Urgent";
-        NUrgent.IsChecked = false;       // The one you clicked
-        NPending.IsChecked = false;     // Others reset
-        UrgentZ.IsChecked = true;
+        if (clicked.IsChecked == false)
+        {
+            _urgency = "";
+            return;
+        }
+
+        if (clicked == NUrgent)
+            _urgency = "Not Urgent";
+        else if (clicked == NPending)
+            _urgency = "Pending";
+        else if (clicked == UrgentZ)
+            _urgency = "Urgent";
+
+        foreach (var btn in new[] { NUrgent, NPending, UrgentZ })
+        {
+            if (btn != clicked)
+                btn.IsChecked = false;
+        }
     }
 }

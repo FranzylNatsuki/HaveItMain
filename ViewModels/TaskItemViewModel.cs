@@ -4,11 +4,16 @@ namespace HaveItMain.ViewModels;
 
 public class TaskItemViewModel : ViewModelBase
 {
-    public string Title { get; }
-    public DateTime Date { get; }
-    public string Urgency { get; }
-    public DateTime date_created { get; }
-    public bool isFinished { get; }
+    public string Title { get; set; }
+    public DateTime Date { get; set; }
+    public string Urgency { get; set; }
+    public DateTime date_created { get; set; }
+    public bool isFinished { get; set; }
+
+    public TaskItemViewModel()
+    {
+        
+    }
 
     public TaskItemViewModel(
         string title,
