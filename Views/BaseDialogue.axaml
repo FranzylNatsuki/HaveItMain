@@ -1,0 +1,22 @@
+<Window
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Class="HaveItMain.Views.BaseDialog"
+    Width="400"
+    Height="400"
+    CanResize="False"
+    WindowStartupLocation="CenterOwner"
+    SystemDecorations="None"
+    Background="Transparent">
+
+    <!-- OUTER MARGIN prevents clipping -->
+    <Border Margin="6"
+            CornerRadius="12"
+            Background="White"
+            BorderBrush="Red"
+            BorderThickness="2">
+
+        <ContentPresenter x:Name="PART_Content"/>
+
+    </Border>
+</Window>

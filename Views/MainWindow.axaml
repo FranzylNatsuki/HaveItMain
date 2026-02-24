@@ -17,6 +17,24 @@
         Title="Have-It">
 
     <Window.Styles>
+            <Style Selector="Button.null_for_image">
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+            <Style Selector="Button.null_for_image:pointerover">
+                <Setter Property="Background" Value="Transparent"/>
+            </Style>
+            <Style Selector="Button.null_for_image:pressed">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         <Style Selector="Button.round-button">
             <!-- remove default padding and border -->
             <Setter Property="Background" Value="{StaticResource ColorBackground}"/>
@@ -61,8 +79,7 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
     
-    
-    <Grid x:Name="Windowgrid" ColumnDefinitions="72,87,* ,30">
+    <Grid x:Name="Windowgrid" ColumnDefinitions="72,87,* ,30" Background="{StaticResource BrushBackground}">
         <Border 
             x:Name="LEFTMENUBAR"
             Grid.Column="0"
@@ -80,7 +97,7 @@
             </Border.Effect>
             <Grid x:Name="LeftMenuContent" RowDefinitions="72,*,73">
                 <Border Grid.Row="0">
-                    <Border PointerPressed="InputElement_OnPointerPressed" Cursor="Hand">
+                    <Border PointerPressed="InputElement_OnPointerPressed" Cursor="Hand" ToolTip.Tip="Dashboard (D)">
                             <Image Source="avares://HaveItMain/Assets/INVERTED LOGO.png"
                                    Width="50"
                                    Height="50"
@@ -91,14 +108,14 @@
                 </Border> <!-- LOGO -->
                 <Border Grid.Row="1">
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="15">
-                        <Button Classes="round-button" Click="Streak_Click">
+                        <Button ToolTip.Tip="Streak (S)" Classes="round-button" Click="Streak_Click">
                             <Image Source="avares://HaveItMain/Assets/smenu.png"
                                    Margin="5"
                                    Stretch="Uniform"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
                         </Button>
-                        <Button Classes="round-button" Click="Timer_Click">
+                        <Button ToolTip.Tip="Timer (T)" Classes="round-button" Click="Timer_Click">
                             <Button.Effect>
                                 <DropShadowEffect Color="Black" 
                                                   BlurRadius="4" 
@@ -112,7 +129,7 @@
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
                         </Button>
-                        <Button Classes="round-button" Click="Settings_Click">
+                        <Button ToolTip.Tip="Settings (Ctrl + S)" Classes="round-button" Click="Settings_Click">
                             <Button.Effect>
                                 <DropShadowEffect Color="Black" 
                                                   BlurRadius="4" 
@@ -129,7 +146,7 @@
                     </StackPanel>
                 </Border> <!-- 3 Buttons -->
                 <Border Grid.Row="2">
-                    <Button Classes="round-button" VerticalAlignment="Top">
+                    <Button Classes="round-button" VerticalAlignment="Top" ToolTip.Tip="New Routine (Ctrl + N)" Click="NEW_ROUTINE">
                         <Button.Effect>
                             <DropShadowEffect Color="Black" 
                                               BlurRadius="4" 
@@ -202,12 +219,14 @@
                             </StackPanel>
                         </Border>
                         <Border Grid.Column="4" Padding="0,0, 0,0">
-                            <Image Source="avares://HaveItMain/Assets/SANDWHICHbutton.png"
-                                   Width="35"
-                                   Height="35"
-                                   HorizontalAlignment="Right"
-                                   VerticalAlignment="Center"
-                                   />
+                            <Button Classes="null_for_image">
+                                <Image Source="avares://HaveItMain/Assets/SANDWHICHbutton.png"
+                                       Width="35"
+                                       Height="35"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                />
+                            </Button>
                         </Border>
                     </Grid>
                 </Border>

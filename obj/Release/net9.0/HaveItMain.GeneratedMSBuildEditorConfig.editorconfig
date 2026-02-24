@@ -27,6 +27,12 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [/Users/franzylmacalua/RiderProjects/HaveItMain/Views/AccountSettings.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/Users/franzylmacalua/RiderProjects/HaveItMain/Views/AddTaskMessage.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/franzylmacalua/RiderProjects/HaveItMain/Views/BaseDialogue.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/Users/franzylmacalua/RiderProjects/HaveItMain/Views/DashboardView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
@@ -34,6 +40,9 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [/Users/franzylmacalua/RiderProjects/HaveItMain/Views/Settings.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/franzylmacalua/RiderProjects/HaveItMain/Views/SimpleMessageDialogue.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [/Users/franzylmacalua/RiderProjects/HaveItMain/Views/Streak.axaml]

@@ -19,6 +19,10 @@ public class Dashboard : ViewModelBase, IHasTitle
 
     public void AddTask(TaskItemViewModel task)
     {
-        Tasks.Add(new TaskItemViewModel("Sample 1",  new DateTime(2006, 4, 30), "not urgent", false));
+        Tasks.Add(task);
+    }
+    public void RemoveTask(TaskItemViewModel task)
+    {
+        Tasks.Remove(task);
     }
 }

@@ -3,7 +3,9 @@ using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
+using Avalonia.VisualTree;
 using HaveItMain.ViewModels;
 
 namespace HaveItMain.Views;
@@ -18,9 +20,27 @@ public partial class DashboardView : UserControl
     
     private Dashboard ViewModel => DataContext as Dashboard;
 
-    private void InputElement_OnPointerPressed(object? sender, PointerPressedEventArgs e)
+    private async void InputElement_OnPointerPressed(object? sender, PointerPressedEventArgs e)
     {
-        TaskItemViewModel test = new TaskItemViewModel("Sample", new DateTime(2006, 4, 24), "not urgent", false);
-        ViewModel?.AddTask(test);
+        var window = (Window)this.VisualRoot;
+
+        var dialog = new AddTaskMessage();
+
+        var result = await dialog.ShowDialog<TaskItemViewModel?>(window);
+
+        if (result != null)
+        {
+            (DataContext as Dashboard)?.AddTask(result);
+        }
+    }
+
+    private void DeleteTask(object? sender, RoutedEventArgs e)
+    {
+        if (sender is Button btn &&
+            btn.DataContext is TaskItemViewModel task &&
+            DataContext is Dashboard vm)
+        {
+            vm.RemoveTask(task);
+        }
     }
 }
