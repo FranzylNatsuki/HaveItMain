@@ -26,17 +26,47 @@
              </Application.DataTemplates>
     <Application.Styles>
         <FluentTheme />
+        <Style Selector="Button">
+            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+            <Setter Property="FontStyle" Value="Normal"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style Selector="ToggleButton">
+            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+            <Setter Property="FontStyle" Value="Normal"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
         <Style Selector="Button.Universal_Button">
             <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
             <Setter Property="FontStyle" Value="Normal"/>
             <Setter Property="FontSize" Value="20"/>
         </Style>
         <Style Selector="Button.Primary">
+            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+            <Setter Property="FontStyle" Value="Normal"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Background" Value="#FFAA00"></Setter>
+            <Setter Property="Padding" Value="20,7,20,7"></Setter>
+        </Style>
+        <Style Selector="ToggleButton.Primary">
+            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+            <Setter Property="FontStyle" Value="Normal"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="Background" Value="#FFAA00"></Setter>
             <Setter Property="Padding" Value="20,7,20,7"></Setter>
         </Style>
         <Style Selector="Button.Closing">
+            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+            <Setter Property="Padding" Value="20,7,20,7"></Setter>
+            <Setter Property="Background" Value="White"></Setter>
+        </Style>
+        <Style Selector="ToggleButton.Closing">
+            <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
             <Setter Property="Foreground" Value="Black"></Setter>
             <Setter Property="BorderThickness" Value="1"></Setter>
             <Setter Property="BorderBrush" Value="Black"></Setter>

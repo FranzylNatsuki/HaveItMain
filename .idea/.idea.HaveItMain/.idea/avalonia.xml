@@ -4,6 +4,7 @@
     <option name="projectPerEditor">
       <map>
         <entry key="App.axaml" value="HaveItMain.csproj" />
+        <entry key="Settings.axaml" value="HaveItMain.csproj" />
         <entry key="ViewModels/Streak.axaml" value="HaveItMain.csproj" />
         <entry key="Views/AccountSettings.axaml" value="HaveItMain.csproj" />
         <entry key="Views/AddTaskMessage.axaml" value="HaveItMain.csproj" />

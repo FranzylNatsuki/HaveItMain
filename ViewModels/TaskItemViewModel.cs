@@ -10,11 +10,31 @@ public class TaskItemViewModel : ViewModelBase
     public DateTime date_created { get; }
     public bool isFinished { get; }
 
-    public TaskItemViewModel(string title, DateTime date, DateTime date_created, string urgency, bool isFinished = false)
+    public TaskItemViewModel(
+        string title,
+        DateTime date,
+        DateTime date_created,
+        string urgency,
+        bool isFinished = false)
     {
         Title = title;
-        Date =  date;
-        this.date_created = date_created;
+
+        Date = new DateTime(
+            date.Year,
+            date.Month,
+            date.Day,
+            date.Hour,
+            date.Minute,
+            0);
+
+        this.date_created = new DateTime(
+            date_created.Year,
+            date_created.Month,
+            date_created.Day,
+            date_created.Hour,
+            date_created.Minute,
+            0);
+
         Urgency = urgency;
         this.isFinished = isFinished;
     }

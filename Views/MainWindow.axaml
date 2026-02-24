@@ -9,6 +9,7 @@
         Height="720"
         MinHeight="621"
         MinWidth="1104"
+        Background="{StaticResource BrushBackground}"
         d:DesignWidth="1280"
         d:DesignHeight="720"
         x:Class="HaveItMain.Views.MainWindow"

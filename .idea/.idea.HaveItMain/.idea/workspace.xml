@@ -8,36 +8,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Xbutton.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/AddTaskMessage.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/AddTaskMessage.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/BaseDialogue.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/BaseDialogue.axaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/App.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/Dashboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Dashboard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Settings.axaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModels/TaskItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/TaskItemViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/AddTaskMessage.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AddTaskMessage.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/AddTaskMessage.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AddTaskMessage.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Settings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Settings.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/HaveItMain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Release/net9.0/HaveItMain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/HaveItMain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Release/net9.0/HaveItMain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/Avalonia/Resources.Inputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/Avalonia/Resources.Inputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/Avalonia/resources" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/Avalonia/resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.sourcelink.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/ref/HaveItMain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/ref/HaveItMain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/refint/HaveItMain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/refint/HaveItMain.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +142,8 @@
       <workItem from="1771812226066" duration="2562000" />
       <workItem from="1771825043394" duration="15729000" />
       <workItem from="1771892964867" duration="1099000" />
-      <workItem from="1771894592767" duration="2091000" />
+      <workItem from="1771894592767" duration="10055000" />
+      <workItem from="1771919609976" duration="2002000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -193,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771838412727</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added Working Task System with DELETING">
+      <option name="closed" value="true" />
+      <created>1771898374655</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1771898374655</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +219,8 @@
     <MESSAGE value="daads" />
     <MESSAGE value="DESIGN for DASHBOARD" />
     <MESSAGE value="GOOD WORK" />
-    <option name="LAST_COMMIT_MESSAGE" value="GOOD WORK" />
+    <MESSAGE value="Added Working Task System with DELETING" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Working Task System with DELETING" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

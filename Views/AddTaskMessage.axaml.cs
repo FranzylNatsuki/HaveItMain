@@ -8,7 +8,7 @@ namespace HaveItMain.Views;
 
 public partial class AddTaskMessage : Window
 {
-    private string _urgency = "not urgent";
+    private string _urgency = "";
     public AddTaskMessage()
     {
         InitializeComponent();
@@ -52,15 +52,24 @@ public partial class AddTaskMessage : Window
     private void Not_Urgent(object? sender, RoutedEventArgs e)
     {
         _urgency = "Not Urgent";
+        NUrgent.IsChecked = true;       // The one you clicked
+        NPending.IsChecked = false;     // Others reset
+        UrgentZ.IsChecked = false;
     }
     
     private void Pending(object? sender, RoutedEventArgs e)
     {
         _urgency = "Pending";
+        NUrgent.IsChecked = false;       // The one you clicked
+        NPending.IsChecked = true;     // Others reset
+        UrgentZ.IsChecked = false;
     }
     
     private void Urgent(object? sender, RoutedEventArgs e)
     {
         _urgency = "Urgent";
+        NUrgent.IsChecked = false;       // The one you clicked
+        NPending.IsChecked = false;     // Others reset
+        UrgentZ.IsChecked = true;
     }
 }

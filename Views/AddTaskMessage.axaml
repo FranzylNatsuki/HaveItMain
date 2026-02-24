@@ -9,6 +9,18 @@
     SystemDecorations="None"
     Background="Transparent">
 
+    <Window.Styles>
+        <Style Selector="ToggleButton.Urgency:unchecked">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="{StaticResource BrushForeground}"/>
+        </Style>
+        <Style Selector="ToggleButton.Urgency:checked /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="Black"></Setter>
+        </Style>
+    </Window.Styles>
     <Border BorderBrush="{StaticResource BrushPrimary} " BorderThickness="2" CornerRadius="11">
         <Grid RowDefinitions="*,*">
         <StackPanel Grid.Row="0" Spacing="12" Orientation="Vertical" Margin="30">
@@ -26,15 +38,15 @@
                         HorizontalAlignment="Stretch"/>
             <TextBlock> Urgency </TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">
-                <Button Click="Not_Urgent" Classes="Universal_Button" Background="#A1FFAF">
+                <ToggleButton Click="Not_Urgent" Classes="Urgency" x:Name="NUrgent" Background="#A1FFAF">
                     Not Urgent
-                </Button>
-                <Button Click="Pending" Background="#FFED75">
+                </ToggleButton>
+                <ToggleButton Click="Pending" Classes="Urgency" x:Name="NPending"  Background="#FFED75">
                     Pending
-                </Button>
-                <Button Click="Urgent" Background="#FF9A98">
+                </ToggleButton>
+                <ToggleButton Click="Urgent" Classes="Urgency" x:Name="UrgentZ"  Background="#FF9A98">
                     Urgent
-                </Button>
+                </ToggleButton>
             </StackPanel>
         </StackPanel>
             <Border Grid.Row="1" HorizontalAlignment="Right" Margin="30" >
