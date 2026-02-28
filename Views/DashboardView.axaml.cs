@@ -64,7 +64,6 @@ public partial class DashboardView : UserControl
         }
         else
         {
-            // Restore normal layout
             Grid.SetColumnSpan(TasksPanel, 1);
 
             Streak.IsVisible = true;
@@ -72,37 +71,42 @@ public partial class DashboardView : UserControl
         }
     }
     
-    private void EditSelectedTask(object? sender, RoutedEventArgs e)
+    private async void EditSelectedTask(object? sender, RoutedEventArgs e)
     {
         var selectedTask = TASKLISTCONTAINER.SelectedItem as TaskItemViewModel;
-        if (selectedTask == null) return;
+        if (selectedTask == null)
+        {
+            var message = new SimpleMessageDialog("No Task Selected");
+            await message.ShowDialog((Window)this.VisualRoot);
+            return;
+        }
 
         var window = (Window)this.VisualRoot;
 
         var dialog = new AddTaskMessage { PrefillTask = selectedTask };
-        var result = dialog.ShowDialog<TaskItemViewModel?>(window).Result; // can await if async
+        var result = await dialog.ShowDialog<TaskItemViewModel?>(window);
 
         if (result != null)
         {
-            // Copy edited values
             selectedTask.Title = result.Title;
             selectedTask.Date = result.Date;
             selectedTask.Urgency = result.Urgency;
-            selectedTask.isFinished = result.isFinished;
+            selectedTask.IsFinished = result.IsFinished;
 
-            // Save to JSON
-            (DataContext as Dashboard)?.SaveTasks();
-
-            // Force ListBox refresh (if needed)
-            TASKLISTCONTAINER.SelectedItem = null;
-            TASKLISTCONTAINER.SelectedItem = selectedTask;
+            ViewModel?.SaveTasks();
         }
     }
 
     private void DeleteSelectedTask(object? sender, RoutedEventArgs e)
     {
         var selectedTask = TASKLISTCONTAINER.SelectedItem as TaskItemViewModel;
-        if (selectedTask == null) return;
+        if (selectedTask == null)
+        {
+            var message = new SimpleMessageDialog("No Task Selected");
+            message.ShowDialog((Window)this.VisualRoot);
+            return;
+        }
+
 
         (DataContext as Dashboard)?.RemoveTask(selectedTask);
     }
@@ -111,7 +115,7 @@ public partial class DashboardView : UserControl
     {
         if (sender is Button btn && btn.ContextFlyout is MenuFlyout flyout)
         {
-            flyout.ShowAt(btn); // opens the flyout at the button
+            flyout.ShowAt(btn);
         }
     }
 }

@@ -1,51 +1,51 @@
 using System;
+using ReactiveUI;
 
 namespace HaveItMain.ViewModels;
 
 public class TaskItemViewModel : ViewModelBase
 {
-    public string Title { get; set; }
-    public DateTime Date { get; set; }
-    public string Urgency { get; set; }
-    public DateTime date_created { get; set; }
-    public bool isFinished { get; set; }
+    private string _title;
+    private DateTime _date;
+    private string _urgency;
+    private bool _isFinished;
 
-    public TaskItemViewModel()
+    public string Title
     {
-        
+        get => _title;
+        set => this.RaiseAndSetIfChanged(ref _title, value);
     }
 
-    public TaskItemViewModel(
-        string title,
-        DateTime date,
-        DateTime date_created,
-        string urgency,
-        bool isFinished = false)
+    public DateTime Date
     {
-        Title = title;
+        get => _date;
+        set => this.RaiseAndSetIfChanged(ref _date, value);
+    }
 
-        Date = new DateTime(
-            date.Year,
-            date.Month,
-            date.Day,
-            date.Hour,
-            date.Minute,
-            0);
+    public string Urgency
+    {
+        get => _urgency;
+        set => this.RaiseAndSetIfChanged(ref _urgency, value);
+    }
 
-        this.date_created = new DateTime(
-            date_created.Year,
-            date_created.Month,
-            date_created.Day,
-            date_created.Hour,
-            date_created.Minute,
-            0);
+    public DateTime date_created { get; }  // keep read-only
+    public bool IsFinished
+    {
+        get => _isFinished;
+        set => this.RaiseAndSetIfChanged(ref _isFinished, value);
+    }
 
-        Urgency = urgency;
-        this.isFinished = isFinished;
+    public TaskItemViewModel(string title, DateTime date, DateTime date_created, string urgency, bool isFinished = false)
+    {
+        _title = title;
+        _date = date;
+        _urgency = urgency;
+        _isFinished = isFinished;
+        this.date_created = date_created;
     }
     
     public override string ToString()
     {
-        return $"{Title} | Due: {Date:yyyy-MM-dd} | Created: {date_created:yyyy-MM-dd} | Urgency: {Urgency} | Done: {isFinished}";
+        return $"{Title} | Due: {Date:yyyy-MM-dd} | Created: {date_created:yyyy-MM-dd} | Urgency: {Urgency} | Done: {IsFinished}";
     }
 }

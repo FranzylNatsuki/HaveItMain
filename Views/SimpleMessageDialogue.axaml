@@ -9,7 +9,7 @@
                        TextWrapping="Wrap"
                        FontSize="18"
                        HorizontalAlignment="Center"/>
-            <Button Content="OK"
+            <Button Content="Okay"
                     HorizontalAlignment="Center"
                     Click="Ok_Click"/>
         </StackPanel>
