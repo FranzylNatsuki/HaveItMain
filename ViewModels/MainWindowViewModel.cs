@@ -7,6 +7,7 @@ namespace HaveItMain.ViewModels
     public class MainWindowViewModel : ViewModelBase
     {
         private ViewModelBase _currentViewModel;
+        public Dashboard Dashboard { get; } = new Dashboard();
         public ViewModelBase CurrentViewModel
         {
             get => _currentViewModel;
@@ -36,7 +37,7 @@ namespace HaveItMain.ViewModels
         }
 
         public void ShowDashboard() => CurrentViewModel = new Dashboard();
-        public void ShowTimer() => CurrentViewModel = new Timer();
+        // public void ShowTimer() => CurrentViewModel = new Timer();
         public void ShowStreak() => CurrentViewModel = new Streak();
         public void ShowSettings() => CurrentViewModel = new Settings();
         public void ShowAccount() => CurrentViewModel = new AccountSettings();

@@ -48,6 +48,21 @@ public partial class DashboardView : UserControl
             vm.RemoveTask(task);
         }
     }
+    
+    private async void UndoDelete(object? sender, RoutedEventArgs e)
+    {
+        if (DataContext is not Dashboard vm)
+            return;
+
+        if (!vm.CanUndo) // nothing to undo
+        {
+            var message = new SimpleMessageDialog("No task to undo");
+            await message.ShowDialog((Window)this.VisualRoot!);
+            return;
+        }
+
+        vm.UndoDelete();
+    }
 
     private void Expand(object? sender, RoutedEventArgs e)
     {
@@ -55,17 +70,13 @@ public partial class DashboardView : UserControl
 
         if (Dashboard_Enlarged)
         {
-            // Make Tasks fill both columns
             Grid.SetColumnSpan(TasksPanel, 2);
-
-            // Hide right side
             Streak.IsVisible = false;
             Timers.IsVisible = false;
         }
         else
         {
             Grid.SetColumnSpan(TasksPanel, 1);
-
             Streak.IsVisible = true;
             Timers.IsVisible = true;
         }
@@ -106,8 +117,6 @@ public partial class DashboardView : UserControl
             message.ShowDialog((Window)this.VisualRoot);
             return;
         }
-
-
         (DataContext as Dashboard)?.RemoveTask(selectedTask);
     }
 

@@ -8,20 +8,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ViewModels/TimerViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/TaskItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/TaskItemViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/Dashboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Dashboard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/MainWindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MainWindowViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModels/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Timer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AddTaskMessage.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AddTaskMessage.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/TimerViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/TimerViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/TimerView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/TimerView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/TimerView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/TimerView.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/HaveItMain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Release/net9.0/HaveItMain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Release/net9.0/HaveItMain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Release/net9.0/HaveItMain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/Avalonia/resources" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/Avalonia/resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Release/net9.0/HaveItMain.sourcelink.json" afterDir="false" />
@@ -99,7 +101,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -144,7 +146,7 @@
       <workItem from="1771894592767" duration="10055000" />
       <workItem from="1771919609976" duration="6474000" />
       <workItem from="1772157296220" duration="919000" />
-      <workItem from="1772244737356" duration="3013000" />
+      <workItem from="1772244737356" duration="12043000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -210,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1771942866013</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Edit Fix + Dialogue">
+      <option name="closed" value="true" />
+      <created>1772256534636</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1772256534636</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,7 +249,8 @@
     <MESSAGE value="Added Working Task System with DELETING" />
     <MESSAGE value="new codes" />
     <MESSAGE value="FINISHED MOST OF THE TASK BACKEND" />
-    <option name="LAST_COMMIT_MESSAGE" value="FINISHED MOST OF THE TASK BACKEND" />
+    <MESSAGE value="Edit Fix + Dialogue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit Fix + Dialogue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

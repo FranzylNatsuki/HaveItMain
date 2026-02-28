@@ -36,10 +36,11 @@ public partial class MainWindow : Window
     {
         if (DataContext is MainWindowViewModel vm)
         {
-            vm.CurrentViewModel = new Timer();
+            // Create Timer ViewModel with the shared Timers collection
+            var timerVM = new Timer(vm.Dashboard.Timers);
+            vm.CurrentViewModel = timerVM;
         }
     }
-
     private void Streak_Click(object? sender, RoutedEventArgs e)
     {
         if (DataContext is MainWindowViewModel vm)

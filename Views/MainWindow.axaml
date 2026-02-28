@@ -233,8 +233,19 @@
                 </Border>
                 <Border Grid.Row="1"> <!-- DYNAMIC CONTENTS IS LOCATED HERE -->
                     <Border Margin="0,20,0,20">
-                        <ContentControl
-                                        Content="{Binding CurrentViewModel}"/>
+                        <ContentControl Content="{Binding CurrentViewModel}">
+                            <ContentControl.DataTemplates>
+                                <!-- Dashboard -->
+                                <DataTemplate DataType="vm:Dashboard">
+                                    <views:DashboardView /> <!-- automatically gets DataContext -->
+                                </DataTemplate>
+
+                                <!-- Timer -->
+                                <DataTemplate DataType="vm:Timer">
+                                    <views:TimerView /> <!-- automatically gets DataContext -->
+                                </DataTemplate>
+                            </ContentControl.DataTemplates>
+                        </ContentControl>
                     </Border>
                 </Border>
             </Grid>

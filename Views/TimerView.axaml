@@ -2,9 +2,69 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:HaveItMain.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="HaveItMain.Views.TimerView">
-        <TextBlock Text="TIMER VIEW"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"/>
+             x:Class="HaveItMain.Views.TimerView"
+             x:DataType="viewModels:Timer">
+    
+    <Border>
+                <ListBox Margin="0,10,0,10"
+                                 Padding="5"
+                                 x:Name="TIMERLISTCONTAINER"
+                                 IsVisible="True"
+                                 ItemsSource="{Binding Timers}"
+                                 Background="Transparent">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Spacing="10"/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate DataType="viewModels:TimerViewModel">
+                                    <Border 
+                                        BorderThickness="1" 
+                                        BorderBrush="{StaticResource BrushForeground}" 
+                                        CornerRadius="8" 
+                                        Padding="10" 
+                                        Background="{StaticResource BrushBackground}">
+                                    
+                                        <Border.Effect>
+                                            <DropShadowEffect Color="Black"
+                                                              BlurRadius="4"
+                                                              OffsetX="0"
+                                                              OffsetY="3"
+                                                              Opacity="0.25"/>
+                                        </Border.Effect>
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <Border Grid.Column="0">
+                                                <TextBlock Text="{Binding Title}"
+                                                           TextWrapping="Wrap"
+                                                           TextTrimming="CharacterEllipsis"
+                                                           VerticalAlignment="Center"
+                                                           HorizontalAlignment="Left"/>
+                                            </Border>
+                                        <StackPanel Grid.Column="1"
+                                                    Orientation="Horizontal"
+                                                    Margin="0,0,30,0"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Center"
+                                                    Spacing="20">
+                                            <Button Classes="Primary">
+                                                Focus
+                                            </Button>
+                                            <TextBlock Text="{Binding Duration}" VerticalAlignment="Center"/>
+                                            <Button
+                                                HorizontalAlignment="Right"
+                                                    Classes="null_for_image">
+                                                <Image Source="avares://HaveItMain/Assets/Xbutton.png"
+                                                       Width="19"
+                                                       Height="19"/>
+                                            </Button>
+                                        </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                </Border>
 </UserControl>
