@@ -8,29 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Pause.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Replay.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Stop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Test.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/minimize.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/App.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HaveItMain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/HaveItMain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AddTaskMessage.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AddTaskMessage.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AddTimerMessage.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AddTimerMessage.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Video.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Video.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Video.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Video.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +152,7 @@
       <workItem from="1772369130350" duration="1179000" />
       <workItem from="1772370364008" duration="3723000" />
       <workItem from="1772436956246" duration="4812000" />
-      <workItem from="1772458303189" duration="7125000" />
+      <workItem from="1772458303189" duration="7824000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -270,7 +250,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772452553926</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Windows Video Player Works">
+      <option name="closed" value="true" />
+      <created>1772465572300</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1772465572301</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +291,8 @@
     <MESSAGE value="Finished Task Backend + Timer backend start" />
     <MESSAGE value="Cool Sauce" />
     <MESSAGE value="latest" />
-    <option name="LAST_COMMIT_MESSAGE" value="latest" />
+    <MESSAGE value="Windows Video Player Works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Windows Video Player Works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

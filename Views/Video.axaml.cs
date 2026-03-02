@@ -14,7 +14,7 @@ public partial class Video : Window
     private MediaPlayer mediaPlayer;
     private LibVLC libVLC;
     
-    private readonly string videoPath = @"C:\Users\Natsuki\Documents\Test.mp4";
+    private readonly string videoPath = @"C:\Users\Natsuki\Documents\Tst.mp4";
 
     public Video()
     {
@@ -54,6 +54,12 @@ public partial class Video : Window
         {
             var media = new Media(libVLC, videoPath, FromType.FromPath);
             mediaPlayer.Media = media; // assign once
+        }
+        else
+        {
+                Console.WriteLine("Video file not found!");
+                no_video();
+                return;
         }
         
         // Volume slider
@@ -106,6 +112,12 @@ public partial class Video : Window
         };
     }
 
+    private async void no_video()
+    {
+        var dialog = new SimpleMessageDialog("Video file not found!");
+        await dialog.ShowDialog(this); // 'this' = parent Window
+    }
+
     private string? lastVideoPath;
 
     private void PlayVideo()
@@ -113,6 +125,7 @@ public partial class Video : Window
         if (!File.Exists(videoPath))
         {
             Console.WriteLine("Video file not found!");
+            no_video();
             return;
         }
 
