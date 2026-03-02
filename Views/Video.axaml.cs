@@ -14,7 +14,7 @@ public partial class Video : Window
     private MediaPlayer mediaPlayer;
     private LibVLC libVLC;
     
-    private readonly string videoPath = @"C:\Users\Natsuki\Documents\Tst.mp4";
+    private readonly string videoPath = @"C:\Users\Natsuki\Documents\Test.mp4";
 
     public Video()
     {
@@ -54,8 +54,7 @@ public partial class Video : Window
         {
             var media = new Media(libVLC, videoPath, FromType.FromPath);
             mediaPlayer.Media = media; // assign once
-        }
-        else
+        } else if (!File.Exists(videoPath))
         {
                 Console.WriteLine("Video file not found!");
                 no_video();
