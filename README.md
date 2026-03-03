@@ -9,3 +9,9 @@ Project for CCS8: HCI by Franzyl, Keith and JP
 * Design colors for Urgency
 * Focus Mode Backend
 * Settings Backend Functionality
+* Keyboard shortcuts
+
+# Done
+* Video
+* About
+* Dashboard and Tasks Backend
