@@ -63,6 +63,7 @@
             <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
             <Setter Property="FontStyle" Value="Normal"/>
             <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Padding" Value="20,7,20,7"></Setter>
         </Style>
         <Style Selector="ToggleButton">
             <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
@@ -73,6 +74,7 @@
             <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>
             <Setter Property="FontStyle" Value="Normal"/>
             <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Padding" Value="20,7,20,7"></Setter>
         </Style>
         <Style Selector="Button.Primary">
             <Setter Property="FontFamily" Value="avares://HaveItMain/Assets/Nunito-VariableFont_wght.ttf#Nunito"/>

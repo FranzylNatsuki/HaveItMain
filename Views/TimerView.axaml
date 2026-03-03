@@ -3,10 +3,44 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:HaveItMain.ViewModels"
+             xmlns:global="clr-namespace:"
+             xmlns:conv="clr-namespace:HaveItMain.Converters"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="HaveItMain.Views.TimerView"
              x:DataType="viewModels:Timer">
-    
+    <UserControl.Resources>
+        <conv:ProgressToArcConverter x:Key="ProgressToArcConverter"/>
+    </UserControl.Resources>
+    <UserControl.Styles>
+        <Style Selector="ListBox">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style Selector="ListBox:pointerover">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style Selector="ListBox:pressed">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style Selector="ListBox:selected">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="#ffd37a"/>
+        </Style>
+        <Style Selector="ListBoxItem  /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
+        <Style Selector="ListBoxItem:pressed  /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#ffd37a"/>
+        </Style>
+
+        <Style Selector="ListBoxItem:selected   /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="#ffd37a"/>
+        </Style>
+    </UserControl.Styles>
     <Border>
                 <ListBox Margin="0,10,0,10"
                                  Padding="5"
@@ -16,51 +50,105 @@
                                  Background="Transparent">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <StackPanel Spacing="10"/>
+                                    <WrapPanel Orientation="Horizontal"
+                                               ItemWidth="330"
+                                               ItemHeight="370"
+                                               ItemSpacing="20"
+                                               LineSpacing="20"/>
                                 </ItemsPanelTemplate>
                             </ListBox.ItemsPanel>
                             <ListBox.ItemTemplate>
                                 <DataTemplate DataType="viewModels:TimerViewModel">
-                                    <Border 
-                                        BorderThickness="1" 
-                                        BorderBrush="{StaticResource BrushForeground}" 
-                                        CornerRadius="8" 
-                                        Padding="10" 
-                                        Background="{StaticResource BrushBackground}">
-                                    
+                                    <Border
+                                            Margin="2"
+                                            BorderThickness="1"
+                                            BorderBrush="{StaticResource BrushPrimary}"
+                                            CornerRadius="12"
+                                            Padding="15"
+                                            Background="{StaticResource BrushBackground}">
                                         <Border.Effect>
                                             <DropShadowEffect Color="Black"
-                                                              BlurRadius="4"
+                                                              BlurRadius="6"
                                                               OffsetX="0"
-                                                              OffsetY="3"
-                                                              Opacity="0.25"/>
+                                                              OffsetY="4"
+                                                              Opacity="0.2"/>
                                         </Border.Effect>
-                                        <Grid ColumnDefinitions="*,Auto">
-                                            <Border Grid.Column="0">
+                                        <Grid RowDefinitions="40, 40,*,50">
+                                            <Grid Grid.Row="0" ColumnDefinitions="*,*,*">
+                                                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Spacing="20">
+                                                    <!--
+                                                    <Button Classes="null_for_image">
+                                                        <Image Source="avares://HaveItMain/Assets/Edit.png"
+                                                               Margin="0"
+                                                               Width="20"
+                                                               Height="20"
+                                                               HorizontalAlignment="Center"
+                                                               VerticalAlignment="Center"/>
+                                                    </Button> -->
+                                                    <Button Classes="null_for_image" Click="DeleteTimer">
+                                                        <Image Source="avares://HaveItMain/Assets/Xbutton.png"
+                                                               Margin="0"
+                                                               Width="20"
+                                                               Height="20"
+                                                               HorizontalAlignment="Center"
+                                                               VerticalAlignment="Center"/>
+                                                    </Button>
+                                                </StackPanel>
+                                            </Grid>
+                                            <Border Grid.Row="1">
                                                 <TextBlock Text="{Binding Title}"
-                                                           TextWrapping="Wrap"
-                                                           TextTrimming="CharacterEllipsis"
+                                                           HorizontalAlignment="Center"
                                                            VerticalAlignment="Center"
-                                                           HorizontalAlignment="Left"/>
+                                                           FontWeight="Bold"
+                                                           TextWrapping="Wrap"
+                                                           TextTrimming="CharacterEllipsis"/>
                                             </Border>
-                                        <StackPanel Grid.Column="1"
-                                                    Orientation="Horizontal"
-                                                    Margin="0,0,30,0"
-                                                    HorizontalAlignment="Right"
-                                                    VerticalAlignment="Center"
-                                                    Spacing="20">
-                                            <Button Classes="Primary">
-                                                Focus
-                                            </Button>
-                                            <TextBlock Text="{Binding Duration}" VerticalAlignment="Center"/>
-                                            <Button
-                                                HorizontalAlignment="Right"
-                                                Classes="null_for_image">
-                                                <Image Source="avares://HaveItMain/Assets/Xbutton.png"
-                                                       Width="19"
-                                                       Height="19"/>
-                                            </Button>
-                                        </StackPanel>
+                                            <Border Grid.Row="2">
+                                                <Grid Width="120" Height="120">
+                                                    <!-- Insert Ring Here -->
+                                                    <!-- Animated progress arc -->
+                                                    <Path Stroke="{StaticResource BrushPrimary}"
+                                                          StrokeThickness="8"
+                                                          StrokeLineCap="Round"
+                                                          Data="{Binding Progress, Converter={StaticResource ProgressToArcConverter}, ConverterParameter=67}"/>
+                                                    <!-- Time text centered -->
+                                                    <StackPanel Margin="0,8,0,0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                        <TextBlock Text="{Binding DisplayTime}"
+                                                                   FontWeight="Bold"
+                                                                   HorizontalAlignment="Center"
+                                                                   VerticalAlignment="Center"/>
+                                                        <Button x:Name="Pause" Classes="null_for_image" Click="PauseTimer" IsVisible="True">
+                                                            <Image Source="avares://HaveItMain/Assets/PauseBlack.png"
+                                                                   Margin="0"
+                                                                   Width="20"
+                                                                   Height="20"
+                                                                   HorizontalAlignment="Center"
+                                                                   VerticalAlignment="Center"/>
+                                                        </Button>
+                                                        <Button  x:Name="Play" Classes="null_for_image" Click="ResumeTimer" IsVisible="False">
+                                                            <Image Source="avares://HaveItMain/Assets/PlayBlack.png"
+                                                                   Margin="0"
+                                                                   Width="20"
+                                                                   Height="20"
+                                                                   HorizontalAlignment="Center"
+                                                                   VerticalAlignment="Center"/>
+                                                        </Button>
+                                                    </StackPanel>
+                                                </Grid>
+                                            </Border>
+                                            <Border Grid.Row="3">
+                                                <StackPanel Orientation="Horizontal"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Bottom"
+                                                            Spacing="10">
+                                                    <Button Classes="Primary" Click="FocusModeEnable">
+                                                        Focus
+                                                    </Button>
+                                                    <Button Classes="Universal_Button" Click="DeleteTimer">
+                                                        Discard
+                                                    </Button>
+                                            </StackPanel>
+                                            </Border>
                                         </Grid>
                                     </Border>
                                 </DataTemplate>

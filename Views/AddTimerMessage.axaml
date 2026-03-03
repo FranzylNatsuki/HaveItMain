@@ -1,7 +1,7 @@
 <Window     xmlns="https://github.com/avaloniaui"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             x:Class="HaveItMain.Views.AddTimerMessage"
-            Width="380"
+            Width="480"
             Height="400"
             CanResize="False"
             WindowStartupLocation="CenterOwner"
@@ -26,26 +26,46 @@
                 <TextBlock x:Name="MessageText"
                            TextWrapping="Wrap"
                            HorizontalAlignment="Center"
-                           Text="New Timer"/>
+                           Text="New Timer"
+                           Margin="0,0,0,30"/>
                 <TextBlock> Timer Name </TextBlock>
                 <TextBox x:Name="TaskTitleBox" HorizontalAlignment="Stretch" Watermark="Task name"></TextBox>
-                <TextBlock> Duration </TextBlock>
-                <ComboBox SelectedIndex="3" HorizontalAlignment="Stretch">
-                    <ComboBoxItem Content="1 Minute"></ComboBoxItem>
-                    <ComboBoxItem Content="5 Minute"></ComboBoxItem>
-                    <ComboBoxItem Content="10 Minute"></ComboBoxItem>
-                    <ComboBoxItem Content="20 Minute"></ComboBoxItem>
-                    <ComboBoxItem Content="30 Minute"></ComboBoxItem>
-                    <ComboBoxItem Content="1 Hour"></ComboBoxItem>
-                    <ComboBoxItem Content="2 Hours"></ComboBoxItem>
-                    <ComboBoxItem Content="3 Hours"></ComboBoxItem>
-                    <ComboBoxItem Content="5 Hours"></ComboBoxItem>
-                    <ComboBoxItem Content="10 Hours"></ComboBoxItem>
-                    <ComboBoxItem Content="24 Hours"></ComboBoxItem>
-                </ComboBox>
+                <TextBlock> Duration (H:M:S) </TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="8">
+                    <NumericUpDown Width="120"
+                                   Height="42"
+                                   Minimum="0"
+                                   Value="0"
+                                   Increment="1"
+                                   FormatString="0"
+                                   x:Name="HoursBox"
+                                   HorizontalAlignment="Stretch"/>
+
+                    <TextBlock Text=":" VerticalAlignment="Center"/>
+
+                    <NumericUpDown Width="120"
+                                   Height="42"
+                                   Minimum="0"
+                                   Value="10"
+                                   Increment="1"
+                                   FormatString="0"
+                                   x:Name="MinutesBox"
+                                   HorizontalAlignment="Stretch"/>
+                                   
+                    <TextBlock Text=":" VerticalAlignment="Center"/>
+
+                    <NumericUpDown Width="120"
+                                   Height="42"
+                                   Minimum="0"
+                                   Value="0"
+                                   Increment="1"
+                                   FormatString="0"
+                                   x:Name="SecondsBox"
+                                   HorizontalAlignment="Stretch"/>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal" Spacing="20">
                     <TextBlock> Notify </TextBlock>
-                    <CheckBox x:Name="IsNotify"/>
+                    <CheckBox IsChecked="True" x:Name="IsNotify"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Spacing="20">

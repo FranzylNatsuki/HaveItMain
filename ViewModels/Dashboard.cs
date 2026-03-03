@@ -11,7 +11,7 @@ public class Dashboard : ViewModelBase, IHasTitle
 {
     private const string TasksFileName = "tasks.json";
     public ObservableCollection<TaskItemViewModel> Tasks { get; } = new();
-    public ObservableCollection<TimerViewModel> Timers { get; } = new();
+    public ObservableCollection<TimerViewModel> Timers => App.State.Timers;
     public ReactiveCommand<Unit, Unit> AddTimerCommand { get; }
     public ReactiveCommand<Unit, Unit> AddTaskCommand { get; }
 
@@ -24,20 +24,6 @@ public class Dashboard : ViewModelBase, IHasTitle
     public Dashboard()
     {
         LoadTasks();
-
-        /*
-        var studyTimer = new TimerViewModel("Study Session", TimeSpan.FromMinutes(25));
-        studyTimer.Start();
-        Timers.Add(studyTimer);
-
-        var break1 = new TimerViewModel("Break", TimeSpan.FromMinutes(5));
-        break1.Start();
-        Timers.Add(break1);
-
-        var break2 = new TimerViewModel("Break", TimeSpan.FromMinutes(5));
-        break2.Start();
-        Timers.Add(break2);
-        */
     }
 
     public void AddTask(TaskItemViewModel task)
@@ -48,6 +34,7 @@ public class Dashboard : ViewModelBase, IHasTitle
 
     public void AddTimer(TimerViewModel timer)
     {
+        timer.OnFinished += RemoveTimer;
         Timers.Add(timer);
     }
     
