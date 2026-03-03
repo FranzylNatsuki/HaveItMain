@@ -2,9 +2,472 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d"
+             d:DesignWidth="1000"
+             d:DesignHeight="600"
              x:Class="HaveItMain.Views.AccountSettingsView">
-    <TextBlock Text="ACCOUNT SETTINGS VIEW"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center"/>
+
+    <UserControl.Styles>
+
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="#000000"/>
+        </Style>
+        <Style Selector="ComboBox">
+            <Setter Property="Foreground" Value="#000000"/>
+        </Style>
+        <Style Selector="ComboBoxItem">
+            <Setter Property="Foreground" Value="#000000"/>
+        </Style>
+
+        <Style Selector="RadioButton.sidebar-tab">
+            <Setter Property="HorizontalAlignment"        Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment"   Value="Center"/>
+            <Setter Property="Padding"                    Value="8,10"/>
+            <Setter Property="Margin"                     Value="0,4"/>
+            <Setter Property="FontSize"                   Value="13"/>
+            <Setter Property="Foreground"                 Value="#333333"/>
+            <Setter Property="Cursor"                     Value="Hand"/>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border x:Name="Root"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="6"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          TextBlock.Foreground="{TemplateBinding Foreground}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+            <Setter Property="Background"    Value="#FFFFFF"/>
+            <Setter Property="BorderBrush"   Value="#DDDDDD"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+        <Style Selector="RadioButton.sidebar-tab:checked">
+            <Setter Property="Background"  Value="#F2F2F2"/>
+            <Setter Property="BorderBrush" Value="#BBBBBB"/>
+            <Setter Property="FontWeight"  Value="SemiBold"/>
+        </Style>
+
+        <Style Selector="RadioButton.sidebar-tab:pointerover /template/ Border#Root">
+            <Setter Property="Background" Value="#F8F8F8"/>
+        </Style>
+
+        <Style Selector="CheckBox.yellow-check:checked /template/ Border#NormalRectangle">
+            <Setter Property="Background"  Value="#FFCC00"/>
+            <Setter Property="BorderBrush" Value="#FFCC00"/>
+        </Style>
+
+        <Style Selector="TextBlock.field-label">
+            <Setter Property="FontSize"   Value="12"/>
+            <Setter Property="Foreground" Value="#555555"/>
+            <Setter Property="Margin"     Value="0,0,0,4"/>
+        </Style>
+
+        <Style Selector="Border.data-box">
+            <Setter Property="Background"      Value="#F0F0F0"/>
+            <Setter Property="CornerRadius"    Value="6"/>
+            <Setter Property="Padding"         Value="10,7"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.btn-save">
+            <Setter Property="Background"  Value="#FFCC00"/>
+            <Setter Property="Foreground"  Value="White"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Padding"     Value="20,8"/>
+            <Setter Property="FontWeight"  Value="SemiBold"/>
+            <Setter Property="Cursor"      Value="Hand"/>
+        </Style>
+
+        <Style Selector="Button.btn-cancel">
+            <Setter Property="Background"       Value="Transparent"/>
+            <Setter Property="BorderBrush"      Value="#CCCCCC"/>
+            <Setter Property="BorderThickness"  Value="1"/>
+            <Setter Property="CornerRadius"     Value="6"/>
+            <Setter Property="Padding"          Value="20,8"/>
+            <Setter Property="Cursor"           Value="Hand"/>
+        </Style>
+
+        <Style Selector="Button.btn-export">
+            <Setter Property="Background"  Value="#FFCC00"/>
+            <Setter Property="Foreground"  Value="White"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Padding"     Value="22,6"/>
+            <Setter Property="Cursor"      Value="Hand"/>
+        </Style>
+
+        <Style Selector="Button.btn-delete">
+            <Setter Property="Background"  Value="#E03333"/>
+            <Setter Property="Foreground"  Value="White"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Padding"     Value="22,6"/>
+            <Setter Property="Cursor"      Value="Hand"/>
+        </Style>
+
+        <Style Selector="TextBlock.section-header">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize"   Value="14"/>
+            <Setter Property="Margin"     Value="0,6,0,6"/>
+        </Style>
+
+        <Style Selector="TextBlock.faq-q">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize"   Value="13"/>
+            <Setter Property="Margin"     Value="0,10,0,2"/>
+        </Style>
+
+        <Style Selector="TextBlock.faq-a">
+            <Setter Property="FontSize"      Value="13"/>
+            <Setter Property="TextWrapping"  Value="Wrap"/>
+            <Setter Property="Foreground"    Value="#333333"/>
+        </Style>
+
+    </UserControl.Styles>
+
+    <Grid ColumnDefinitions="170, *">
+
+        <Border Grid.Column="0"
+                Background="White"
+                CornerRadius="8"
+                BorderBrush="#DDDDDD"
+                BorderThickness="1"
+                Margin="0,0,12,0"
+                Padding="10,14">
+            <StackPanel Spacing="0">
+                <RadioButton x:Name="TabAccountSettings"
+                             Content="Account Settings"
+                             GroupName="AccountTabs"
+                             IsChecked="True"
+                             Classes="sidebar-tab"/>
+                <RadioButton x:Name="TabPrivacy"
+                             Content="Privacy &amp; Security"
+                             GroupName="AccountTabs"
+                             Classes="sidebar-tab"/>
+                <RadioButton x:Name="TabTerms"
+                             Content="Terms &amp; Conditions"
+                             GroupName="AccountTabs"
+                             Classes="sidebar-tab"/>
+                <RadioButton x:Name="TabPlans"
+                             Content="Plans &amp; Pricing"
+                             GroupName="AccountTabs"
+                             Classes="sidebar-tab"/>
+                <RadioButton x:Name="TabHelpDesk"
+                             Content="Help Desk"
+                             GroupName="AccountTabs"
+                             Classes="sidebar-tab"/>
+            </StackPanel>
+        </Border>
+
+        <Panel Grid.Column="1">
+
+            <ScrollViewer IsVisible="{Binding #TabAccountSettings.IsChecked}"
+                          HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="4,0,16,24" Spacing="0">
+
+                    <StackPanel Orientation="Horizontal" Spacing="20" Margin="0,0,0,18">
+
+                        <Border Width="80" Height="80"
+                                CornerRadius="8"
+                                Background="#D0D0D0"
+                                VerticalAlignment="Top"
+                                Cursor="Hand"
+                                ToolTip.Tip="Click to upload profile picture">
+                            
+                            <TextBlock Text="+" FontSize="28" Foreground="#888"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                        </Border>
+
+                        <StackPanel VerticalAlignment="Center" Spacing="3">
+                            <TextBlock Text="Welcome [Insert String]!"
+                                       FontSize="22" FontWeight="Bold"/>
+                            <TextBlock Text="@username"
+                                       FontSize="13" Foreground="#666666"/>
+                            <StackPanel Orientation="Horizontal" Spacing="5">
+                                <TextBlock Text="0 Days Streak"
+                                           FontSize="13" Foreground="#666666"/>
+                                
+                                <Image Source="avares://HaveItMain/Assets/streak-icon.png"
+                                       Width="16" Height="16"
+                                       VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Grid ColumnDefinitions="*, 24, *">
+
+                        <StackPanel Grid.Column="0" Spacing="0">
+
+                            <TextBlock Text="First Name" Classes="field-label"/>
+                            <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
+                                <Border Classes="data-box">
+                                    <TextBlock Text="[data]" Foreground="#888888"/>
+                                </Border>
+                                <Image Grid.Column="1"
+                                       Source="avares://HaveItMain/Assets/edit.png"
+                                       Width="16" Height="16"
+                                       Margin="8,0,0,0"
+                                       VerticalAlignment="Center"/>
+                            </Grid>
+
+                            <TextBlock Text="Last Name" Classes="field-label"/>
+                            <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
+                                <Border Classes="data-box">
+                                    <TextBlock Text="[data]" Foreground="#888888"/>
+                                </Border>
+                                <Image Grid.Column="1"
+                                       Source="avares://HaveItMain/Assets/edit.png"
+                                       Width="16" Height="16"
+                                       Margin="8,0,0,0"
+                                       VerticalAlignment="Center"/>
+                            </Grid>
+
+                            <TextBlock Text="Address" Classes="field-label"/>
+                            <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
+                                <Border Classes="data-box">
+                                    <TextBlock Text="[data]" Foreground="#888888"/>
+                                </Border>
+                                <Image Grid.Column="1"
+                                       Source="avares://HaveItMain/Assets/edit.png"
+                                       Width="16" Height="16"
+                                       Margin="8,0,0,0"
+                                       VerticalAlignment="Center"/>
+                            </Grid>
+
+                            <TextBlock Text="Date of Birth" Classes="field-label"/>
+                            <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
+                                <Border Classes="data-box">
+                                    <TextBlock Text="[data]" Foreground="#888888"/>
+                                </Border>
+                                <Image Grid.Column="1"
+                                       Source="avares://HaveItMain/Assets/edit.png"
+                                       Width="16" Height="16"
+                                       Margin="8,0,0,0"
+                                       VerticalAlignment="Center"/>
+                            </Grid>
+
+                            <TextBlock Text="Gender" Classes="field-label"/>
+                            <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
+                                <Border Classes="data-box">
+                                    <TextBlock Text="[data]" Foreground="#888888"/>
+                                </Border>
+                                <Image Grid.Column="1"
+                                       Source="avares://HaveItMain/Assets/edit.png"
+                                       Width="16" Height="16"
+                                       Margin="8,0,0,0"
+                                       VerticalAlignment="Center"/>
+                            </Grid>
+
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2" Spacing="0">
+
+                            <TextBlock Text="Contact Number" Classes="field-label"/>
+                            <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
+                                <Border Classes="data-box">
+                                    <TextBlock Text="[data]" Foreground="#888888"/>
+                                </Border>
+                                <Image Grid.Column="1"
+                                       Source="avares://HaveItMain/Assets/edit.png"
+                                       Width="16" Height="16"
+                                       Margin="8,0,0,0"
+                                       VerticalAlignment="Center"/>
+                            </Grid>
+
+                            <TextBlock Text="Password" Classes="field-label"/>
+                            <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
+                                <Border Classes="data-box">
+                                    <TextBlock Text="•••••••••" Foreground="#555555"/>
+                                </Border>
+                                <Image Grid.Column="1"
+                                       Source="avares://HaveItMain/Assets/edit.png"
+                                       Width="16" Height="16"
+                                       Margin="8,0,0,0"
+                                       VerticalAlignment="Center"/>
+                            </Grid>
+
+                            <TextBlock Text="Re-Enter Password" Classes="field-label"/>
+                            <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,24">
+                                <Border Classes="data-box">
+                                    <TextBlock Text="•••••••••" Foreground="#555555"/>
+                                </Border>
+                                <Image Grid.Column="1"
+                                       Source="avares://HaveItMain/Assets/edit.png"
+                                       Width="16" Height="16"
+                                       Margin="8,0,0,0"
+                                       VerticalAlignment="Center"/>
+                            </Grid>
+
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Right"
+                                        Spacing="10">
+                                <Button Content="Save Changes" Classes="btn-save"/>
+                                <Button Content="Cancel"       Classes="btn-cancel"/>
+                            </StackPanel>
+
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
+
+            <ScrollViewer IsVisible="{Binding #TabPrivacy.IsChecked}"
+                          HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="4,0,16,24" Spacing="0">
+
+                    <TextBlock Text="Data We Collect" Classes="section-header"/>
+                    <StackPanel Spacing="3" Margin="10,0,0,16">
+                        <TextBlock Text="• Habits and progress data"               FontSize="13"/>
+                        <TextBlock Text="• Optional profile info (name, email)"    FontSize="13"/>
+                        <TextBlock Text="• Device info (for syncing/bug fixes)"    FontSize="13"/>
+                    </StackPanel>
+
+                    <TextBlock Text="User Data Control" Classes="section-header"/>
+                    <Grid ColumnDefinitions="220, Auto"
+                          RowDefinitions="Auto, Auto, Auto"
+                          Margin="0,0,0,20">
+
+                        <TextBlock Grid.Row="0" Grid.Column="0"
+                                   Text="Export Data (.json)"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,0,12"/>
+                        <Button Grid.Row="0" Grid.Column="1"
+                                Content="Export"
+                                Classes="btn-export"
+                                Margin="0,0,0,12"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0"
+                                   Text="Import Data"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,0,12"/>
+                        <Button Grid.Row="1" Grid.Column="1"
+                                Content="Import"
+                                Classes="btn-export"
+                                Margin="0,0,0,12"/>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0"
+                                   Text="Clear all local data"
+                                   VerticalAlignment="Center"/>
+                        <Button Grid.Row="2" Grid.Column="1"
+                                Content="Delete"
+                                Classes="btn-delete"/>
+                    </Grid>
+
+                    <TextBlock Text="System Permissions" Classes="section-header"/>
+                    <Grid ColumnDefinitions="220, Auto"
+                          RowDefinitions="Auto, Auto">
+
+                        <TextBlock Grid.Row="0" Grid.Column="0"
+                                   Text="Notifications"
+                                   VerticalAlignment="Center"
+                                   Margin="0,0,0,10"/>
+                        <CheckBox Grid.Row="0" Grid.Column="1"
+                                  Classes="yellow-check"
+                                  Margin="0,0,0,10"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0"
+                                   Text="Storage Access"
+                                   VerticalAlignment="Center"/>
+                        <CheckBox Grid.Row="1" Grid.Column="1"
+                                  Classes="yellow-check"/>
+                    </Grid>
+
+                </StackPanel>
+            </ScrollViewer>
+
+            <ScrollViewer IsVisible="{Binding #TabTerms.IsChecked}"
+                          HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="4,0,16,24" Spacing="0">
+
+                    <TextBlock Text="Terms and Conditions: Last updated 03/01/2026"
+                               FontWeight="Bold" FontSize="13"
+                               Margin="0,0,0,14"/>
+
+                    <TextBlock Text="Acceptance of Terms" Classes="section-header"/>
+                    <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,16">
+                        <TextBlock Grid.Column="0"
+                                   TextWrapping="Wrap"
+                                   FontSize="13"
+                                   Text="By creating an account or using Have-It you agree to these Terms and Conditions. If you do not agree, please discontinue use of the app."/>
+                        <CheckBox Grid.Column="1"
+                                  Classes="yellow-check"
+                                  VerticalAlignment="Top"
+                                  Margin="16,0,0,0"/>
+                    </Grid>
+
+                    <TextBlock Text="Description of Service" Classes="section-header"/>
+                    <TextBlock TextWrapping="Wrap"
+                               FontSize="13"
+                               Margin="0,0,0,16"
+                               Text="The app provides tools for tracking habits, setting reminders, and viewing progress statistics for personal productivity and self-improvement purposes."/>
+
+                    <TextBlock Text="User Responsibilities" Classes="section-header"/>
+                    <StackPanel Spacing="4" Margin="10,0,0,0">
+                        <TextBlock FontSize="13" Text="• Provide accurate information when creating an account"/>
+                        <TextBlock FontSize="13" Text="• Use the app only for lawful purposes"/>
+                        <TextBlock FontSize="13" Text="• Not attempt to disrupt, hack, or misuse the service"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+
+            <ScrollViewer IsVisible="{Binding #TabPlans.IsChecked}"
+                          HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="4,0,16,24" Spacing="6">
+                    <TextBlock Text="Plans &amp; Pricing"
+                               FontSize="20" FontWeight="Bold"
+                               Margin="0,0,0,8"/>
+                    <TextBlock Text="Choose the plan that works best for you."
+                               FontSize="13" Foreground="#666666"/>
+                    
+                    <TextBlock Text="Pricing information will be loaded here."
+                               FontSize="13" Foreground="#AAAAAA"
+                               FontStyle="Italic" Margin="0,20,0,0"/>
+                </StackPanel>
+            </ScrollViewer>
+
+            <ScrollViewer IsVisible="{Binding #TabHelpDesk.IsChecked}"
+                          HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="4,0,16,24" Spacing="0">
+
+                    <TextBlock Text="Frequently Asked Questions"
+                               Classes="section-header"
+                               Margin="0,0,0,10"/>
+
+                    <TextBlock Text="How do I create a task?" Classes="faq-q"/>
+                    <TextBlock Classes="faq-a"
+                               Text="Tap New Task, enter a name, set a timer if needed, then tap Save."
+                               Margin="0,0,0,0"/>
+
+                    <TextBlock Text="How do I edit or delete a task?" Classes="faq-q"/>
+                    <TextBlock Classes="faq-a"
+                               Text="Open the task, tap the Edit (...) icon to modify details or Delete (x) to remove it."/>
+
+                    <TextBlock Text="How do timers work?" Classes="faq-q"/>
+                    <TextBlock Classes="faq-a"
+                               Text="Timers track how long you spend on a task. Start the timer when you begin and it will automatically log the task as completed in the tracker."/>
+
+                    <TextBlock Text="Why didn't I receive a reminder?" Classes="faq-q"/>
+                    <TextBlock Classes="faq-a"
+                               Text="Make sure notifications are enabled in both the app settings and your device settings."/>
+
+                    <TextBlock Text="How do I restore my data?" Classes="faq-q"/>
+                    <TextBlock Classes="faq-a"
+                               Text="Go to Settings → Account Settings → Privacy &amp; Security → Import from File and select your backup."/>
+
+                </StackPanel>
+            </ScrollViewer>
+
+        </Panel>
+    </Grid>
 </UserControl>
