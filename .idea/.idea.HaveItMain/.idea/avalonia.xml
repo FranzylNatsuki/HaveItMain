@@ -6,6 +6,8 @@
         <entry key="App.axaml" value="HaveItMain.csproj" />
         <entry key="Settings.axaml" value="HaveItMain.csproj" />
         <entry key="ViewModels/Streak.axaml" value="HaveItMain.csproj" />
+        <entry key="Views/AboutNoLogin-.axaml" value="HaveItMain.csproj" />
+        <entry key="Views/AboutNoLogin.axaml" value="HaveItMain.csproj" />
         <entry key="Views/AccountSettings.axaml" value="HaveItMain.csproj" />
         <entry key="Views/AddTaskMessage.axaml" value="HaveItMain.csproj" />
         <entry key="Views/AddTimerMessage.axaml" value="HaveItMain.csproj" />
@@ -14,6 +16,7 @@
         <entry key="Views/Dashboard.axaml" value="HaveItMain.csproj" />
         <entry key="Views/DashboardView.axaml" value="HaveItMain.csproj" />
         <entry key="Views/DemoVideo.axaml" value="HaveItMain.csproj" />
+        <entry key="Views/Landing.axaml" value="HaveItMain.csproj" />
         <entry key="Views/MainWindow.axaml" value="HaveItMain.csproj" />
         <entry key="Views/Settings.axaml" value="HaveItMain.csproj" />
         <entry key="Views/SimpleMessageDialogue.axaml" value="HaveItMain.csproj" />

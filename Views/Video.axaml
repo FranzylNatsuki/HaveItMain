@@ -7,6 +7,7 @@
         Width="1000" Height="620"
         x:Class="HaveItMain.Views.Video"
         Title="Demo Video"
+        WindowStartupLocation="CenterScreen"
         Icon="avares://HaveItMain/Assets/Icon-ForDocker.png"
         Background="Black">
         <Grid RowDefinitions="*,Auto">

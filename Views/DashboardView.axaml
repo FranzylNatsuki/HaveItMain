@@ -95,7 +95,7 @@
                         </Button> 
                         <!-- REMEMBER TO CHANGE THE RESOURCE IF NAA NAY WIFI-->
                         <Button x:Name="ShrinkButton" Classes="null_for_image" Click="Expand" IsVisible="False">
-                            <Image Source="avares://HaveItMain/Assets/SANDWHICHbutton.png"
+                            <Image Source="avares://HaveItMain/Assets/minimize.png"
                                    Margin="4"
                                    Stretch="Uniform"
                                    HorizontalAlignment="Center"

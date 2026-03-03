@@ -1,0 +1,60 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="HaveItMain.Views.Landing"
+        Title="About"
+        WindowStartupLocation="CenterScreen"
+        Icon="avares://HaveItMain/Assets/Icon-ForDocker.png">
+    <Grid
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        ColumnDefinitions="Auto,Auto"
+        ColumnSpacing="60">
+
+        <!-- LEFT SIDE -->
+        <Grid Grid.Column="0"
+              RowDefinitions="Auto,*"
+              Width="400">
+
+            <!-- TEXT (top aligned automatically) -->
+            <StackPanel Grid.Row="0" Spacing="10">
+                <TextBlock FontWeight="UltraBold"
+                           FontSize="28">
+                    Welcome To HAVE-IT
+                </TextBlock>
+
+                <TextBlock TextWrapping="Wrap">
+                    You’re in the right place to turn small intentions into real,
+                    lasting habits. This app is here to help you build routines
+                    that actually stick—without pressure, guilt, or perfection.
+                </TextBlock>
+
+                <TextBlock TextWrapping="Wrap">
+                    Let’s grow something good together.
+                </TextBlock>
+            </StackPanel>
+
+            <!-- BUTTONS (bottom aligned) -->
+            <StackPanel Grid.Row="1"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom"
+                        Spacing="30">
+
+                <Button Classes="Primary" Click="Login">Log In</Button>
+                <Button Classes="Universal_Button" Click="DemoVideo">See Demo</Button>
+            </StackPanel>
+
+        </Grid>
+
+        <!-- RIGHT SIDE IMAGE -->
+        <Image Grid.Column="1"
+               Source="../Assets/LANDING PHOTO.png"
+               Width="430"
+               Height="430"
+               VerticalAlignment="Stretch"/>
+
+    </Grid>
+</Window>

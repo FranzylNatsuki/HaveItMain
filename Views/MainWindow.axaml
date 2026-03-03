@@ -9,6 +9,7 @@
         Height="720"
         MinHeight="621"
         MinWidth="1104"
+        WindowStartupLocation="CenterScreen"
         Background="{StaticResource BrushBackground}"
         d:DesignWidth="1280"
         d:DesignHeight="720"
@@ -166,12 +167,12 @@
                             <Button Classes="null_for_image" Click="ComboBoxClick">
                                 <Button.ContextFlyout>
                                     <MenuFlyout>
-                                        <MenuItem Header="Account Settings"/>
+                                        <MenuItem Header="Account Settings" PointerPressed="AccountSettings_Click"/>
                                         <MenuItem Header="Log Out"/>
                                         <MenuItem Header="Export"/>
                                         <MenuItem Header="Import"/>
                                         <MenuItem Header="Demo Video" Click="Demo_VideoClick"/>
-                                        <MenuItem Header="About"/>
+                                        <MenuItem Header="About" Click="Landing"/>
                                     </MenuFlyout>
                                 </Button.ContextFlyout>
                                 <Image Source="avares://HaveItMain/Assets/SANDWHICHbutton.png"

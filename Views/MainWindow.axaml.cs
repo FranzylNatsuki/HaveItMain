@@ -116,4 +116,10 @@ public partial class MainWindow : Window
         // Restore opacity
         // this.Opacity = 1;
     }
+
+    private void Landing(object? sender, RoutedEventArgs e)
+    {
+        var landing = new AboutNoLogin_();
+        landing.Show();
+    }
 }

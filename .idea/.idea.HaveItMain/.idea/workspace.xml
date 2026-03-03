@@ -8,9 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/LANDING PHOTO.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/AboutNoLogin-.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/AboutNoLogin-.axaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/Landing.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/Landing.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Video.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Video.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Video.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Video.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,12 +39,12 @@
     &quot;assignee&quot;: &quot;FranzylNatsuki&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/FranzylNatsuki/HaveItMain.git",
-    "accountId": "a46c0709-922c-468a-b7fe-1059fdd830a9"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/FranzylNatsuki/HaveItMain.git&quot;,
+    &quot;accountId&quot;: &quot;a46c0709-922c-468a-b7fe-1059fdd830a9&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/ViewModels/AccountSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ViewModels/Dashboard.cs" root0="FORCE_HIGHLIGHTING" />
@@ -45,6 +55,8 @@
     <setting file="file://$PROJECT_DIR$/ViewModels/TaskItemViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ViewModels/Timer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ViewModels/TimerViewModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/AboutNoLogin-.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/AboutNoLogin-.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/AccountSettings.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/AccountSettings.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/AddTaskMessage.axaml" root0="FORCE_HIGHLIGHTING" />
@@ -55,8 +67,8 @@
     <setting file="file://$PROJECT_DIR$/Views/BaseDialogue.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/DashboardView.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/DashboardView.axaml.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Views/DemoVideo.axaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Views/DemoVideo.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Landing.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/Landing.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Settings.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Settings.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml" root0="FORCE_HIGHLIGHTING" />
@@ -152,7 +164,9 @@
       <workItem from="1772369130350" duration="1179000" />
       <workItem from="1772370364008" duration="3723000" />
       <workItem from="1772436956246" duration="4812000" />
-      <workItem from="1772458303189" duration="7824000" />
+      <workItem from="1772458303189" duration="8064000" />
+      <workItem from="1772505184147" duration="564000" />
+      <workItem from="1772505788159" duration="3823000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -258,7 +272,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772465572301</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="no more storage">
+      <option name="closed" value="true" />
+      <created>1772466266486</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1772466266486</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,7 +314,8 @@
     <MESSAGE value="Cool Sauce" />
     <MESSAGE value="latest" />
     <MESSAGE value="Windows Video Player Works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Windows Video Player Works" />
+    <MESSAGE value="no more storage" />
+    <option name="LAST_COMMIT_MESSAGE" value="no more storage" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

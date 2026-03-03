@@ -13,16 +13,44 @@ public partial class Video : Window
 {
     private MediaPlayer mediaPlayer;
     private LibVLC libVLC;
+
+    private string? videoPath;
     
-    private readonly string videoPath = @"C:\Users\Natsuki\Documents\Tst.mp4";
+    private string? LoadVideoPath()
+    {
+        try
+        {
+            var configPath = Path.Combine(
+                AppContext.BaseDirectory,
+                "video_path.txt");
+
+            // 🔹 If config file doesn't exist, create it
+            if (!File.Exists(configPath))
+            {
+                File.WriteAllText(configPath,
+                    "PUT_VIDEO_PATH_HERE");
+
+                Console.WriteLine("Config file created.");
+                return null;
+            }
+
+            var path = File.ReadAllText(configPath).Trim();
+            return path;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error reading config: {ex.Message}");
+            return null;
+        }
+    }
 
     public Video()
     {
         InitializeComponent();
         this.Opened += OnOpened;
-        this.Closing += OnClosing; 
+        this.Closing += OnClosing;
     }
-    
+
     private void OnOpened(object? sender, EventArgs e)
     {
         Setup();
@@ -32,7 +60,6 @@ public partial class Video : Window
     {
         AvaloniaXamlLoader.Load(this);
     }
-
     private void Setup()
     {
         Core.Initialize();
@@ -49,19 +76,20 @@ public partial class Video : Window
 
         videoView.MediaPlayer = mediaPlayer;
 
-        // Preload media
-        if (File.Exists(videoPath))
+        // 🔹 Load path from txt file
+        videoPath = LoadVideoPath();
+
+        if (string.IsNullOrWhiteSpace(videoPath) || !File.Exists(videoPath))
         {
-            var media = new Media(libVLC, videoPath, FromType.FromPath);
-            mediaPlayer.Media = media; // assign once
+            Console.WriteLine("Video file not found!");
+            no_video();
+            return;
         }
-        else
-        {
-                Console.WriteLine("Video file not found!");
-                no_video();
-                return;
-        }
-        
+
+        // Load media
+        var media = new Media(libVLC, videoPath, FromType.FromPath);
+        mediaPlayer.Media = media;
+
         // Volume slider
         volumeSlider.Value = 100;
         volumeSlider.PropertyChanged += (s, e) =>
@@ -72,7 +100,7 @@ public partial class Video : Window
 
         replayButton.Click += (s, e) =>
         {
-            PlayVideo();                 // restart from beginning
+            PlayVideo();
             playButton.IsVisible = false;
             pauseButton.IsVisible = true;
         };
@@ -80,7 +108,8 @@ public partial class Video : Window
         playButton.Click += (s, e) =>
         {
             if (!mediaPlayer.IsPlaying)
-                mediaPlayer.Play();       // resume if paused
+                mediaPlayer.Play();
+
             playButton.IsVisible = false;
             pauseButton.IsVisible = true;
         };
@@ -89,6 +118,7 @@ public partial class Video : Window
         {
             if (mediaPlayer.IsPlaying)
                 mediaPlayer.Pause();
+
             pauseButton.IsVisible = false;
             playButton.IsVisible = true;
         };
@@ -100,7 +130,7 @@ public partial class Video : Window
             playButton.IsVisible = true;
         };
 
-        // --- Auto-reset buttons when video ends ---
+        // Auto reset when video ends
         mediaPlayer.EndReached += (s, e) =>
         {
             mediaPlayer.Stop();
@@ -122,6 +152,12 @@ public partial class Video : Window
 
     private void PlayVideo()
     {
+        if (string.IsNullOrWhiteSpace(videoPath) || !File.Exists(videoPath))
+        {
+            no_video();
+            return;
+        }
+        
         if (!File.Exists(videoPath))
         {
             Console.WriteLine("Video file not found!");
@@ -138,26 +174,26 @@ public partial class Video : Window
         var media = new Media(libVLC, videoPath, FromType.FromPath);
         mediaPlayer.Play(media);
     }
-    
+
     private void OnClosing(object? sender, WindowClosingEventArgs e)
     {
-    if (mediaPlayer != null)
-    {
-        // Stop playback
-        if (mediaPlayer.IsPlaying)
-            mediaPlayer.Stop();
+        if (mediaPlayer != null)
+        {
+            // Stop playback
+            if (mediaPlayer.IsPlaying)
+                mediaPlayer.Stop();
 
-        // Detach from VideoView to avoid handle crash
-        var videoView = this.FindControl<VideoView>("VideoView");
-        if (videoView != null)
-            videoView.MediaPlayer = null;
+            // Detach from VideoView to avoid handle crash
+            var videoView = this.FindControl<VideoView>("VideoView");
+            if (videoView != null)
+                videoView.MediaPlayer = null;
 
-        // Dispose Media object
-        mediaPlayer.Media?.Dispose();
+            // Dispose Media object
+            mediaPlayer.Media?.Dispose();
 
-        // Dispose MediaPlayer and LibVLC
-        mediaPlayer.Dispose();
-        libVLC.Dispose();
-    }
+            // Dispose MediaPlayer and LibVLC
+            mediaPlayer.Dispose();
+            libVLC.Dispose();
+        }
     }
 }
