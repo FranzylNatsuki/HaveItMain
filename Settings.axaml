@@ -1,0 +1,300 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignWidth="1000"
+             d:DesignHeight="600"
+             x:Class="HaveItMain.Views.SettingsView">
+
+    <UserControl.Styles>
+
+        <!-- ══════════════════════════════════════════
+             TOGGLE BUTTON  (Enabled / Disabled)
+             ══════════════════════════════════════════ -->
+        <Style Selector="ToggleButton.toggle-btn">
+            <Setter Property="Width"           Value="100"/>
+            <Setter Property="Height"          Value="35"/>
+            <Setter Property="Cursor"          Value="Hand"/>
+            <Setter Property="Background"      Value="#FCFCFC"/>
+            <Setter Property="BorderBrush"     Value="#FFCC00"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Effect">
+                <DropShadowEffect Color="Black"
+                                  BlurRadius="6"
+                                  OffsetX="0"
+                                  OffsetY="2"
+                                  Opacity="0.25"/>
+            </Setter>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border x:Name="Root"
+                            CornerRadius="6"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Panel HorizontalAlignment="Center"
+                               VerticalAlignment="Center">
+                            <!-- "Enabled" label — shown when checked -->
+                            <TextBlock x:Name="EnabledText"
+                                       Text="Enabled"
+                                       FontSize="20"
+                                       HorizontalAlignment="Center"
+                                       Foreground="#FCFCFC"
+                                       IsVisible="False"/>
+                            <!-- "Disabled" label — shown when unchecked -->
+                            <TextBlock x:Name="DisabledText"
+                                       Text="Disabled"
+                                       FontSize="20"
+                                       HorizontalAlignment="Center"
+                                       Foreground="#FFCC00"
+                                       IsVisible="True"/>
+                        </Panel>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <!-- Checked state → yellow background, show Enabled label -->
+        <Style Selector="ToggleButton.toggle-btn:checked">
+            <Setter Property="Background"  Value="#FFCC00"/>
+            <Setter Property="BorderBrush" Value="#FFCC00"/>
+        </Style>
+        <Style Selector="ToggleButton.toggle-btn:checked /template/ TextBlock#EnabledText">
+            <Setter Property="IsVisible" Value="True"/>
+        </Style>
+        <Style Selector="ToggleButton.toggle-btn:checked /template/ TextBlock#DisabledText">
+            <Setter Property="IsVisible" Value="False"/>
+        </Style>
+
+        <!-- ══════════════════════════════════════════
+             SMALL ACTION BUTTONS  (- / +)
+             ══════════════════════════════════════════ -->
+        <Style Selector="Button.action-btn">
+            <Setter Property="Width"       Value="46"/>
+            <Setter Property="Height"      Value="34"/>
+            <Setter Property="Background"  Value="#FFCC00"/>
+            <Setter Property="Foreground"  Value="#FFFFFF"/>
+            <Setter Property="FontSize"    Value="20"/>
+            <Setter Property="FontWeight"  Value="Bold"/>
+            <Setter Property="Cursor"      Value="Hand"/>
+            <Setter Property="Padding"     Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment"   Value="Center"/>
+            <Setter Property="Effect">
+                <DropShadowEffect Color="Black"
+                                  BlurRadius="6"
+                                  OffsetX="0"
+                                  OffsetY="2"
+                                  Opacity="0.25"/>
+            </Setter>
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="6">
+                        <TextBlock Text="{TemplateBinding Content}"
+                                   Foreground="#FFFFFF"
+                                   FontSize="{TemplateBinding FontSize}"
+                                   FontWeight="{TemplateBinding FontWeight}"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <!-- ══════════════════════════════════════════
+             CUSTOM SLIDER  (#FFCC00 fill / #FCFCFC track)
+             Styles existing template parts — keeps input working
+             ══════════════════════════════════════════ -->
+
+        <!-- Overall slider sizing -->
+        <Style Selector="Slider.yellow-slider">
+            <Setter Property="Height" Value="35"/>
+        </Style>
+
+        <!-- Thin #FFCC00 border around the entire track container -->
+        <Style Selector="Slider.yellow-slider /template/ Border#SliderContainer">
+            <Setter Property="BorderBrush"     Value="#FFCC00"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius"    Value="8"/>
+        </Style>
+
+        <!-- Filled (decrease) side → #FFCC00 -->
+        <Style Selector="Slider.yellow-slider /template/ RepeatButton#PART_DecreaseButton">
+            <Setter Property="Background" Value="#FFCC00"/>
+        </Style>
+        <Style Selector="Slider.yellow-slider /template/ RepeatButton#PART_DecreaseButton /template/ Border">
+            <Setter Property="Background"   Value="#FFCC00"/>
+            <Setter Property="CornerRadius" Value="8,0,0,8"/>
+            <Setter Property="Height"       Value="8"/>
+        </Style>
+
+        <!-- Unfilled (increase) side → #FCFCFC -->
+        <Style Selector="Slider.yellow-slider /template/ RepeatButton#PART_IncreaseButton">
+            <Setter Property="Background" Value="#FCFCFC"/>
+        </Style>
+        <Style Selector="Slider.yellow-slider /template/ RepeatButton#PART_IncreaseButton /template/ Border">
+            <Setter Property="Background"   Value="#FCFCFC"/>
+            <Setter Property="CornerRadius" Value="0,8,8,0"/>
+            <Setter Property="Height"       Value="8"/>
+        </Style>
+
+        <!-- Thumb → #FFCC00 circle -->
+        <Style Selector="Slider.yellow-slider /template/ Thumb">
+            <Setter Property="Width"      Value="18"/>
+            <Setter Property="Height"     Value="18"/>
+            <Setter Property="Background" Value="#FFCC00"/>
+        </Style>
+        <Style Selector="Slider.yellow-slider /template/ Thumb /template/ Ellipse">
+            <Setter Property="Fill"            Value="#FFCC00"/>
+            <Setter Property="Stroke"          Value="#E0AA00"/>
+            <Setter Property="StrokeThickness" Value="1"/>
+        </Style>
+
+        <!-- ══════════════════════════════════════════
+             ROW LABEL
+             ══════════════════════════════════════════ -->
+        <!-- Global text colour override -->
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="#000000"/>
+        </Style>
+        <Style Selector="ComboBox">
+            <Setter Property="Foreground" Value="#000000"/>
+        </Style>
+        <!-- Dropdown popup background -->
+        <Style Selector="ComboBox /template/ Border#Background">
+            <Setter Property="Background" Value="#FFFFFF"/>
+        </Style>
+
+        <!-- Each item in the dropdown -->
+        <Style Selector="ComboBoxItem">
+            <Setter Property="Background" Value="#FFFFFF"/>
+        </Style>
+
+        <!-- Hovered item -->
+        <Style Selector="ComboBoxItem:pointerover">
+            <Setter Property="Background" Value="#FFF5CC"/>
+        </Style>
+
+        <!-- Selected item -->
+        <Style Selector="ComboBoxItem:selected">
+            <Setter Property="Background" Value="#FFCC00"/>
+        </Style>
+        <Style Selector="ComboBoxItem">
+            <Setter Property="Foreground" Value="#000000"/>
+        </Style>
+
+        <Style Selector="TextBlock.setting-label">
+            <Setter Property="FontSize"          Value="20"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground"        Value="#000000"/>
+        </Style>
+        
+
+    </UserControl.Styles>
+
+    <!-- ════════════════════════════════════════════════════════
+         PAGE ROOT
+         ════════════════════════════════════════════════════════ -->
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                  VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="8,4,16,24" Spacing="0" MaxWidth="700">
+
+            <!-- ── Row 1 · Adjust Text Size ── -->
+            <Grid ColumnDefinitions="*, Auto"
+                  Margin="0,8,0,8"
+                  VerticalAlignment="Center">
+                <TextBlock Grid.Column="0"
+                           Classes="setting-label"
+                           Text="Adjust Text Size (Ctrl + - / Ctrl + =)"/>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            Spacing="6"
+                            VerticalAlignment="Center">
+                    <!-- Font size drop-down (8–30, default 26) -->
+                    <ComboBox x:Name="FontSizeCombo"
+                              Width="68"
+                              SelectedIndex="18"
+                              VerticalAlignment="Center">
+                        <ComboBoxItem Content="8"/>
+                        <ComboBoxItem Content="9"/>
+                        <ComboBoxItem Content="10"/>
+                        <ComboBoxItem Content="11"/>
+                        <ComboBoxItem Content="12"/>
+                        <ComboBoxItem Content="13"/>
+                        <ComboBoxItem Content="14"/>
+                        <ComboBoxItem Content="15"/>
+                        <ComboBoxItem Content="16"/>
+                        <ComboBoxItem Content="17"/>
+                        <ComboBoxItem Content="18"/>
+                        <ComboBoxItem Content="19"/>
+                        <ComboBoxItem Content="20"/>
+                        <ComboBoxItem Content="21"/>
+                        <ComboBoxItem Content="22"/>
+                        <ComboBoxItem Content="23"/>
+                        <ComboBoxItem Content="24"/>
+                        <ComboBoxItem Content="25"/>
+                        <ComboBoxItem Content="26"/>
+                        <ComboBoxItem Content="27"/>
+                        <ComboBoxItem Content="28"/>
+                        <ComboBoxItem Content="29"/>
+                        <ComboBoxItem Content="30"/>
+                    </ComboBox>
+                    <!-- Decrease / Increase buttons -->
+                    <Button Content="-" Classes="action-btn"/>
+                    <Button Content="+" Classes="action-btn"/>
+                </StackPanel>
+            </Grid>
+
+            <Border Classes="row-divider"/>
+
+            <!-- ── Row 2 · Dark Mode ── -->
+            <Grid ColumnDefinitions="*, Auto" Margin="0,8,0,8">
+                <TextBlock Grid.Column="0" Classes="setting-label" Text="Dark Mode"/>
+                <ToggleButton Grid.Column="1" Classes="toggle-btn" IsChecked="True"/>
+            </Grid>
+
+            <Border Classes="row-divider"/>
+
+            <!-- ── Row 3 · High Contrast Mode ── -->
+            <Grid ColumnDefinitions="*, Auto" Margin="0,8,0,8">
+                <TextBlock Grid.Column="0" Classes="setting-label" Text="High Contrast Mode"/>
+                <ToggleButton Grid.Column="1" Classes="toggle-btn" IsChecked="True"/>
+            </Grid>
+
+            <Border Classes="row-divider"/>
+
+            <!-- ── Row 4 · Enable Tactile SFX ── -->
+            <Grid ColumnDefinitions="*, Auto" Margin="0,8,0,8">
+                <TextBlock Grid.Column="0" Classes="setting-label" Text="Enable Tactile SFX"/>
+                <ToggleButton Grid.Column="1" Classes="toggle-btn" IsChecked="True"/>
+            </Grid>
+
+            <Border Classes="row-divider"/>
+
+            <!-- ── Row 5 · SFX Volume ── -->
+            <Grid ColumnDefinitions="*, Auto" Margin="0,8,0,8">
+                <TextBlock Grid.Column="0" Classes="setting-label" Text="SFX Volume"/>
+                <Slider Grid.Column="1"
+                        Classes="yellow-slider"
+                        Width="100"
+                        Minimum="0"
+                        Maximum="100"
+                        Value="60"
+                        VerticalAlignment="Center"/>
+            </Grid>
+
+            <Border Classes="row-divider"/>
+
+            <!-- ── Row 6 · Enable Notification Ping ── -->
+            <Grid ColumnDefinitions="*, Auto" Margin="0,8,0,8">
+                <TextBlock Grid.Column="0" Classes="setting-label" Text="Enable Notification Ping"/>
+                <ToggleButton Grid.Column="1" Classes="toggle-btn" IsChecked="True"/>
+            </Grid>
+
+        </StackPanel>
+    </ScrollViewer>
+
+</UserControl>
