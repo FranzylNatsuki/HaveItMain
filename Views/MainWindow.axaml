@@ -17,12 +17,6 @@
         x:DataType="vm:MainWindowViewModel"
         Icon="avares://HaveItMain/Assets/Icon-ForDocker.png"
         Title="Have-It">
-
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
     
     <Grid x:Name="Windowgrid" ColumnDefinitions="72,87,* ,30" Background="{StaticResource BrushBackground}">
         <Border 

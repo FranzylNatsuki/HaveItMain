@@ -24,7 +24,7 @@ public partial class FocusMode : Window
             btn.DataContext is TimerViewModel timer)
         {
             timer.Stop();                  // stop countdown
-            App.State.Timers.Remove(timer); // remove from the shared collection
+            App.ServiceState.Timers.Remove(timer); // remove from the shared collection
         }
     }
     

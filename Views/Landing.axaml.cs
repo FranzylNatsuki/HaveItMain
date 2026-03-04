@@ -15,14 +15,17 @@ public partial class Landing : Window
 
     private void Login(object? sender, RoutedEventArgs e)
     {
-        var main = new MainWindow
+        var currentViewModel = this.DataContext;
+
+        // 2. Create the new window
+        var mainWindow = new MainWindow
         {
-            DataContext = new MainWindowViewModel(),
+            DataContext = currentViewModel // <--- THIS IS THE KEY
         };
 
-        main.Show();
-
-        this.Close(); // closes Landing window
+        // 3. Show the new window and close the landing
+        mainWindow.Show();
+        this.Close();
     }
 
 

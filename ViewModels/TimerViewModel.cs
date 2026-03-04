@@ -24,7 +24,6 @@ public class TimerViewModel : ViewModelBase
     }
     
     
-    
     public double Progress => Math.Max(0, Duration.TotalSeconds / _totalDuration.TotalSeconds);
     public double DashOffset => (1 - Progress) * 100; // 100 = full circle length
     private bool _isOver;
@@ -54,7 +53,12 @@ public class TimerViewModel : ViewModelBase
         get => _isOver;
         set => this.RaiseAndSetIfChanged(ref _isOver, value);
     }
-    public TimerViewModel(string title, TimeSpan duration, bool isNotified, bool isOver = false)
+    public TimerViewModel(
+        string title, 
+        TimeSpan duration, 
+        bool isNotified, 
+        INotificationService notificationService, // <--- Add this
+        bool isOver = false)
     {
         _title = title;
         _duration = duration;
@@ -84,7 +88,16 @@ public class TimerViewModel : ViewModelBase
                     Duration -= TimeSpan.FromSeconds(1);
                     this.RaisePropertyChanged(nameof(DisplayTime));
                     if (Duration.TotalSeconds <= 0)
+                    {
                         IsOver = true;
+                        if (isNotified)
+                        {
+                            App.ServiceState.NotificationService?.ShowNotification(
+                                "Have-It Timers", 
+                                $"Timer ({Title}) is finished!"
+                            );
+                        }
+                    }
                 });
             });
     }
@@ -110,7 +123,10 @@ public class TimerViewModel : ViewModelBase
                         IsOver = true;
                         if (isNotified)
                         {
-                            Notify($"{Title} timer finished!");
+                            App.ServiceState.NotificationService?.ShowNotification(
+                                "Have-It Timers", 
+                                $"Timer ({Title}) is finished!"
+                            );
                         }
                         _timerSubscription?.Dispose();
                         OnFinished?.Invoke(this); 

@@ -18,7 +18,7 @@ public class Dashboard : ViewModelBase, IHasTitle
     
     private const string TasksFileName = "tasks.json";
     public ObservableCollection<TaskItemViewModel> Tasks { get; } = new();
-    public ObservableCollection<TimerViewModel> Timers => App.State.Timers;
+    public ObservableCollection<TimerViewModel> Timers => App.ServiceState.Timers;
     public ReactiveCommand<Unit, Unit> AddTimerCommand { get; }
     public ReactiveCommand<Unit, Unit> AddTaskCommand { get; }
 

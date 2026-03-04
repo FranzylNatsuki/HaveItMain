@@ -1,12 +1,14 @@
 ﻿using System;
 using ReactiveUI;
 using System.Reactive.Linq;
+using HaveItMain.Services;
 
 namespace HaveItMain.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {
-        
+        public AppState State { get; }
+        private readonly INotificationService _notificationService;
         private ViewModelBase _currentViewModel;
         public Dashboard Dashboard { get; } = new Dashboard();
         public ViewModelBase CurrentViewModel
@@ -22,8 +24,9 @@ namespace HaveItMain.ViewModels
             private set => this.RaiseAndSetIfChanged(ref _currentTitle, value);
         }
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(AppState state)
         {
+            State = state;
             CurrentViewModel = new Dashboard();
 
             // Explicitly cast to IObservable<ViewModelBase> to fix CS1660
@@ -35,7 +38,19 @@ namespace HaveItMain.ViewModels
                 else
                     CurrentTitle = "";
             });
+            
+            State.NotificationService.ShowNotification(
+                "Welcome to HaveIt!", 
+                "Your productivity journey starts now."
+            );
+            // Initialize your other properties (like Dashboard or Timers) here
+            // CurrentViewModel = new DashboardViewModel();
         }
+        
+        public void TriggerAlert() {
+            _notificationService.ShowNotification("Hello!", "This is a native Windows toast.");
+        }
+
 
         public void ShowDashboard() => CurrentViewModel = new Dashboard();
         // public void ShowTimer() => CurrentViewModel = new Timer();

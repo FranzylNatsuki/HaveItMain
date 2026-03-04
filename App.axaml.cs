@@ -9,7 +9,7 @@ namespace HaveItMain;
 
 public partial class App : Application
 {
-    public static AppState State { get; } = new AppState();
+    public static AppState ServiceState { get; set; } = new();
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -19,12 +19,15 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new Landing()
+            ServiceState.NotificationService = new WindowsNotificationService();
+            
+            var viewModel = new MainWindowViewModel(ServiceState);
+
+            desktop.MainWindow = new Landing
             {
-                DataContext = new MainWindowViewModel(),
+                DataContext = viewModel
             };
         }
-
         base.OnFrameworkInitializationCompleted();
     }
 }

@@ -10,6 +10,9 @@ namespace HaveItMain.Views;
 
 public partial class AddTimerMessage : Window
 {
+    // 1. Add this property
+    public INotificationService? NotificationService { get; set; }
+    
     public TaskItemViewModel? PrefillTask { get; set; } // reference the old data of the task, so it can be the new timer
     
     public AddTimerMessage()
@@ -86,7 +89,7 @@ public partial class AddTimerMessage : Window
             return;
         }
         var duration = new TimeSpan(hours, minutes, seconds);
-        var task = new TimerViewModel(title, duration, isNotified, false);
+        var task = new TimerViewModel(title, duration, isNotified, NotificationService, false);
         
         task.Start();
         Close(task);

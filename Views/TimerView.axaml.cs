@@ -27,7 +27,7 @@ public partial class TimerView : UserControl
             btn.DataContext is TimerViewModel timer)
         {
             timer.Stop();                  // stop countdown
-            App.State.Timers.Remove(timer); // remove from the shared collection
+            App.ServiceState.Timers.Remove(timer); // remove from the shared collection
         }
     }
     private async void AddTimerMethod(object? sender, RoutedEventArgs e)
