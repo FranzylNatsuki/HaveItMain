@@ -8,6 +8,11 @@ namespace HaveItMain.ViewModels
     public class MainWindowViewModel : ViewModelBase
     {
         public AppState State { get; }
+    
+        private readonly StreakService _streakService;
+        private readonly StreakPersistenceService _streakPersistence;
+        private readonly PersistenceService _taskPersistence;
+        
         private readonly INotificationService _notificationService;
         private ViewModelBase _currentViewModel;
         public Dashboard Dashboard { get; } = new Dashboard();
@@ -26,10 +31,19 @@ namespace HaveItMain.ViewModels
 
         public MainWindowViewModel(AppState state)
         {
-            State = state;
-            CurrentViewModel = new Dashboard();
+            State = state ?? throw new ArgumentNullException(nameof(state));
+            
+            _streakPersistence = new StreakPersistenceService();
+            _taskPersistence = new PersistenceService();
+            _streakService = new StreakService(); 
+            
+            State.CurrentStreak = _streakPersistence.Load();
+            State.StreakStarted = State.CurrentStreak != null;
+    
+            _taskPersistence.Load(State);
 
-            // Explicitly cast to IObservable<ViewModelBase> to fix CS1660
+            HookTaskCollection();
+            
             IObservable<ViewModelBase> obs = this.WhenAnyValue(x => x.CurrentViewModel);
             obs.Subscribe(vm =>
             {
@@ -43,8 +57,41 @@ namespace HaveItMain.ViewModels
                 "Welcome to HaveIt!", 
                 "Your productivity journey starts now."
             );
-            // Initialize your other properties (like Dashboard or Timers) here
-            // CurrentViewModel = new DashboardViewModel();
+            CurrentViewModel = new Dashboard();
+        }
+
+        private void HookTaskCollection()
+        {
+            foreach (var task in State.Tasks)
+                SubscribeToTask(task);
+            State.Tasks.CollectionChanged += (s, e) =>
+            {
+                if (e.NewItems != null)
+                {
+                    foreach (TaskItemViewModel task in e.NewItems)
+                        SubscribeToTask(task);
+                }
+            };
+        }
+
+        private void SubscribeToTask(TaskItemViewModel task)
+        {
+            task.WhenAnyValue(x => x.IsFinished)
+                .Where(done => done) // Only fire when task is checked 'True'
+                .Subscribe(_ =>
+                {
+                    // SAFETY GATE: If the user hasn't opted-in to a streak, 
+                    // just save the task and stop here.
+                    if (State.CurrentStreak == null)
+                    {
+                        _taskPersistence.Save(State);
+                        return;
+                    }
+                    
+                    _streakService.RegisterTaskCompletion(State);
+                    _streakPersistence.Save(State.CurrentStreak);
+                    _taskPersistence.Save(State);
+                });
         }
         
         public void TriggerAlert() {
@@ -54,7 +101,6 @@ namespace HaveItMain.ViewModels
 
         public void ShowDashboard() => CurrentViewModel = new Dashboard();
         // public void ShowTimer() => CurrentViewModel = new Timer();
-        public void ShowStreak() => CurrentViewModel = new Streak();
         public void ShowSettings() => CurrentViewModel = new Settings();
         public void ShowAccount() => CurrentViewModel = new AccountSettings();
     }

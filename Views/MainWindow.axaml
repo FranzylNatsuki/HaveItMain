@@ -48,6 +48,13 @@
                 <Border Grid.Row="1">
                     <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="15">
                         <Button ToolTip.Tip="Streak (S)" Classes="round-button" Click="Streak_Click">
+                            <Button.Effect>
+                                <DropShadowEffect Color="Black" 
+                                                  BlurRadius="4" 
+                                                  OffsetX="-3"
+                                                  OffsetY="3"
+                                                  Opacity="0.25"/>
+                            </Button.Effect>
                             <Image Source="avares://HaveItMain/Assets/smenu.png"
                                    Margin="5"
                                    Stretch="Uniform"

@@ -83,8 +83,16 @@
             <Setter Property="FontFamily" Value="{DynamicResource NunitoFont}"/>
             <Setter Property="FontStyle" Value="Normal"/>
             <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
-            <Setter Property="Foreground" Value="White"></Setter>
-            <Setter Property="Background" Value="#FFAA00"></Setter>
+            <Setter Property="Foreground" Value="{StaticResource BrushBackground}"></Setter>
+            <Setter Property="Background" Value="{StaticResource BrushPrimary}"></Setter>
+            <Setter Property="Padding" Value="20,7,20,7"></Setter>
+        </Style>
+        <Style Selector="Button.Secondary">
+            <Setter Property="FontFamily" Value="{DynamicResource NunitoFont}"/>
+            <Setter Property="FontStyle" Value="Normal"/>
+            <Setter Property="FontSize" Value="{StaticResource FontSizeNormal}"/>
+            <Setter Property="Foreground" Value="{StaticResource BrushBackground}"></Setter>
+            <Setter Property="Background" Value="{StaticResource BrushCompliment}"></Setter>
             <Setter Property="Padding" Value="20,7,20,7"></Setter>
         </Style>
         <Style Selector="ToggleButton.Primary:unchecked">

@@ -59,7 +59,7 @@ public partial class MainWindow : Window
     {
         if (DataContext is MainWindowViewModel vm)
         {
-            vm.CurrentViewModel = new Streak();
+            vm.CurrentViewModel = new Streak(vm.State);
         }
     }
 

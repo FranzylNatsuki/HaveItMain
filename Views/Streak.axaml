@@ -2,6 +2,175 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:HaveItMain.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="HaveItMain.Views.StreakView">
+             x:Class="HaveItMain.Views.StreakView"
+             x:DataType="vm:Streak">
+    <UserControl.Styles>
+        <Style Selector="Border.round-button">
+            <Setter Property="Background" Value="{StaticResource ColorBackground}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" 
+                                      BlurRadius="4" 
+                                      OffsetX="-3"
+                                      OffsetY="3"
+                                      Opacity="0.25"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Styles>
+    <Grid>
+        <Grid>
+            <StackPanel Orientation="Vertical" IsVisible="{Binding !StreakStarted}" VerticalAlignment="Center" Spacing="20">
+                <TextBlock Text="No Streak Started" HorizontalAlignment="Center" FontSize="20"/>
+                <TextBlock Text="Ready to commit to your habits?" HorizontalAlignment="Center" Foreground="Gray"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Start New 7-Day Streak" 
+                            Command="{Binding StartNewStreak}"
+                            HorizontalAlignment="Center"
+                            Classes="Primary"/>
+                    <Button Content="Start New 14-Day Streak" 
+                            Command="{Binding StartNewStreakFourteen}"
+                            HorizontalAlignment="Center"
+                            Classes="Secondary"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Grid ColumnDefinitions="*,*" IsVisible="{Binding StreakStarted}">
+            <Grid Grid.Column="0" RowDefinitions="*, Auto" >
+                <Border Grid.Row="0" CornerRadius="20" Padding="20" Background="{StaticResource BrushBackground}" Margin="20">
+                    <Border.Effect>
+                        <DropShadowEffect Color="Black" 
+                                          BlurRadius="6" 
+                                          OffsetX="0"
+                                          OffsetY="3"
+                                          Opacity="0.25"/>
+                    </Border.Effect>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                        <TextBlock FontWeight="UltraBold" HorizontalAlignment="Center">
+                            Nice Work!
+                        </TextBlock>
+                        <Image Source="avares://HaveItMain/Assets/StreakFire.png"
+                               Margin="5"
+                               Width="300"
+                               Height="300"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                        <TextBlock  HorizontalAlignment="Center">
+                            You were building habits for 5 consecutive days!
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+                <Grid Grid.Row="1" ColumnDefinitions="*,*" Margin="30">
+                    <Border Grid.Column="0" Padding="20,0,20,0">
+                        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Classes="Primary">
+                            Share
+                        </Button>
+                    </Border>
+                    <Border Grid.Column="1" Padding="20,0,20,0">
+                        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Classes="Secondary">
+                            Download
+                        </Button>
+                    </Border>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1" RowDefinitions="Auto, 200, Auto, Auto, Auto, *">
+                <StackPanel Spacing="10" Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <TextBlock FontWeight="UltraBold">
+                        Longest Streak Record: 🏆
+                    </TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="8"></TextBlock> <!-- -->
+                        <TextBlock> day streak - </TextBlock>
+                        <TextBlock> January 5, 2026 </TextBlock>
+                    </StackPanel>
+                </StackPanel>
+                <Border Grid.Row="1" Padding="10">
+                    <Image Source="avares://HaveItMain/Assets/HaveItDawg.png"
+                           Width="180"
+                           Height="280"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+                </Border>
+                <Border Grid.Row="2" Margin="5">
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10" Background="{StaticResource BrushPrimary}" CornerRadius="10">
+                        <Grid ColumnDefinitions="*,*,*,*,*,*,*" Width="350"> <Border Grid.Column="0" Classes="round-button">
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                            </Border>
+                            <Border Grid.Column="1" Classes="round-button">
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                            </Border>
+                            <Border Grid.Column="2" Classes="round-button">
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                            </Border>
+                            <Border Grid.Column="3" Classes="round-button">
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                            </Border>
+                            <Border Grid.Column="4" Classes="round-button">
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                            </Border>
+                            <Border Grid.Column="5" Classes="round-button">
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                            </Border>
+                            <Border Grid.Column="6" Classes="round-button">
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </Border>
+                <Border Grid.Row="3" Margin="5" IsVisible="True">
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10" Background="{StaticResource BrushPrimary}" CornerRadius="10">
+                        <Grid ColumnDefinitions="*,*,*,*,*,*,*" Width="350"> <Border Grid.Column="0" Classes="round-button">
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                            </Border>
+                            <Border Grid.Column="1" Classes="round-button">
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                            </Border>
+                            <Border Grid.Column="2" Classes="round-button">
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                            </Border>
+                            <Border Grid.Column="3" Classes="round-button">
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                            </Border>
+                            <Border Grid.Column="4" Classes="round-button">
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                            </Border>
+                            <Border Grid.Column="5" Classes="round-button">
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                            </Border>
+                            <Border Grid.Column="6" Classes="round-button">
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </Border>
+                <Border Grid.Row="4" Margin="3">
+                    <Border HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10" CornerRadius="10">
+                        <Grid ColumnDefinitions="*,*,*,*,*,*,*" Width="350">
+                            <TextBlock Grid.Column="0" HorizontalAlignment="Center" FontSize="37" FontWeight="UltraBold">S</TextBlock>
+                            <TextBlock Grid.Column="1" HorizontalAlignment="Center" FontSize="37" FontWeight="UltraBold">M</TextBlock>
+                            <TextBlock Grid.Column="2" HorizontalAlignment="Center" FontSize="37" FontWeight="UltraBold">T</TextBlock>
+                            <TextBlock Grid.Column="3" HorizontalAlignment="Center" FontSize="37" FontWeight="UltraBold">W</TextBlock>
+                            <TextBlock Grid.Column="4" HorizontalAlignment="Center" FontSize="37" FontWeight="UltraBold">Th</TextBlock>
+                            <TextBlock Grid.Column="5" HorizontalAlignment="Center" FontSize="37" FontWeight="UltraBold">F</TextBlock>
+                            <TextBlock Grid.Column="6" HorizontalAlignment="Center" FontSize="37" FontWeight="UltraBold">S</TextBlock>
+                        </Grid>
+                    </Border>
+                </Border>
+                <Border Grid.Row="5" IsVisible="True">
+                    <TextBlock HorizontalAlignment="Center">
+                        Complete a task everyday to build your streak
+                    </TextBlock>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
 </UserControl>

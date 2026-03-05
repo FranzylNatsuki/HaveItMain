@@ -189,7 +189,7 @@
                                                        Height="25"/>
                                             </Button>
 
-                                            <CheckBox IsChecked="false"
+                                            <CheckBox IsChecked="{Binding IsFinished, Mode=TwoWay}"
                                                       Width="25"
                                                       Height="25"/>
 

@@ -8,27 +8,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ViewModels/WindowsNotificationService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/NOSTREAK.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/PersistenceService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/STREAK.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/StreakDay.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/StreakPersistence.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/StreakService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/StreakStatus.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HaveItMain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/HaveItMain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/App.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/AppState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/AppState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModels/Dashboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Dashboard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/INotificationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/INotificationService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModels/MainWindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MainWindowViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/Streak.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Streak.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModels/TimerViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/TimerViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/AddTimerMessage.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AddTimerMessage.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/FocusMode.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/FocusMode.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Landing.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Landing.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/TimerView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/TimerView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Streak.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Streak.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Streak.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Streak.axaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +39,11 @@
     <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -58,6 +63,12 @@
     <setting file="file://$PROJECT_DIR$/App.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Converters/ProgressToArcConverter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/AppState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/PersistenceService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/STREAK.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/StreakDay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/StreakPersistence.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/StreakService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/StreakStatus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ViewModels/AccountSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ViewModels/Dashboard.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ViewModels/DemoVideo.cs" root0="FORCE_HIGHLIGHTING" />
@@ -115,7 +126,7 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;WindowsOnlyRevision&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -194,6 +205,9 @@
       <workItem from="1772607350113" duration="6890000" />
       <workItem from="1772636261730" duration="1391000" />
       <workItem from="1772637702112" duration="1734000" />
+      <workItem from="1772640176679" duration="777000" />
+      <workItem from="1772701797577" duration="3545000" />
+      <workItem from="1772705899530" duration="14203000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -339,7 +353,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772636334046</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Windows Only">
+      <option name="closed" value="true" />
+      <created>1772640382274</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1772640382274</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,7 +400,8 @@
     <MESSAGE value="ss" />
     <MESSAGE value="POLISHED DASHBOARD, just needs streak" />
     <MESSAGE value="Before i end up destroying this shit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Before i end up destroying this shit" />
+    <MESSAGE value="Windows Only" />
+    <option name="LAST_COMMIT_MESSAGE" value="Windows Only" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

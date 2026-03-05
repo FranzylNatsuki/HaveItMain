@@ -17,6 +17,8 @@ public class TimerViewModel : ViewModelBase
     private readonly TimeSpan _totalDuration;
     private readonly bool isNotified = true;
     private bool _isRunning;
+    private TaskItemViewModel? _linkedTask; 
+    
     public bool IsRunning
     {
         get => _isRunning;
@@ -58,15 +60,15 @@ public class TimerViewModel : ViewModelBase
         TimeSpan duration, 
         bool isNotified, 
         INotificationService notificationService, // <--- Add this
+        TaskItemViewModel? linkedTask = null, // ← NEW
         bool isOver = false)
     {
         _title = title;
         _duration = duration;
-        _isOver = isOver;
         _totalDuration = duration;
         this.isNotified = isNotified;
+        _linkedTask = linkedTask; // ← store reference
     }
-    
     public void Pause()
     {
         IsRunning = false;
@@ -90,6 +92,8 @@ public class TimerViewModel : ViewModelBase
                     if (Duration.TotalSeconds <= 0)
                     {
                         IsOver = true;
+                        if (_linkedTask != null)
+                            _linkedTask.IsFinished = true;
                         if (isNotified)
                         {
                             App.ServiceState.NotificationService?.ShowNotification(
@@ -121,6 +125,8 @@ public class TimerViewModel : ViewModelBase
                     if (Duration.TotalSeconds <= 0)
                     {
                         IsOver = true;
+                        if (_linkedTask != null)
+                            _linkedTask.IsFinished = true;
                         if (isNotified)
                         {
                             App.ServiceState.NotificationService?.ShowNotification(

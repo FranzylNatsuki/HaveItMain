@@ -167,8 +167,6 @@ public partial class DashboardView : UserControl
             selectedTask.Date = result.Date;
             selectedTask.Urgency = result.Urgency;
             selectedTask.IsFinished = result.IsFinished;
-
-            ViewModel?.SaveTasks();
         }
     }
 
