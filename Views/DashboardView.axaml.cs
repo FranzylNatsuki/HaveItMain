@@ -21,7 +21,6 @@ public partial class DashboardView : UserControl
     public DashboardView()
     {
         InitializeComponent();
-        DataContext = new Dashboard();
     }
     
     private Dashboard ViewModel => DataContext as Dashboard;

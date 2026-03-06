@@ -1,20 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using HaveItMain.ViewModels;
+using ReactiveUI;
 
 namespace HaveItMain.Services;
 
-public class STREAK
+public class STREAK : ReactiveObject
 {
     public DateTime StartDate { get; set; }
     public int DurationDays { get; set; }
 
-    public List<StreakDay> Days { get; set; } = new();
+    public ObservableCollection<StreakDay> Days { get; set; } = new();
 
     public StreakStatus Status { get; set; } = StreakStatus.Unactivated;
 
     public DateTime EndDate => StartDate.AddDays(DurationDays - 1);
+    
+    public bool IsTodayDone 
+    {
+        get 
+        {
+            var todayEntry = Days.FirstOrDefault(d => d.Date == DateTime.Today);
+            return todayEntry?.IsCompleted ?? false;
+        }
+    }
 
     public void GenerateDays()
     {
@@ -69,12 +80,12 @@ public class STREAK
     public void MarkTodayComplete()
     {
         var todayEntry = Days.FirstOrDefault(d => d.Date == DateTime.Today);
-
-        if (todayEntry == null)
-            return;
+        if (todayEntry == null) return;
 
         todayEntry.IsCompleted = true;
-
+        
+        this.RaisePropertyChanged(nameof(IsTodayDone));
+        
         Evaluate();
     }
 }

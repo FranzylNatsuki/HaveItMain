@@ -296,19 +296,16 @@
                     </Grid>
                 </StackPanel>
             </ScrollViewer>
-
             <ScrollViewer IsVisible="{Binding #TabPrivacy.IsChecked}"
                           HorizontalScrollBarVisibility="Disabled"
                           VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="4,0,16,24" Spacing="0">
-
                     <TextBlock Text="Data We Collect" Classes="section-header"/>
                     <StackPanel Spacing="3" Margin="10,0,0,16">
                         <TextBlock Text="• Habits and progress data"               FontSize="13"/>
                         <TextBlock Text="• Optional profile info (name, email)"    FontSize="13"/>
                         <TextBlock Text="• Device info (for syncing/bug fixes)"    FontSize="13"/>
                     </StackPanel>
-
                     <TextBlock Text="User Data Control" Classes="section-header"/>
                     <Grid ColumnDefinitions="220, Auto"
                           RowDefinitions="Auto, Auto, Auto"
@@ -331,11 +328,11 @@
                                 Content="Import"
                                 Classes="btn-export"
                                 Margin="0,0,0,12"/>
-
                         <TextBlock Grid.Row="2" Grid.Column="0"
                                    Text="Clear all local data"
                                    VerticalAlignment="Center"/>
                         <Button Grid.Row="2" Grid.Column="1"
+                                Click="EraseJson"
                                 Content="Delete"
                                 Classes="btn-delete"/>
                     </Grid>
@@ -398,7 +395,6 @@
 
                 </StackPanel>
             </ScrollViewer>
-
             <ScrollViewer IsVisible="{Binding #TabPlans.IsChecked}"
                           HorizontalScrollBarVisibility="Disabled"
                           VerticalScrollBarVisibility="Auto">

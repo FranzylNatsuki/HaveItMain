@@ -15,7 +15,6 @@ namespace HaveItMain.ViewModels
         
         private readonly INotificationService _notificationService;
         private ViewModelBase _currentViewModel;
-        public Dashboard Dashboard { get; } = new Dashboard();
         public ViewModelBase CurrentViewModel
         {
             get => _currentViewModel;
@@ -53,23 +52,34 @@ namespace HaveItMain.ViewModels
                     CurrentTitle = "";
             });
             
-            State.NotificationService.ShowNotification(
+            State.NotificationService?.ShowNotification(
                 "Welcome to HaveIt!", 
                 "Your productivity journey starts now."
             );
-            CurrentViewModel = new Dashboard();
+            CurrentViewModel = new Dashboard(state);
         }
 
         private void HookTaskCollection()
         {
             foreach (var task in State.Tasks)
                 SubscribeToTask(task);
+
             State.Tasks.CollectionChanged += (s, e) =>
             {
+                // 1. If a NEW task is added, subscribe to its IsFinished property
                 if (e.NewItems != null)
                 {
                     foreach (TaskItemViewModel task in e.NewItems)
                         SubscribeToTask(task);
+            
+                    // Save since the list grew
+                    _taskPersistence.Save(State);
+                }
+
+                // 2. THIS IS THE MISSING PART: Save when a task is REMOVED
+                if (e.OldItems != null)
+                {
+                    _taskPersistence.Save(State);
                 }
             };
         }
@@ -99,9 +109,9 @@ namespace HaveItMain.ViewModels
         }
 
 
-        public void ShowDashboard() => CurrentViewModel = new Dashboard();
+        public void ShowDashboard() => CurrentViewModel = new Dashboard(State);
         // public void ShowTimer() => CurrentViewModel = new Timer();
         public void ShowSettings() => CurrentViewModel = new Settings();
-        public void ShowAccount() => CurrentViewModel = new AccountSettings();
+        public void ShowAccount() => CurrentViewModel = new AccountSettings(State);
     }
 }

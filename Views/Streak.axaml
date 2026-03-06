@@ -32,7 +32,7 @@
             <StackPanel Orientation="Vertical" IsVisible="{Binding !StreakStarted}" VerticalAlignment="Center" Spacing="20">
                 <TextBlock Text="No Streak Started" HorizontalAlignment="Center" FontSize="20"/>
                 <TextBlock Text="Ready to commit to your habits?" HorizontalAlignment="Center" Foreground="Gray"/>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="30">
                     <Button Content="Start New 7-Day Streak" 
                             Command="{Binding StartNewStreak}"
                             HorizontalAlignment="Center"
@@ -103,51 +103,51 @@
                 <Border Grid.Row="2" Margin="5">
                     <Border HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10" Background="{StaticResource BrushPrimary}" CornerRadius="10">
                         <Grid ColumnDefinitions="*,*,*,*,*,*,*" Width="350"> <Border Grid.Column="0" Classes="round-button">
-                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5" IsVisible="{Binding State.CurrentStreak.Days[0].IsCompleted, FallbackValue=False}"/>
                             </Border>
                             <Border Grid.Column="1" Classes="round-button">
-                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5" IsVisible="{Binding State.CurrentStreak.Days[1].IsCompleted, FallbackValue=False}"/>
                             </Border>
                             <Border Grid.Column="2" Classes="round-button">
-                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5" IsVisible="{Binding State.CurrentStreak.Days[2].IsCompleted, FallbackValue=False}"/>
                             </Border>
                             <Border Grid.Column="3" Classes="round-button">
-                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5" IsVisible="{Binding State.CurrentStreak.Days[3].IsCompleted, FallbackValue=False}"/>
                             </Border>
                             <Border Grid.Column="4" Classes="round-button">
-                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5" IsVisible="{Binding State.CurrentStreak.Days[4].IsCompleted, FallbackValue=False}"/>
                             </Border>
                             <Border Grid.Column="5" Classes="round-button">
-                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5" IsVisible="{Binding State.CurrentStreak.Days[5].IsCompleted, FallbackValue=False}"/>
                             </Border>
                             <Border Grid.Column="6" Classes="round-button">
-                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5" IsVisible="{Binding State.CurrentStreak.Days[6].IsCompleted, FallbackValue=False}"/>
                             </Border>
                         </Grid>
                     </Border>
                 </Border>
-                <Border Grid.Row="3" Margin="5" IsVisible="True">
+                <Border Grid.Row="3" Margin="5" IsVisible="{Binding Is14DayStreak}">
                     <Border HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10" Background="{StaticResource BrushPrimary}" CornerRadius="10">
                         <Grid ColumnDefinitions="*,*,*,*,*,*,*" Width="350"> <Border Grid.Column="0" Classes="round-button">
-                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5" IsVisible="{Binding State.CurrentStreak.Days[7].IsCompleted, FallbackValue=False}"/>
                             </Border>
                             <Border Grid.Column="1" Classes="round-button">
-                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5" IsVisible="{Binding State.CurrentStreak.Days[8].IsCompleted, FallbackValue=False}"/>
                             </Border>
                             <Border Grid.Column="2" Classes="round-button">
-                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5" IsVisible="{Binding State.CurrentStreak.Days[9].IsCompleted, FallbackValue=False}"/>
                             </Border>
                             <Border Grid.Column="3" Classes="round-button">
-                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5" IsVisible="{Binding State.CurrentStreak.Days[10].IsCompleted, FallbackValue=False}"/>
                             </Border>
                             <Border Grid.Column="4" Classes="round-button">
-                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5" IsVisible="{Binding State.CurrentStreak.Days[11].IsCompleted, FallbackValue=False}"/>
                             </Border>
                             <Border Grid.Column="5" Classes="round-button">
-                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5" IsVisible="{Binding State.CurrentStreak.Days[12].IsCompleted, FallbackValue=False}"/>
                             </Border>
                             <Border Grid.Column="6" Classes="round-button">
-                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5"/>
+                                <Image Source="avares://HaveItMain/Assets/OrangeStreak.png" Margin="5" IsVisible="{Binding State.CurrentStreak.Days[13].IsCompleted, FallbackValue=False}"/>
                             </Border>
                         </Grid>
                     </Border>

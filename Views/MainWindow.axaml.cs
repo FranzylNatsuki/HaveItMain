@@ -42,7 +42,7 @@ public partial class MainWindow : Window
         // cast DataContext to your MainWindowViewModel
         if (DataContext is MainWindowViewModel vm)
         {
-            vm.CurrentViewModel = new Dashboard(); // show dashboard
+            vm.CurrentViewModel = new Dashboard(vm.State); // show dashboard
         }
     }
 
@@ -50,8 +50,7 @@ public partial class MainWindow : Window
     {
         if (DataContext is MainWindowViewModel vm)
         {
-            // Create Timer ViewModel with the shared Timers collection
-            var timerVM = new Timer(vm.Dashboard.Timers);
+            var timerVM = new Timer(App.ServiceState.Timers);
             vm.CurrentViewModel = timerVM;
         }
     }
@@ -75,7 +74,7 @@ public partial class MainWindow : Window
     {
         if (DataContext is MainWindowViewModel vm)
         {
-            vm.CurrentViewModel = new AccountSettings();
+            vm.CurrentViewModel = new AccountSettings(vm.State);
         }
     }
 
@@ -83,7 +82,7 @@ public partial class MainWindow : Window
     {
         if (DataContext is MainWindowViewModel vm)
         {
-            vm.CurrentViewModel = new Dashboard();
+            vm.CurrentViewModel = new Dashboard(vm.State);
         }
     }
 

@@ -9,7 +9,8 @@ public class Streak : ViewModelBase, IHasTitle
 {
     public string Title => "STREAK";
     
-    private readonly AppState _state;
+    public AppState State => _state;
+    public readonly AppState _state;
     private readonly StreakPersistenceService _persistence;
     public bool StreakStarted => _state.StreakStarted;
     
@@ -24,35 +25,16 @@ public class Streak : ViewModelBase, IHasTitle
         _state = state;
         _persistence = new StreakPersistenceService();
 
-        this.RaisePropertyChanged(nameof(StreakStarted));
-
-        _state.WhenAnyValue(x => x.StreakStarted)
+// This tells the UI: "Something inside the Streak changed, re-check all fire bindings!"
+        _state.WhenAnyValue(x => x.CurrentStreak)
             .Subscribe(_ => {
-                this.RaisePropertyChanged(nameof(StreakStarted));
+                this.RaisePropertyChanged(nameof(state));
+                this.RaisePropertyChanged(nameof(Is7DayStreak));
+                this.RaisePropertyChanged(nameof(Is14DayStreak));
             });
         Console.WriteLine($"Streak Started: {_state.StreakStarted}");
     }
     
-    public void ResetStreak()
-    {
-        _state.CurrentStreak = null;
-        _state.StreakStarted = false;
-        
-        try 
-        {
-            string path = "streak.json";
-            if (System.IO.File.Exists(path)) 
-            {
-                System.IO.File.Delete(path);
-                Console.WriteLine("File successfully deleted.");
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Could not delete file: {ex.Message}");
-        }
-        this.RaisePropertyChanged(nameof(StreakStarted));
-    }
     
     public void StartNewStreak()
     {

@@ -4,12 +4,20 @@ using System.Text.Json;
 using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Reactive.Linq;
+using HaveItMain.Services;
 using ReactiveUI;
 
 namespace HaveItMain.ViewModels;
 
 public class Dashboard : ViewModelBase, IHasTitle
 {
+    private readonly AppState _state;
+    private readonly StreakService _streakService;
+    public bool StreakStarted => _state.StreakStarted;
+    public bool Is7DayStreak => _state.CurrentStreak?.DurationDays == 7;
+    public bool Is14DayStreak => _state.CurrentStreak?.DurationDays == 14;
+    public bool Show14DayActiveUI => StreakStarted && Is14DayStreak;
+    
     private readonly ObservableAsPropertyHelper<bool> _hasNoTasks;
     private readonly ObservableAsPropertyHelper<bool> _hasNoTimers;
     
@@ -28,14 +36,22 @@ public class Dashboard : ViewModelBase, IHasTitle
 
     public string Title => "DASHBOARD";
 
-    public Dashboard()
+    public Dashboard(AppState state)
     {
+        _state = state;
         _hasNoTasks = this.WhenAnyValue(x => x.Tasks.Count)
             .Select(count => count == 0)
             .ToProperty(this, x => x.HasNoTasks);
         _hasNoTimers = this.WhenAnyValue(x => x.Timers.Count)
             .Select(count => count == 0)
             .ToProperty(this, x => x.HasNoTimers);
+        _state.WhenAnyValue(x => x.StreakStarted, x => x.CurrentStreak)
+            .Subscribe(_ =>
+            {
+                this.RaisePropertyChanged(nameof(StreakStarted));
+                this.RaisePropertyChanged(nameof(Is7DayStreak));
+                this.RaisePropertyChanged(nameof(Is14DayStreak));
+            });
     }
 
     public void AddTask(TaskItemViewModel task)
@@ -71,5 +87,19 @@ public class Dashboard : ViewModelBase, IHasTitle
 
         _lastDeletedTask = null;
         _lastDeletedIndex = -1;
+    }
+// Now update these methods to use the service!
+    public void StartNewStreak() 
+    {
+        _streakService.StartNewStreak(_state, 7);
+        // Save the change
+        new StreakPersistenceService().Save(_state.CurrentStreak);
+    }
+
+    public void StartNewStreakFourteen() 
+    {
+        _streakService.StartNewStreak(_state, 14);
+        // Save the change
+        new StreakPersistenceService().Save(_state.CurrentStreak);
     }
 }
