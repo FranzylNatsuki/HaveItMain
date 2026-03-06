@@ -14,6 +14,9 @@ public class Dashboard : ViewModelBase, IHasTitle
     private readonly AppState _state;
     private readonly StreakService _streakService;
     public bool StreakStarted => _state.StreakStarted;
+    public string FormattedStartDate => _state.CurrentStreak?.StartDate.ToString("MMMM dd, yyyy") ?? "No Start Date";
+    public bool IsTodayCompleted => _state.CurrentStreak?.IsTodayDone ?? false;
+    public int CurrentTally => _state.CurrentStreak?.CompletedDaysCount ?? 0;
     public bool Is7DayStreak => _state.CurrentStreak?.DurationDays == 7;
     public bool Is14DayStreak => _state.CurrentStreak?.DurationDays == 14;
     public bool Show14DayActiveUI => StreakStarted && Is14DayStreak;
@@ -42,6 +45,16 @@ public class Dashboard : ViewModelBase, IHasTitle
         
         _streakService = new StreakService();
         
+        _state = state; // No underscore? Check your Dashboard class fields!
+
+        if (_state?.CurrentStreak != null)
+        {
+            _state.CurrentStreak.PropertyChanged += (s, e) => {
+                this.RaisePropertyChanged(nameof(StreakStarted));
+                this.RaisePropertyChanged(nameof(CurrentTally));
+                this.RaisePropertyChanged(nameof(IsTodayCompleted));
+            };
+        }
         _state.WhenAnyValue(x => x.StreakStarted, x => x.CurrentStreak)
             .Subscribe(_ =>
             {

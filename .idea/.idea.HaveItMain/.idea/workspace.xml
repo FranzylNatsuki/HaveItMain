@@ -8,19 +8,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Services/Account.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/AppState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/AppState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/PersistenceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/PersistenceService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/STREAK.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/STREAK.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/AccountSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/AccountSettings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModels/Dashboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Dashboard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/MainWindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MainWindowViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/Streak.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Streak.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/TaskItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/TaskItemViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Streak.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Streak.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +198,11 @@
       <workItem from="1772640176679" duration="777000" />
       <workItem from="1772701797577" duration="3545000" />
       <workItem from="1772705899530" duration="14234000" />
-      <workItem from="1772775046621" duration="12431000" />
+      <workItem from="1772775046621" duration="12702000" />
+      <workItem from="1772966102226" duration="3437000" />
+      <workItem from="1772797120185" duration="153000" />
+      <workItem from="1772797299478" duration="90000" />
+      <workItem from="1772797639622" duration="1406000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -379,7 +380,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772779567928</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="giving up to perfect the streak backend, but it works cuh.">
+      <option name="closed" value="true" />
+      <created>1772960560434</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1772960560434</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,7 +431,8 @@
     <MESSAGE value="Streak Page Basics are finished" />
     <MESSAGE value="Streak Backend" />
     <MESSAGE value="Travy Patty" />
-    <option name="LAST_COMMIT_MESSAGE" value="Travy Patty" />
+    <MESSAGE value="giving up to perfect the streak backend, but it works cuh." />
+    <option name="LAST_COMMIT_MESSAGE" value="giving up to perfect the streak backend, but it works cuh." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -231,26 +231,11 @@
                             </TextBlock>
                         </Border>
                         <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                            <Image Source="avares://HaveItMain/Assets/setmenu.png"
-                                   Margin="4"
-                                   Stretch="Uniform"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
-                            <Image Source="avares://HaveItMain/Assets/setmenu.png"
-                                   Margin="4"
-                                   Stretch="Uniform"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
-                            <Image Source="avares://HaveItMain/Assets/setmenu.png"
-                                   Margin="4"
-                                   Stretch="Uniform"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
                         </StackPanel>
                     </Grid>
-                    <Border Grid.Row="1">
-                        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Spacing="20">
-                            <StackPanel HorizontalAlignment="Center" Orientation="Vertical" IsVisible="{Binding !StreakStarted}" >
+                    <Grid Grid.Row="1">
+                        <Grid VerticalAlignment="Center">
+                            <StackPanel HorizontalAlignment="Center" Orientation="Vertical" IsVisible="{Binding !StreakStarted}">
                                 <TextBlock Text="No Streak Started" HorizontalAlignment="Center" FontSize="20"/>
                                 <TextBlock Text="Ready to commit to your habits?" HorizontalAlignment="Center" Foreground="Gray"/>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="30" Margin="0,30,0,0">
@@ -264,8 +249,44 @@
                                             Classes="Secondary"/>
                                 </StackPanel>
                             </StackPanel>
-                        </StackPanel>
-                    </Border>
+                            <Grid ColumnDefinitions="200, *" IsVisible="{Binding StreakStarted}">
+                                <Border Grid.Column="0">
+                                    <Grid>
+                                        <Grid RowDefinitions="*,30">
+                                        <Image Source="avares://HaveItMain/Assets/NOSTREAK.png"
+                                               Margin="5"
+                                               Width="170"
+                                               Height="170"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               IsVisible="{Binding !IsTodayCompleted}"/>
+                                        <Image Source="avares://HaveItMain/Assets/StreakFire.png"
+                                               Margin="5"
+                                               Width="170"
+                                               Height="170"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               IsVisible="{Binding IsTodayCompleted}"/>
+                                        <TextBlock Grid.Row="1" HorizontalAlignment="Center" IsVisible="{Binding !IsTodayCompleted}"> Inactive </TextBlock>
+                                        <TextBlock Grid.Row="1" HorizontalAlignment="Center" IsVisible="{Binding IsTodayCompleted}"> Active </TextBlock>
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                                <Border Grid.Column="1">
+                                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+                                        <TextBlock Text="Streak Report:" HorizontalAlignment="Center" FontWeight="UltraBold"></TextBlock>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0">
+                                            <TextBlock FontSize="{DynamicResource FontSizeNormal}" FontWeight="DemiBold" Text="{Binding  CurrentTally}"></TextBlock>
+                                            <TextBlock FontSize="{DynamicResource FontSizeNormal}" FontWeight="DemiBold" Text=" "></TextBlock>
+                                            <TextBlock FontSize="{DynamicResource FontSizeNormal}" FontWeight="DemiBold" Text="- Day Streak"></TextBlock>
+                                        </StackPanel>
+                                            <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" FontSize="{DynamicResource FontSizeNormal}"> Start Date:</TextBlock>
+                                            <TextBlock HorizontalAlignment="Center" FontSize="{DynamicResource FontSizeNormal}" FontWeight="DemiBold" Text="{Binding FormattedStartDate}"></TextBlock>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Border>    <!-- STREAK -->
             <Border Grid.Column="0" Grid.Row="1" CornerRadius="11" BorderThickness="2" BorderBrush="#C8C8C8" Padding="15" x:Name="Timers">

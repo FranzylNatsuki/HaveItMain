@@ -1,3 +1,4 @@
+using System.IO;
 using HaveItMain.Services;
 
 namespace HaveItMain.ViewModels;
@@ -6,16 +7,20 @@ public class AccountSettings : ViewModelBase, IHasTitle
 {
     public string Title => "ACCOUNT";
     private readonly AppState _state;
+    private readonly PersistenceService _taskPersistence;
+    private readonly StreakPersistenceService _streakPersistence;
 
     // Inject the state so we can modify the streak
     public AccountSettings(AppState state)
     {
         _state = state;
+        // You might need to initialize these or pass them in from MainWindowViewModel
+        _taskPersistence = new PersistenceService();
+        _streakPersistence = new StreakPersistenceService();
     }
 
     public void EraseAllData()
     {
-        // 1. Reset Streak in memory
         _state.CurrentStreak = null;
         _state.StreakStarted = false;
 

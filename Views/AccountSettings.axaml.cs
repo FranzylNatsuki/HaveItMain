@@ -19,8 +19,18 @@ public partial class AccountSettingsView : UserControl
         if (DataContext is AccountSettings vm)
         {
             vm.EraseAllData();
-            
+            warning();
             Console.WriteLine("Data wiped successfully.");
+        }
+    }
+    
+    private async void warning()
+    {
+        var dialog = new SimpleMessageDialog("Successfully Deleted!");
+        var topLevel = TopLevel.GetTopLevel(this);
+        if (topLevel is Window parentWindow)
+        {
+            await dialog.ShowDialog(parentWindow);
         }
     }
 }

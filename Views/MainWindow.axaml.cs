@@ -106,14 +106,23 @@ public partial class MainWindow : Window
 
     private async void NEW_ROUTINE(object? sender, RoutedEventArgs e)
     {
-        // Dim the current window (parent)
-        // this.Opacity = 0.5;
-    
-        var dialog = new SimpleMessageDialog("Task saved!");
-        await dialog.ShowDialog(this); // 'this' = parent Window
-    
-        // Restore opacity
-        // this.Opacity = 1;
+        var dialog = new AddTaskMessage();
+        var result = await dialog.ShowDialog<TaskItemViewModel?>(this);
+
+        if (result != null)
+        {
+            if (DataContext is MainWindowViewModel mainVM)
+            {
+                if (mainVM.CurrentViewModel is Dashboard dashboardVM)
+                {
+                    dashboardVM.AddTask(result);
+                }
+                else
+                {
+                    mainVM.State.Tasks.Add(result);
+                }
+            }
+        }
     }
 
     private void Landing(object? sender, RoutedEventArgs e)
