@@ -255,9 +255,9 @@
                     <Border Grid.Row="1">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Center" Spacing="20">
                             <StackPanel HorizontalAlignment="Center" Orientation="Vertical" IsVisible="{Binding !StreakStarted}" >
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="30">
-                                    <TextBlock Text="No Streak Started" HorizontalAlignment="Center" FontSize="20"/>
-                                    <TextBlock Text="Ready to commit to your habits?" HorizontalAlignment="Center" Foreground="Gray"/>
+                                <TextBlock Text="No Streak Started" HorizontalAlignment="Center" FontSize="20"/>
+                                <TextBlock Text="Ready to commit to your habits?" HorizontalAlignment="Center" Foreground="Gray"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="30" Margin="0,30,0,0">
                                     <Button Content="7-Day Streak" 
                                             Command="{Binding StartNewStreak}"
                                             HorizontalAlignment="Center"
