@@ -33,4 +33,8 @@ public partial class AccountSettingsView : UserControl
             await dialog.ShowDialog(parentWindow);
         }
     }
+
+    private void Reveal(object? sender, RoutedEventArgs e)
+    {
+    }
 }

@@ -1,5 +1,6 @@
 using System.IO;
 using HaveItMain.Services;
+using ReactiveUI;
 
 namespace HaveItMain.ViewModels;
 
@@ -9,15 +10,119 @@ public class AccountSettings : ViewModelBase, IHasTitle
     private readonly AppState _state;
     private readonly PersistenceService _taskPersistence;
     private readonly StreakPersistenceService _streakPersistence;
+    private readonly AccountPersistenceService _accountPersistence;
+    public string[] GenderOptions { get; } = { "Male", "Female", "Other", "Prefer not to say" };
+
+// Property to toggle the password character
+    private char _passwordChar = '*';
+    public char PasswordChar
+    {
+        get => _passwordChar;
+        set => this.RaiseAndSetIfChanged(ref _passwordChar, value);
+    }
+
+    public void Reveal()
+    {
+        PasswordChar = PasswordChar == '*' ? '\0' : '*';
+    }
+    
+    private Account _editableAccount;
+    public Account EditableAccount 
+    { 
+        get => _editableAccount; 
+        set => this.RaiseAndSetIfChanged(ref _editableAccount, value); 
+    }
+    public AppState State => _state; 
+    private Account _backupAccount;
 
     // Inject the state so we can modify the streak
     public AccountSettings(AppState state)
     {
         _state = state;
-        // You might need to initialize these or pass them in from MainWindowViewModel
         _taskPersistence = new PersistenceService();
         _streakPersistence = new StreakPersistenceService();
+        _accountPersistence = new AccountPersistenceService();
+    
+        // This creates your "EditableAccount" (The Sandbox)
+        ResetEditableAccount();
     }
+    
+    private void ResetEditableAccount()
+    {
+        var current = _state.UserAccount;
+        EditableAccount = new Account
+        {
+            FirstName = current.FirstName,
+            LastName = current.LastName,
+            Address = current.Address,
+            BirthDate = current.BirthDate,
+            Gender = current.Gender,
+            ContactNumber = current.ContactNumber,
+            Password = current.Password,
+            Username = current.Username
+        };
+    }
+    
+    private void CreateBackup()
+    {
+        // Clone the current data so we can revert if needed
+        var current = _state.UserAccount;
+        _backupAccount = new Account
+        {
+            FirstName = current.FirstName,
+            LastName = current.LastName,
+            Address = current.Address,
+            BirthDate = current.BirthDate,
+            Gender = current.Gender,
+            ContactNumber = current.ContactNumber,
+            Password = current.Password,
+        };
+    }
+    
+    public void SaveChanges()
+    {
+// 1. PUSH changes from Sandbox to the real State
+        _state.UserAccount.FirstName = EditableAccount.FirstName;
+        _state.UserAccount.LastName = EditableAccount.LastName;
+        _state.UserAccount.Address = EditableAccount.Address;
+        _state.UserAccount.BirthDate = EditableAccount.BirthDate;
+        _state.UserAccount.Gender = EditableAccount.Gender;
+        _state.UserAccount.ContactNumber = EditableAccount.ContactNumber;
+        _state.UserAccount.Password = EditableAccount.Password;
+
+        // 2. Lock everything
+        DisableAllEditing();
+
+        // 3. Save the real state to the JSON file
+        _accountPersistence.Save(_state.UserAccount);
+    }
+    
+    public void CancelChanges()
+    {
+        ResetEditableAccount();
+        DisableAllEditing();
+
+        System.Diagnostics.Debug.WriteLine("Changes discarded.");
+    }
+
+    private void DisableAllEditing()
+    {
+        if (EditableAccount == null) return;
+        EditableAccount.IsFirstNameEditing = false;
+        EditableAccount.IsLastNameEditing = false;
+        EditableAccount.IsBirthDateEditing = false;
+        EditableAccount.IsGenderEditing = false;
+        EditableAccount.IsContactNumberEditing = false;
+        EditableAccount.IsAddressEditing = false;
+        EditableAccount.IsPasswordEditing = false;
+    }
+    public void ToggleFirstNameEdit() => EditableAccount.IsFirstNameEditing = true;
+    public void ToggleLastNameEdit() => EditableAccount.IsLastNameEditing = true;
+    public void ToggleBdayEdit() => EditableAccount.IsBirthDateEditing = true;
+    public void ToggleGenderEdit() => EditableAccount.IsGenderEditing = true;
+    public void ToggleContactEdit() => EditableAccount.IsContactNumberEditing = true;
+    public void ToggleAddressEdit() => EditableAccount.IsAddressEditing = true;
+    public void TogglePasswordEdit() => EditableAccount.IsPasswordEditing = true;
 
     public void EraseAllData()
     {

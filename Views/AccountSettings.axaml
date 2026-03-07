@@ -2,6 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:HaveItMain.ViewModels"
+             x:DataType="vm:AccountSettings"
              mc:Ignorable="d"
              d:DesignWidth="1000"
              d:DesignHeight="600"
@@ -149,10 +151,21 @@
                 <StackPanel Margin="4,0,16,24" Spacing="0">
                     <StackPanel Orientation="Horizontal" Spacing="20" Margin="0,0,0,18">
                         <StackPanel VerticalAlignment="Center" Spacing="3">
-                            <TextBlock Text="Welcome [Insert String]!"
+                            <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Welcome"
                                        FontSize="22" FontWeight="Bold"/>
-                            <TextBlock Text="@username"
-                                       FontSize="13" Foreground="#666666"/>
+                            <TextBlock Text=" "
+                                       FontSize="22" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding State.UserAccount.FullName}"
+                                       FontSize="22" FontWeight="Bold"></TextBlock>
+                            <TextBlock Text="!"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="@"
+                                           FontSize="13" Foreground="#666666"/>
+                                <TextBlock Text="{Binding State.UserAccount.Username}"
+                                           FontSize="13" Foreground="#666666"/>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
 
@@ -160,110 +173,146 @@
                         <StackPanel Grid.Column="0" Spacing="0">
                             <TextBlock Text="First Name" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="First Name">
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" 
+                                         Text="{Binding EditableAccount.FirstName}" 
+                                         IsReadOnly="{Binding !EditableAccount.IsFirstNameEditing}">
                                 </TextBox>
-                                <Image Grid.Column="1"
-                                       Source="avares://HaveItMain/Assets/Edit.png"
-                                       Width="16" Height="16"
-                                       Margin="8,0,0,0"
-                                       VerticalAlignment="Center"
-                                       Cursor="Hand"/>
+                                <Button Grid.Column="1"  Classes="null_for_image"
+                                        Command="{Binding ToggleFirstNameEdit}">
+                                    <Image
+                                           Source="avares://HaveItMain/Assets/Edit.png"
+                                           Width="16" Height="16"
+                                           Margin="8,0,0,0"
+                                           VerticalAlignment="Center"
+                                           Cursor="Hand"/>
+                                </Button>
                             </Grid>
                             
                             <TextBlock Text="Last Name" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="Last Name">
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" 
+                                         Text="{Binding EditableAccount.LastName}"
+                                         IsReadOnly="{Binding !EditableAccount.IsLastNameEditing}">
                                 </TextBox>
-                                <Image Grid.Column="1"
-                                       Source="avares://HaveItMain/Assets/Edit.png"
-                                       Width="16" Height="16"
-                                       Margin="8,0,0,0"
-                                       VerticalAlignment="Center"
-                                       Cursor="Hand"/>
+                                <Button Grid.Column="1"  Classes="null_for_image"
+                                        Command="{Binding ToggleLastNameEdit}">
+                                    <Image
+                                        Source="avares://HaveItMain/Assets/Edit.png"
+                                        Width="16" Height="16"
+                                        Margin="8,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Cursor="Hand"/>
+                                </Button>
                             </Grid>
 
                             <TextBlock Text="Address" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="Address">
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" 
+                                         Text="{Binding EditableAccount.Address}"
+                                         IsReadOnly="{Binding !EditableAccount.IsAddressEditing}">
                                 </TextBox>
-                                <Image Grid.Column="1"
-                                       Source="avares://HaveItMain/Assets/Edit.png"
-                                       Width="16" Height="16"
-                                       Margin="8,0,0,0"
-                                       VerticalAlignment="Center"
-                                       Cursor="Hand"/>
+                                <Button Grid.Column="1"  Classes="null_for_image"
+                                        Command="{Binding ToggleAddressEdit}">
+                                    <Image
+                                        Source="avares://HaveItMain/Assets/Edit.png"
+                                        Width="16" Height="16"
+                                        Margin="8,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Cursor="Hand"/>
+                                </Button>
                             </Grid>
 
                             <TextBlock Text="Date of Birth" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="Date of Birth">
-                                </TextBox>
-                                <Image Grid.Column="1"
-                                       Source="avares://HaveItMain/Assets/Edit.png"
-                                       Width="16" Height="16"
-                                       Margin="8,0,0,0"
-                                       VerticalAlignment="Center"
-                                       Cursor="Hand"/>
+                                <DatePicker FontSize="{DynamicResource FontSizeNormal}" 
+                                            HorizontalAlignment="Stretch"
+                                            SelectedDate="{Binding EditableAccount.BirthDate}"
+                                            IsEnabled="{Binding !EditableAccount.IsBirthDateEditing}">
+                                </DatePicker>
+                                <Button Grid.Column="1"  Classes="null_for_image"
+                                        Command="{Binding ToggleBdayEdit}">
+                                    <Image
+                                        Source="avares://HaveItMain/Assets/Edit.png"
+                                        Width="16" Height="16"
+                                        Margin="8,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Cursor="Hand"/>
+                                </Button>
                             </Grid>
 
                             <TextBlock Text="Gender" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="Gender">
-                                </TextBox>
-                                <Image Grid.Column="1"
-                                       Source="avares://HaveItMain/Assets/Edit.png"
-                                       Width="16" Height="16"
-                                       Margin="8,0,0,0"
-                                       VerticalAlignment="Center"
-                                       Cursor="Hand"/>
+                                <ComboBox FontSize="{DynamicResource FontSizeNormal}" 
+                                          ItemsSource="{Binding GenderOptions}"
+                                          HorizontalAlignment="Stretch"
+                                          SelectedValue="{Binding EditableAccount.Gender}"
+                                          IsEnabled="{Binding !EditableAccount.IsFirstNameEditing}">
+                                </ComboBox>
+                                <Button Grid.Column="1"  Classes="null_for_image"
+                                        Command="{Binding ToggleGenderEdit}">
+                                    <Image
+                                        Source="avares://HaveItMain/Assets/Edit.png"
+                                        Width="16" Height="16"
+                                        Margin="8,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Cursor="Hand"/>
+                                </Button>
                             </Grid>
-
                         </StackPanel>
 
                         <Grid Grid.Column="2" Grid.RowDefinitions="*,200">
                             <StackPanel>
                             <TextBlock Text="Contact Number" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="Contact Number">
+                                <TextBox FontSize="{DynamicResource FontSizeNormal}" 
+                                         Text="{Binding EditableAccount.ContactNumber}"
+                                         IsReadOnly="{Binding !EditableAccount.IsContactNumberEditing}">
                                 </TextBox>
-                                <Image Grid.Column="1"
-                                       Source="avares://HaveItMain/Assets/Edit.png"
-                                       Width="16" Height="16"
-                                       Margin="8,0,0,0"
-                                       VerticalAlignment="Center"
-                                       Cursor="Hand"/>
+                                <Button Grid.Column="1"  Classes="null_for_image"
+                                        Command="{Binding ToggleContactEdit}">
+                                    <Image
+                                        Source="avares://HaveItMain/Assets/Edit.png"
+                                        Width="16" Height="16"
+                                        Margin="8,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Cursor="Hand"/>
+                                </Button>
                             </Grid>
 
                             <TextBlock Text="Password" Classes="field-label"/>
-                            <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="*********">
+                            <Grid ColumnDefinitions="*, Auto, Auto" Margin="0,0,0,14">
+                                <TextBox PasswordChar="{Binding PasswordChar}"
+                                         FontSize="{DynamicResource FontSizeNormal}" 
+                                         Text="{Binding EditableAccount.Password}"
+                                         IsReadOnly="{Binding !EditableAccount.IsPasswordEditing}">
                                 </TextBox>
-                                <Image Grid.Column="1"
-                                       Source="avares://HaveItMain/Assets/Edit.png"
-                                       Width="16" Height="16"
-                                       Margin="8,0,0,0"
-                                       VerticalAlignment="Center"
-                                       Cursor="Hand"/>
-                            </Grid>
-                            
-                            <TextBlock Text="Re-Enter Password" Classes="field-label"/>
-                            <Grid ColumnDefinitions="*, Auto" Margin="0,0,0,14">
-                                <TextBox FontSize="{DynamicResource FontSizeNormal}" Watermark="***********">
-                                </TextBox>
-                                <Image Grid.Column="1"
-                                       Source="avares://HaveItMain/Assets/Edit.png"
-                                       Width="16" Height="16"
-                                       Margin="8,0,0,0"
-                                       VerticalAlignment="Center"
-                                       Cursor="Hand"/>
+                                <Button Grid.Column="1"  Classes="null_for_image"
+                                        Command="{Binding TogglePasswordEdit}">
+                                    <Image Grid.Column="1"
+                                           Source="avares://HaveItMain/Assets/Edit.png"
+                                           Width="16" Height="16"
+                                           Margin="8,0,0,0"
+                                           VerticalAlignment="Center"
+                                           Cursor="Hand"/>
+                                </Button>
+                                <Button Grid.Column="2"  Classes="null_for_image"
+                                        Command="{Binding Reveal}">
+                                    <Image Grid.Column="2"
+                                           Source="avares://HaveItMain/Assets/Edit.png"
+                                           Width="16" Height="16"
+                                           Margin="8,0,0,0"
+                                           VerticalAlignment="Center"
+                                           ToolTip.Tip="Reveal Password"
+                                           Cursor="Hand"/>
+                                </Button>
                             </Grid>
                             </StackPanel>
 
                             <StackPanel Grid.Row="1" Orientation="Horizontal"
                                         HorizontalAlignment="Right"
                                         Spacing="10">
-                                <Button Content="Save Changes" Classes="Primary"/>
-                                <Button Content="Cancel"       Classes="Universal_Button"/>
+                                <Button Content="Save Changes" Command="{Binding SaveChanges}" Classes="Primary"/>
+                                <Button Content="Cancel"   Command="{Binding CancelChanges}"     Classes="Universal_Button"/>
                             </StackPanel>
                         </Grid>
                     </Grid>
@@ -318,12 +367,14 @@
                                    Margin="0,0,0,10"/>
                         <CheckBox Grid.Row="0" Grid.Column="1"
                                   Classes="yellow-check"
+                                  IsChecked="{Binding State.TermsAndConditions, Mode=TwoWay}"
                                   Margin="0,0,0,10"/>
 
                         <TextBlock Grid.Row="1" Grid.Column="0"
                                    Text="Storage Access"
                                    VerticalAlignment="Center"/>
                         <CheckBox Grid.Row="1" Grid.Column="1"
+                                  IsChecked="True"
                                   Classes="yellow-check"/>
                     </Grid>
 

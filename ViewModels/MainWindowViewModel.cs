@@ -37,14 +37,17 @@ namespace HaveItMain.ViewModels
                 "Your productivity journey starts now."
             );
             
+            var accountPersistence = new AccountPersistenceService();
+            
+            var loadedAccount = accountPersistence.Load();
+            State.UserAccount = loadedAccount;
+            
             _streakPersistence = new StreakPersistenceService();
             _taskPersistence = new PersistenceService();
             _streakService = new StreakService(); 
             
-// 1. LOAD THE DATA FIRST (In silence)
             _taskPersistence.Load(State);
-
-            // 2. THE PURGE (Remove old tasks before the UI/Service even knows they exist)
+            
             var tasksToRemove = State.Tasks
                 .Where(t => t.IsFinished && t.CompletedDate.HasValue && t.CompletedDate < DateTime.Today)
                 .ToList();
@@ -53,20 +56,17 @@ namespace HaveItMain.ViewModels
             {
                 State.Tasks.Remove(task);
             }
-    
-            // Save the "Clean" list immediately
+            
             _taskPersistence.Save(State);
-
-            // 3. LOAD THE STREAK
+            
             State.CurrentStreak = _streakPersistence.Load();
             if (State.CurrentStreak != null)
             {
                 State.CurrentStreak.NotificationService = State.NotificationService;
-                State.CurrentStreak.Evaluate(); // This checks if today's slot is empty
+                State.CurrentStreak.Evaluate();
             }
             State.StreakStarted = State.CurrentStreak != null;
 
-            // 4. NOW HOOK THE COLLECTION (Only now do we start listening for NEW clicks)
             HookTaskCollection();
             
             IObservable<ViewModelBase> obs = this.WhenAnyValue(x => x.CurrentViewModel);
@@ -151,7 +151,7 @@ namespace HaveItMain.ViewModels
 
         public void ShowDashboard() => CurrentViewModel = new Dashboard(State);
         // public void ShowTimer() => CurrentViewModel = new Timer();
-        public void ShowSettings() => CurrentViewModel = new Settings();
+        public void ShowSettings() => CurrentViewModel = new Settings(State);
         public void ShowAccount() => CurrentViewModel = new AccountSettings(State);
     }
 }

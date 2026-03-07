@@ -66,7 +66,7 @@ public partial class MainWindow : Window
     {
         if (DataContext is MainWindowViewModel vm)
         {
-            vm.CurrentViewModel = new Settings();
+            vm.CurrentViewModel = new Settings(vm.State);
         }
     }
 
