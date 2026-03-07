@@ -18,6 +18,15 @@ public partial class AccountSettings : ViewModelBase, IHasTitle
     private readonly AccountPersistenceService _accountPersistence;
     public string[] GenderOptions { get; } = { "Male", "Female", "Other", "Prefer not to say" };
 
+    public bool IsAnyFieldEditing => EditableAccount != null && (
+        EditableAccount.IsFirstNameEditing || 
+        EditableAccount.IsLastNameEditing || 
+        EditableAccount.IsAddressEditing || 
+        EditableAccount.IsBirthDateEditing || 
+        EditableAccount.IsGenderEditing || 
+        EditableAccount.IsContactNumberEditing || 
+        EditableAccount.IsPasswordEditing);
+
 // Property to toggle the password character
     private char _passwordChar = '*';
     public char PasswordChar
@@ -130,11 +139,15 @@ public partial class AccountSettings : ViewModelBase, IHasTitle
         EditableAccount.IsContactNumberEditing = false;
         EditableAccount.IsAddressEditing = false;
         EditableAccount.IsPasswordEditing = false;
+
+        // Tell the UI that the buttons should now hide
+        this.RaisePropertyChanged(nameof(IsAnyFieldEditing));
     }
     [RelayCommand]
     public void ToggleFirstNameEdit()
     {
         EditableAccount.IsFirstNameEditing = !EditableAccount.IsFirstNameEditing;
+        this.RaisePropertyChanged(nameof(IsAnyFieldEditing));
         if (EditableAccount.IsFirstNameEditing) NotificationService.Show("Field is now editable");
     }
 
@@ -142,6 +155,7 @@ public partial class AccountSettings : ViewModelBase, IHasTitle
     public void ToggleLastNameEdit()
     {
         EditableAccount.IsLastNameEditing = !EditableAccount.IsLastNameEditing;
+        this.RaisePropertyChanged(nameof(IsAnyFieldEditing));
         if (EditableAccount.IsLastNameEditing) NotificationService.Show("Field is now editable");
     }
 
@@ -149,6 +163,7 @@ public partial class AccountSettings : ViewModelBase, IHasTitle
     public void ToggleBdayEdit()
     {
         EditableAccount.IsBirthDateEditing = !EditableAccount.IsBirthDateEditing;
+        this.RaisePropertyChanged(nameof(IsAnyFieldEditing));
         if (EditableAccount.IsBirthDateEditing) NotificationService.Show("Field is now editable");
     }
 
@@ -156,6 +171,7 @@ public partial class AccountSettings : ViewModelBase, IHasTitle
     public void ToggleGenderEdit()
     {
         EditableAccount.IsGenderEditing = !EditableAccount.IsGenderEditing;
+        this.RaisePropertyChanged(nameof(IsAnyFieldEditing));
         if (EditableAccount.IsGenderEditing) NotificationService.Show("Field is now editable");
     }
 
@@ -163,6 +179,7 @@ public partial class AccountSettings : ViewModelBase, IHasTitle
     public void ToggleContactEdit()
     {
         EditableAccount.IsContactNumberEditing = !EditableAccount.IsContactNumberEditing;
+        this.RaisePropertyChanged(nameof(IsAnyFieldEditing));
         if (EditableAccount.IsContactNumberEditing) NotificationService.Show("Field is now editable");
     }
 
@@ -170,6 +187,7 @@ public partial class AccountSettings : ViewModelBase, IHasTitle
     public void ToggleAddressEdit()
     {
         EditableAccount.IsAddressEditing = !EditableAccount.IsAddressEditing;
+        this.RaisePropertyChanged(nameof(IsAnyFieldEditing));
         if (EditableAccount.IsAddressEditing) NotificationService.Show("Field is now editable");
     }
 
@@ -177,6 +195,7 @@ public partial class AccountSettings : ViewModelBase, IHasTitle
     public void TogglePasswordEdit()
     {
         EditableAccount.IsPasswordEditing = !EditableAccount.IsPasswordEditing;
+        this.RaisePropertyChanged(nameof(IsAnyFieldEditing));
         if (EditableAccount.IsPasswordEditing) NotificationService.Show("Field is now editable");
     }
 

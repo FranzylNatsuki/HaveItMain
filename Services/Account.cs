@@ -21,6 +21,7 @@ public partial class Account : ObservableObject
     [ObservableProperty] private bool _isGenderEditing;
     [ObservableProperty] private bool _isContactNumberEditing;
     [ObservableProperty] private bool _isPasswordEditing;
+    
 
     private DateTimeOffset? _birthDate = DateTimeOffset.Now.Date;
 

@@ -246,7 +246,7 @@
                                           ItemsSource="{Binding GenderOptions}"
                                           HorizontalAlignment="Stretch"
                                           SelectedValue="{Binding EditableAccount.Gender}"
-                                          IsEnabled="{Binding !EditableAccount.IsFirstNameEditing}">
+                                          IsEnabled="{Binding EditableAccount.IsFirstNameEditing}">
                                 </ComboBox>
                                 <Button Grid.Column="1"  Classes="null_for_image"
                                         Command="{Binding ToggleGenderEdit}">
@@ -323,6 +323,7 @@
                             </StackPanel>
 
                             <StackPanel Grid.Row="1" Orientation="Horizontal"
+                                        IsVisible="{Binding IsAnyFieldEditing}"
                                         HorizontalAlignment="Right"
                                         Spacing="10">
                                 <Button Content="Save Changes" Command="{Binding SaveChanges}" Classes="Primary"/>
@@ -336,13 +337,13 @@
                           HorizontalScrollBarVisibility="Disabled"
                           VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="4,0,16,24" Spacing="0">
-                    <TextBlock Text="Data We Collect"/>
+                    <TextBlock Text="Data We Collect"  FontWeight="UltraBold"/>
                     <StackPanel Spacing="3" Margin="10,0,0,16">
                         <TextBlock Text="• Habits and progress data"/>
                         <TextBlock Text="• Optional profile info (name, email)"/>
                         <TextBlock Text="• Device info (for syncing/bug fixes)"/>
                     </StackPanel>
-                    <TextBlock Text="User Data Control"/>
+                    <TextBlock Text="User Data Control"  FontWeight="UltraBold"/>
                     <Grid ColumnDefinitions="220, Auto"
                           RowDefinitions="Auto, Auto, Auto"
                           Margin="0,0,0,20">
@@ -374,7 +375,7 @@
                                 Classes="btn-delete"/>
                     </Grid>
 
-                    <TextBlock Text="System Permissions"/>
+                    <TextBlock Text="System Permissions"  FontWeight="UltraBold" Margin="0,0,0,20"/>
                     <Grid ColumnDefinitions="220, Auto"
                           RowDefinitions="Auto, Auto">
                         <TextBlock Grid.Row="0" Grid.Column="0"
@@ -470,7 +471,7 @@
                     <TextBlock Classes="faq-a"
                                Text="Timers track how long you spend on a task. Start the timer when you begin and it will automatically log the task as completed in the tracker."/>
 
-                    <TextBlock Text="Why didn't I receive a reminder?" Classes="faq-q"/>
+                    <TextBlock Text="Why didn't I receive a reminder?"  Classes="faq-q"/>
                     <TextBlock Classes="faq-a"
                                Text="Make sure notifications are enabled in both the app settings and your device settings."/>
 
