@@ -20,13 +20,19 @@ public partial class App : Application
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             ServiceState.NotificationService = new WindowsNotificationService();
-            
+            var sessionService = new SessionService();
+            var session = sessionService.LoadSession();
+
             var viewModel = new MainWindowViewModel(ServiceState);
 
-            desktop.MainWindow = new Landing
+            if (session.IsSignedIn)
             {
-                DataContext = viewModel
-            };
+                desktop.MainWindow = new MainWindow { DataContext = viewModel };
+            }
+            else
+            {
+                desktop.MainWindow = new Landing { DataContext = viewModel };
+            }
         }
         base.OnFrameworkInitializationCompleted();
     }

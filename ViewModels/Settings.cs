@@ -18,11 +18,4 @@ public class Settings : ViewModelBase, IHasTitle
         _state = state;
         _accountPersistence = new AccountPersistenceService();
     }
-
-    // Call this whenever a checkbox is clicked to make it permanent
-    public void SaveSystemSettings()
-    {
-        // This saves the current State.UserAccount (including the new booleans)
-        _accountPersistence.Save(_state.UserAccount);
-    }
 }

@@ -18,8 +18,10 @@
         <entry key="Views/DemoVideo.axaml" value="HaveItMain.csproj" />
         <entry key="Views/FocusMode.axaml" value="HaveItMain.csproj" />
         <entry key="Views/Landing.axaml" value="HaveItMain.csproj" />
+        <entry key="Views/LogIn.axaml" value="HaveItMain.csproj" />
         <entry key="Views/MainWindow.axaml" value="HaveItMain.csproj" />
         <entry key="Views/Settings.axaml" value="HaveItMain.csproj" />
+        <entry key="Views/SignUp.axaml" value="HaveItMain.csproj" />
         <entry key="Views/SimpleMessageDialogue.axaml" value="HaveItMain.csproj" />
         <entry key="Views/Streak.axaml" value="HaveItMain.csproj" />
         <entry key="Views/TASK LIST.axaml" value="HaveItMain.csproj" />

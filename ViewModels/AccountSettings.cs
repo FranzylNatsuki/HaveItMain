@@ -1,4 +1,8 @@
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text.Json;
 using HaveItMain.Services;
 using ReactiveUI;
 
@@ -79,9 +83,10 @@ public class AccountSettings : ViewModelBase, IHasTitle
         };
     }
     
-    public void SaveChanges()
+    
+    public void SaveChanges(List<Account> accounts) // Change the parameter to List<Account>
     {
-// 1. PUSH changes from Sandbox to the real State
+// 1. Sync sandbox to real state
         _state.UserAccount.FirstName = EditableAccount.FirstName;
         _state.UserAccount.LastName = EditableAccount.LastName;
         _state.UserAccount.Address = EditableAccount.Address;
@@ -90,11 +95,12 @@ public class AccountSettings : ViewModelBase, IHasTitle
         _state.UserAccount.ContactNumber = EditableAccount.ContactNumber;
         _state.UserAccount.Password = EditableAccount.Password;
 
-        // 2. Lock everything
+        // 2. Lock the UI
         DisableAllEditing();
 
-        // 3. Save the real state to the JSON file
-        _accountPersistence.Save(_state.UserAccount);
+        // 3. Save the WHOLE list. 
+        // Now that the Service expects a List, this line won't error!
+        _accountPersistence.Save(_state.AllAccounts.ToList());
     }
     
     public void CancelChanges()

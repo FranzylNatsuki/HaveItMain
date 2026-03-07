@@ -1,0 +1,98 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="740"
+        Height="850"
+        x:Class="HaveItMain.Views.SignUp"
+        Title="Sign Up"
+        WindowStartupLocation="CenterScreen"
+        Icon="avares://HaveItMain/Assets/Icon-ForDocker.png">
+    <Grid RowDefinitions="Auto, *, Auto" Margin="40">
+        <TextBlock Grid.Row="0" Text="Create Account" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, Auto, Auto, Auto, Auto" Margin="0,10">
+                
+                <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,15">
+                    <TextBlock Text="Username" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="TxtUser" Watermark="e.g. John_Doe"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,10,15">
+                    <TextBlock Text="First Name" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="TxtFirst" Watermark="First Name"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="1" Margin="10,0,0,15">
+                    <TextBlock Text="Last Name" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="TxtLast" Watermark="Last Name"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Grid.Column="0" Margin="0,0,10,15">
+                    <TextBlock Text="Address" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="TxtAddress" Watermark="Street, City, Province"/>
+                </StackPanel>
+                
+                <StackPanel Grid.Row="2" Grid.Column="1" Margin="10,0,0,15">
+                    <TextBlock Text="Birthday" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <DatePicker x:Name="DateBirth" 
+                                HorizontalAlignment="Stretch"
+                                /> 
+                </StackPanel>
+                
+                <StackPanel Grid.Row="3" Grid.Column="0" Margin="0,0,10,15">
+                    <TextBlock Text="Gender" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <ComboBox x:Name="ComboGender" HorizontalAlignment="Stretch">
+                        <ComboBoxItem Content="Male"/>
+                        <ComboBoxItem Content="Female"/>
+                        <ComboBoxItem Content="Other"/>
+                        <ComboBoxItem Content="Prefer not to say"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Grid.Column="1" Margin="10,0,0,15">
+                    <TextBlock Text="Contact Number" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="TxtContact" Watermark="0912..."/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Margin="0,0,0,15">
+                    <TextBlock Text="Password" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <TextBox Grid.Column="0" x:Name="TxtPass" PasswordChar="*" Watermark="Create a strong password"/>
+                        <Button Grid.Column="1"  Classes="null_for_image"
+                                Click="Reveal">
+                            <Grid>
+                                <Image
+                                    x:Name="eyeopen"
+                                    Source="avares://HaveItMain/Assets/EyeOpen.png"
+                                    Width="16" Height="16"
+                                    Margin="8,0,0,0"
+                                    VerticalAlignment="Center"
+                                    IsVisible="False"
+                                    ToolTip.Tip="Reveal Password"
+                                    Cursor="Hand"/>
+                                <Image
+                                    x:Name="eyeclosed"
+                                    Source="avares://HaveItMain/Assets/EyeClosed.png"
+                                    Width="16" Height="16"
+                                    Margin="8,0,0,0"
+                                    IsVisible="True"
+                                    VerticalAlignment="Center"
+                                    ToolTip.Tip="Reveal Password"
+                                    Cursor="Hand"/>
+                            </Grid>
+                            </Button>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="2" Spacing="10" Margin="0,20,0,0">
+            <TextBlock x:Name="ErrorLabel" Foreground="Red" HorizontalAlignment="Center" IsVisible="False"/>
+            <Button Content="Register" Click="Register_Click" Classes="Primary" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+            <Button Content="Back" Click="Back_Click" Classes="Universal_Button" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>

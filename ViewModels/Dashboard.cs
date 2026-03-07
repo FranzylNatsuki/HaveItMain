@@ -112,18 +112,17 @@ public class Dashboard : ViewModelBase, IHasTitle
         _lastDeletedTask = null;
         _lastDeletedIndex = -1;
     }
-// Now update these methods to use the service!
-    public void StartNewStreak() 
+// Inside DashboardViewModel.cs
+    public void StartNewStreak()
     {
-        _streakService.StartNewStreak(_state, 7);
-        // Save the change
-        new StreakPersistenceService().Save(_state.CurrentStreak);
+        // Use the AppState you already have to start the streak
+        var streakLogic = new Streak(_state); 
+        streakLogic.StartNewStreak();
     }
 
-    public void StartNewStreakFourteen() 
+    public void StartNewStreakFourteen()
     {
-        _streakService.StartNewStreak(_state, 14);
-        // Save the change
-        new StreakPersistenceService().Save(_state.CurrentStreak);
+        var streakLogic = new Streak(_state);
+        streakLogic.StartNewStreakFourteen();
     }
 }

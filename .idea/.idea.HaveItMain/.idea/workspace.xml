@@ -8,8 +8,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/EyeClosed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/EyeOpen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/SessionData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/LogIn.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/LogIn.axaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/SignUp.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/SignUp.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/AccountPersistence.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/AccountPersistence.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/AppState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/AppState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/AccountSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/AccountSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/Dashboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Dashboard.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ViewModels/MainWindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MainWindowViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Settings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Landing.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Landing.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Landing.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Landing.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" afterDir="false" />
     </list>
@@ -50,6 +69,7 @@
     <setting file="file://$PROJECT_DIR$/Services/AppState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/PersistenceService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/STREAK.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/SessionData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/StreakDay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/StreakPersistence.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/StreakService.cs" root0="FORCE_HIGHLIGHTING" />
@@ -81,10 +101,14 @@
     <setting file="file://$PROJECT_DIR$/Views/FocusMode.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Landing.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Landing.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/LogIn.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/LogIn.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/MainWindow.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/MainWindow.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Settings.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Settings.axaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/SignUp.axaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/SignUp.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/Streak.axaml" root0="FORCE_HIGHLIGHTING" />
@@ -199,7 +223,7 @@
       <workItem from="1772797299478" duration="90000" />
       <workItem from="1772797639622" duration="1406000" />
       <workItem from="1772799497622" duration="1165000" />
-      <workItem from="1772845008812" duration="9292000" />
+      <workItem from="1772845008812" duration="18840000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -417,7 +441,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772852601322</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Search Works">
+      <option name="closed" value="true" />
+      <created>1772854335570</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1772854335570</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,7 +470,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="daads" />
     <MESSAGE value="DESIGN for DASHBOARD" />
     <MESSAGE value="GOOD WORK" />
     <MESSAGE value="Added Working Task System with DELETING" />
@@ -463,7 +494,8 @@
     <MESSAGE value="adad" />
     <MESSAGE value="lgtm" />
     <MESSAGE value="Account Editing Works Now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Account Editing Works Now" />
+    <MESSAGE value="Search Works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Search Works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

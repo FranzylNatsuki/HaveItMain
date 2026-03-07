@@ -44,6 +44,7 @@
                         Spacing="30">
 
                 <Button Classes="Primary" Click="Login">Log In</Button>
+                <Button Classes="Secondary" Click="SignUp">Sign Up</Button>
                 <Button Classes="Universal_Button" Click="DemoVideo">See Demo</Button>
             </StackPanel>
 

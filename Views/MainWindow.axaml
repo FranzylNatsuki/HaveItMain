@@ -171,9 +171,9 @@
                                 <Button.ContextFlyout>
                                     <MenuFlyout>
                                         <MenuItem Header="Account Settings" PointerPressed="AccountSettings_Click"/>
-                                        <MenuItem Header="Log Out"/>
-                                        <MenuItem Header="Export"/>
-                                        <MenuItem Header="Import"/>
+                                        <MenuItem Header="Log Out" Click="SignOut_Click"/>
+                                        <MenuItem Header="Export" Click="Export_Click"/>
+                                        <MenuItem Header="Import" Click="Import_Click"/>
                                         <MenuItem Header="Demo Video" Click="Demo_VideoClick"/>
                                         <MenuItem Header="About" Click="Landing"/>
                                     </MenuFlyout>

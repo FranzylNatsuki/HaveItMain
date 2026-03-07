@@ -45,13 +45,19 @@ namespace HaveItMain.ViewModels
             );
             
             var accountPersistence = new AccountPersistenceService();
+            var allAccountsList = accountPersistence.Load();
             
             var loadedAccount = accountPersistence.Load();
-            State.UserAccount = loadedAccount;
+            State.AllAccounts = new System.Collections.ObjectModel.ObservableCollection<Account>(allAccountsList);
             
             _streakPersistence = new StreakPersistenceService();
             _taskPersistence = new PersistenceService();
             _streakService = new StreakService(); 
+            
+            if (State.UserAccount == null || string.IsNullOrEmpty(State.UserAccount.Username))
+            {
+                State.UserAccount = allAccountsList.FirstOrDefault() ?? new Account { Username = "Guest" };
+            }
             
             _taskPersistence.Load(State);
             

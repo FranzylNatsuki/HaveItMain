@@ -1,0 +1,58 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="450"
+        Width="430"
+        Height="600"
+        x:Class="HaveItMain.Views.Login"
+        WindowStartupLocation="CenterScreen"
+        Title="Log In"
+        Icon="avares://HaveItMain/Assets/Icon-ForDocker.png">
+        <Grid RowDefinitions="Auto, *, Auto" Margin="40" VerticalAlignment="Center">
+                <TextBlock Grid.Row="0" Text="Log In" FontSize="{DynamicResource FontSizeLarge}" FontWeight="Bold" HorizontalAlignment="Center"/>
+        
+                <StackPanel Grid.Row="1" VerticalAlignment="Center" Margin="0,80,0,50" Spacing="20">
+                        <StackPanel>
+                                <TextBlock Text="Username" Margin="0,0,0,5"/>
+                                <TextBox x:Name="TxtUser" Watermark="Enter username..."/>
+                        </StackPanel>
+                        
+                        <StackPanel>
+                                <TextBlock Text="Password" Margin="0,0,0,5"/>
+                                <Grid ColumnDefinitions="*, Auto" HorizontalAlignment="Stretch">
+                                        <TextBox x:Name="TxtPass" HorizontalAlignment="Stretch" PasswordChar="*" Watermark="Enter password..."/>
+                                        <Button Grid.Column="1"  Classes="null_for_image"
+                                                Click="Reveal">
+                                                <Grid>
+                                                        <Image
+                                                                x:Name="eyeopen"
+                                                                Source="avares://HaveItMain/Assets/EyeOpen.png"
+                                                                Width="16" Height="16"
+                                                                Margin="8,0,0,0"
+                                                                VerticalAlignment="Center"
+                                                                IsVisible="False"
+                                                                ToolTip.Tip="Reveal Password"
+                                                                Cursor="Hand"/>
+                                                        <Image
+                                                                x:Name="eyeclosed"
+                                                                Source="avares://HaveItMain/Assets/EyeClosed.png"
+                                                                IsVisible="True"
+                                                                Width="16" Height="16"
+                                                                Margin="8,0,0,0"
+                                                                VerticalAlignment="Center"
+                                                                ToolTip.Tip="Reveal Password"
+                                                                Cursor="Hand"/>
+                                                </Grid>
+                                        </Button>
+                                </Grid>
+                        </StackPanel>
+                        <TextBlock x:Name="ErrorMessage" Foreground="Red" IsVisible="False" HorizontalAlignment="Center"/>
+                </StackPanel>
+                
+                <StackPanel Grid.Row="2" Spacing="20">
+                        <Button Content="Login" Click="Login_Click" Classes="Primary" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                        <Button Content="Back to Landing" Click="Back_Click" Classes="Universal_Button" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+        </Grid>
+</Window>

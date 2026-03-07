@@ -23,6 +23,8 @@ public partial class DashboardView : UserControl
         InitializeComponent();
     }
     
+    
+    
     private Dashboard ViewModel => DataContext as Dashboard;
 
     private async void InputElement_OnPointerPressed(object? sender, PointerPressedEventArgs e)

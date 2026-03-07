@@ -15,23 +15,21 @@ public partial class Landing : Window
 
     private void Login(object? sender, RoutedEventArgs e)
     {
-        var currentViewModel = this.DataContext;
-
-        // 2. Create the new window
-        var mainWindow = new MainWindow
-        {
-            DataContext = currentViewModel // <--- THIS IS THE KEY
-        };
-
-        // 3. Show the new window and close the landing
-        mainWindow.Show();
+        var loginWin = new Login();
+        loginWin.Show();
         this.Close();
     }
-
-
+    
     private void DemoVideo(object? sender, RoutedEventArgs e)
     {
         var videoWindow = new Video();
         videoWindow.Show();
+    }
+
+    private void SignUp(object? sender, RoutedEventArgs e)
+    {
+        var signupWin = new SignUp();
+        signupWin.Show();
+        this.Close();
     }
 }

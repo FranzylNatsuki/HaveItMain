@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Threading.Tasks;
 using HaveItMain.ViewModels;
 using ReactiveUI;
 
@@ -8,7 +11,8 @@ namespace HaveItMain.Services;
 public class AppState : ReactiveObject
 {
     private bool _streakStarted = false;
-    public Account account_session;
+    
+    public ObservableCollection<Account> AllAccounts { get; set; } = new();
     
     public bool StreakStarted
     {
@@ -65,11 +69,64 @@ public class AppState : ReactiveObject
         get => _volume;
         set => this.RaiseAndSetIfChanged(ref _volume, value);
     }
-
     
-
-    // Constructor (Empty for now is fine!)
     public AppState()
     {
+        LoadAccounts();
+    }
+    
+    public void LoadAccounts()
+    {
+        if (System.IO.File.Exists("accounts.json"))
+        {
+            try
+            {
+                string json = System.IO.File.ReadAllText("accounts.json");
+                var loadedAccounts = System.Text.Json.JsonSerializer.Deserialize<List<Account>>(json);
+                if (loadedAccounts != null)
+                {
+                    AllAccounts = new ObservableCollection<Account>(loadedAccounts);
+                }
+            }
+            catch { /* Handle corrupted JSON if needed */ }
+        }
+    }
+    
+    public async Task ExportTasks(string destinationPath)
+    {
+        try
+        {
+            // Just copy the existing file to the user's chosen location
+            if (File.Exists("tasks.json"))
+            {
+                File.Copy("tasks.json", destinationPath, true);
+                NotificationService?.ShowNotification("Export Success", "Backup created!");
+            }
+        }
+        catch (Exception ex) { /* handle error */ }
+    }
+
+    public async Task ImportTasks(string sourcePath)
+    {
+        try
+        {
+            string destinationPath = "tasks.json";
+    
+            // 1. Copy the imported file over the current one
+            File.Copy(sourcePath, destinationPath, true);
+
+            // 2. Use YOUR existing Load method
+            // It already clears this.Tasks and adds the new ones!
+            var persistence = new PersistenceService(); 
+        
+            // Pass 'this' (the AppState) into the method
+            persistence.Load(this); 
+
+            NotificationService?.ShowNotification("Import Success", "Tasks updated!");
+        }
+        catch (Exception ex) 
+        { 
+            System.Diagnostics.Debug.WriteLine($"Import failed: {ex.Message}");
+        }
     }
 }

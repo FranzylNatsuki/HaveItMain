@@ -1,7 +1,10 @@
 using System;
+using System.Collections.Generic;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using Avalonia.Platform.Storage;
+using HaveItMain.Services;
 using HaveItMain.ViewModels;
 
 namespace HaveItMain.Views;
@@ -254,5 +257,74 @@ public partial class MainWindow : Window
 
         // Force focus to the Grid, which pulls it out of the AutoCompleteBox
         Windowgrid.Focus();
+    }
+    
+    private void SignOut_Click(object? sender, RoutedEventArgs e)
+    {
+        // 1. Wipe the persistent session file
+        var sessionService = new SessionService();
+        sessionService.ClearSession();
+
+        // 2. Reset the AppState (HCI: ensures no data leaks to the next user)
+        App.ServiceState.IsLoggedIn = false;
+        // Optional: Reset other things like App.ServiceState.Tasks.Clear();
+
+        // 3. Open the Landing Window
+        var landing = new Landing
+        {
+            // Re-pass the ServiceState so the new login can access the account list
+            DataContext = new MainWindowViewModel(App.ServiceState)
+        };
+        landing.Show();
+
+        // 4. Close the current Main Window
+        this.Close();
+    }
+    
+    private async void Export_Click(object? sender, RoutedEventArgs e)
+    {
+        // 1. Open the "Save As" Dialog
+        var storage = this.StorageProvider;
+        var file = await storage.SaveFilePickerAsync(new FilePickerSaveOptions
+        {
+            Title = "Export Your Tasks",
+            SuggestedFileName = "my_tasks.json",
+            DefaultExtension = "json",
+            FileTypeChoices = new[] { new FilePickerFileType("JSON Files") { Patterns = new[] { "*.json" } } }
+        });
+
+        // 2. If they didn't cancel, tell AppState to copy the file there
+        if (file != null)
+        {
+            await App.ServiceState.ExportTasks(file.Path.LocalPath);
+        }
+    }
+
+    private async void Import_Click(object? sender, RoutedEventArgs e)
+    {
+        var storage = TopLevel.GetTopLevel(this)?.StorageProvider;
+        if (storage == null) return;
+
+        // 1. Create the filter for JSON
+        var jsonFilter = new FilePickerFileType("JSON Files")
+        {
+            Patterns = new[] { "*.json" }
+        };
+
+        // 2. Configure the picker - AllowMultiple is False by default
+        var result = await storage.OpenFilePickerAsync(new FilePickerOpenOptions
+        {
+            Title = "Select tasks.json to Import",
+            AllowMultiple = false, 
+            FileTypeFilter= new List<FilePickerFileType> { jsonFilter }
+        });
+
+        // 3. Only grab the first one (Index 0)
+        if (result != null && result.Count > 0)
+        {
+            // Path.LocalPath is the cleanest way to get the string for File.Copy
+            string selectedFilePath = result[0].Path.LocalPath;
+            await App.ServiceState.ImportTasks(selectedFilePath);
+        }
     }
 }

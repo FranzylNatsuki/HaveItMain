@@ -1,50 +1,36 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 
 namespace HaveItMain.Services;
 
 public class AccountPersistenceService
 {
-    private const string FileName = "account.json";
+    private const string FileName = "accounts.json";
     private static readonly JsonSerializerOptions Options = new() { WriteIndented = true };
 
-    public Account Load()
+// This loads the WHOLE list, but returns the one that is currently "Signed In"
+    public List<Account> Load() // Change return type to List<Account>
     {
-        // 1. Check if the file exists
-        if (!File.Exists(FileName))
-        {
-            // 2. Create a default "Starter" account
-            var defaultAccount = new Account 
-            { 
-                Username = "NewUser", 
-                FirstName = "Guest", 
-                LastName = "User",
-                IsSignedIn = false 
-            };
-            
-            // 3. Save it immediately so the file exists for next time
-            Save(defaultAccount);
-            return defaultAccount;
-        }
+        if (!File.Exists(FileName)) return new List<Account>();
 
         try
         {
             var json = File.ReadAllText(FileName);
-            return JsonSerializer.Deserialize<Account>(json, Options) ?? new Account();
+            return JsonSerializer.Deserialize<List<Account>>(json, Options) ?? new List<Account>();
         }
-        catch (Exception ex)
+        catch 
         {
-            System.Diagnostics.Debug.WriteLine($"Load failed: {ex.Message}");
-            return new Account { Username = "Guest" };
+            return new List<Account>(); 
         }
     }
-
-    public void Save(Account account)
+    public void Save(List<Account> accounts) // Changed from 'Account' to 'List<Account>'
     {
         try
         {
-            var json = JsonSerializer.Serialize(account, Options);
+            var json = JsonSerializer.Serialize(accounts, Options);
             File.WriteAllText(FileName, json);
         }
         catch (Exception ex)
