@@ -281,7 +281,8 @@
 
                             <TextBlock Text="Password" Classes="field-label"/>
                             <Grid ColumnDefinitions="*, Auto, Auto" Margin="0,0,0,14">
-                                <TextBox PasswordChar="{Binding PasswordChar}"
+                                <TextBox x:Name="TxtPass"
+                                    PasswordChar="{Binding PasswordChar}"
                                          FontSize="{DynamicResource FontSizeNormal}" 
                                          Text="{Binding EditableAccount.Password}"
                                          IsReadOnly="{Binding !EditableAccount.IsPasswordEditing}">
@@ -296,14 +297,27 @@
                                            Cursor="Hand"/>
                                 </Button>
                                 <Button Grid.Column="2"  Classes="null_for_image"
-                                        Command="{Binding Reveal}">
+                                        Click="Reveal">
+                                    <Grid>
                                     <Image Grid.Column="2"
-                                           Source="avares://HaveItMain/Assets/Edit.png"
+                                           x:Name="eyeclosed"
+                                           Source="avares://HaveItMain/Assets/EyeClosed.png"
                                            Width="16" Height="16"
                                            Margin="8,0,0,0"
                                            VerticalAlignment="Center"
                                            ToolTip.Tip="Reveal Password"
-                                           Cursor="Hand"/>
+                                           Cursor="Hand"
+                                           IsVisible="True"/>
+                                    <Image Grid.Column="2"
+                                           x:Name="eyeopen"
+                                           Source="avares://HaveItMain/Assets/EyeOpen.png"
+                                           Width="16" Height="16"
+                                           Margin="8,0,0,0"
+                                           VerticalAlignment="Center"
+                                           ToolTip.Tip="Reveal Password"
+                                           Cursor="Hand"
+                                           IsVisible="False"/>
+                                    </Grid>
                                 </Button>
                             </Grid>
                             </StackPanel>

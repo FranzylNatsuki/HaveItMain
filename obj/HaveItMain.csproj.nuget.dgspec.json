@@ -130,7 +130,19 @@
               "version": "[8.0.22, 8.0.22]"
             },
             {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-arm64",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-arm64",
               "version": "[8.0.22, 8.0.22]"
             },
             {
@@ -138,11 +150,23 @@
               "version": "[8.0.22, 8.0.22]"
             },
             {
+              "name": "Microsoft.NETCore.App.Host.win-x86",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
               "name": "Microsoft.NETCore.App.Ref",
               "version": "[8.0.22, 8.0.22]"
             },
             {
+              "name": "Microsoft.NETCore.App.Runtime.win-arm64",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
               "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x86",
               "version": "[8.0.22, 8.0.22]"
             },
             {
@@ -154,7 +178,15 @@
               "version": "[8.0.22, 8.0.22]"
             },
             {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-arm64",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
               "version": "[8.0.22, 8.0.22]"
             }
           ],
@@ -170,7 +202,13 @@
         }
       },
       "runtimes": {
+        "win-arm64": {
+          "#import": []
+        },
         "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
           "#import": []
         }
       }

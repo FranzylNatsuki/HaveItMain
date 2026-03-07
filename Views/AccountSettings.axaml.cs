@@ -35,10 +35,6 @@ public partial class AccountSettingsView : UserControl
             await dialog.ShowDialog(parentWindow);
         }
     }
-
-    private void Reveal(object? sender, RoutedEventArgs e)
-    {
-    }
     
     private async void Export_Click(object? sender, RoutedEventArgs e)
     {
@@ -84,6 +80,28 @@ public partial class AccountSettingsView : UserControl
         if (result != null && result.Count > 0)
         {
             await App.ServiceState.ImportTasks(result[0].Path.LocalPath);
+        }
+    }
+
+    private void Reveal(object? sender, RoutedEventArgs e)
+    {
+        if (TxtPass.PasswordChar == '*')
+        {
+            // Show the password
+            TxtPass.PasswordChar = '\0'; 
+        
+            // Update UI Icons
+            eyeopen.IsVisible = true;
+            eyeclosed.IsVisible = false;
+        }
+        else
+        {
+            // Hide the password
+            TxtPass.PasswordChar = '*';
+        
+            // Update UI Icons
+            eyeopen.IsVisible = false;
+            eyeclosed.IsVisible = true;
         }
     }
 }

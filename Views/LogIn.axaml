@@ -52,7 +52,7 @@
                 
                 <StackPanel Grid.Row="2" Spacing="20">
                         <Button Content="Login" Click="Login_Click" Classes="Primary" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
-                        <Button Content="Back to Landing" Click="Back_Click" Classes="Universal_Button" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                        <Button Content="Back" Click="Back_Click" Classes="Universal_Button" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
                 </StackPanel>
         </Grid>
 </Window>
