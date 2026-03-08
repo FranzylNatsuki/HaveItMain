@@ -2,10 +2,6 @@
 Project for CCS8: HCI by Franzyl, Keith and JP
 
 # Things Left To Do
-* Task == System Date notification
-* Settings Backend Functionality
-* Sounds
-* Keyboard shortcuts
 
 # Done
 * Finish Streak Design coding
@@ -17,3 +13,7 @@ Project for CCS8: HCI by Franzyl, Keith and JP
 * Video
 * About
 * Dashboard and Tasks Backend
+* Task == System Date notification
+* Settings Backend Functionality
+* Sounds
+* Keyboard shortcuts
