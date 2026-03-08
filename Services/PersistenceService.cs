@@ -1,6 +1,9 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.IO;
+using System.Runtime.InteropServices.JavaScript;
 using System.Text.Json;
+using System.Linq;
 using HaveItMain.Services;
 using HaveItMain.ViewModels;
 
@@ -27,19 +30,48 @@ public class PersistenceService
 
     public void Load(AppState state)
     {
-        if (!File.Exists(FileName))
-            return;
+        if (!File.Exists(FileName)) return;
 
         var json = File.ReadAllText(FileName);
-
         var tasks = JsonSerializer.Deserialize<ObservableCollection<TaskItemViewModel>>(json);
 
-        if (tasks == null)
-            return;
+        if (tasks == null) return;
 
+        // 1. Clear existing
         state.Tasks.Clear();
 
-        foreach (var t in tasks)
+        // 2. Sort the incoming tasks by Date BEFORE adding them to the UI
+        var sortedTasks = tasks.OrderBy(t => t.Date).ToList();
+
+        // 3. Add them in the correct order
+        foreach (var t in sortedTasks)
+        {
             state.Tasks.Add(t);
+        }
+        
+        CheckForDueTasks(state);
+    }
+    
+    private void CheckForDueTasks(AppState state)
+    {
+        if (!state.NotificationsGlobal) return;
+
+        // Filter tasks that are: 
+        // 1. Due Today 
+        // 2. Not finished 
+        var dueTodayCount = state.Tasks.Count(t => 
+            t.Date.Date == DateTime.Today && !t.IsFinished);
+
+        if (dueTodayCount > 0)
+        {
+            string message = dueTodayCount == 1 
+                ? "You have 1 task due today!" 
+                : $"You have {dueTodayCount} tasks due today!";
+
+            state.NotificationService?.ShowNotification("Have-It", message);
+        
+            // Optional: Play a "reminder" chime
+            // AudioService.PlaySfx("reminder.wav");
+        }
     }
 }

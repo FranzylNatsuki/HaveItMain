@@ -10,6 +10,15 @@
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/AppState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/AppState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/PersistenceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/PersistenceService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/Dashboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Dashboard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/MainWindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MainWindowViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +233,8 @@
       <workItem from="1772889838879" duration="741000" />
       <workItem from="1772890600175" duration="4169000" />
       <workItem from="1772935247784" duration="17000" />
-      <workItem from="1772937638106" duration="12564000" />
+      <workItem from="1772937638106" duration="12586000" />
+      <workItem from="1772958952535" duration="4655000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -506,7 +516,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772954896827</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="\">
+      <option name="closed" value="true" />
+      <created>1772955284539</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1772955284539</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +545,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Cool Sauce" />
     <MESSAGE value="latest" />
     <MESSAGE value="Windows Video Player Works" />
     <MESSAGE value="no more storage" />
@@ -552,7 +569,8 @@
     <MESSAGE value="ux stuff" />
     <MESSAGE value="KEYBOARD SHORTCUTS DONE!" />
     <MESSAGE value="SFX WORKS" />
-    <option name="LAST_COMMIT_MESSAGE" value="SFX WORKS" />
+    <MESSAGE value="\" />
+    <option name="LAST_COMMIT_MESSAGE" value="\" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

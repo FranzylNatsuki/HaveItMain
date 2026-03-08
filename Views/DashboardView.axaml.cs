@@ -232,4 +232,24 @@ public partial class DashboardView : UserControl
             }
         }
     }
+    
+    private void SortTimeAscending(object? sender, RoutedEventArgs e)
+    {
+        if (DataContext is Dashboard vm) vm.SortTimeAscending();
+    }
+
+    private void SortTimeDescending(object? sender, RoutedEventArgs e)
+    {
+        if (DataContext is Dashboard vm) vm.SortTimeDescending();
+    }
+
+    private void SortAlphaAscending(object? sender, RoutedEventArgs e)
+    {
+        if (DataContext is Dashboard vm) vm.SortAlphaAscending();
+    }
+
+    private void SortAlphaDescending(object? sender, RoutedEventArgs e)
+    {
+        if (DataContext is Dashboard vm) vm.SortAlphaDescending();
+    }
 }

@@ -99,6 +99,10 @@
                                     <MenuItem Header="Edit" Click="EditSelectedTask"/>
                                     <MenuItem Header="Delete" Click="DeleteSelectedTask"/>
                                     <MenuItem Header="Undo Delete" Click="UndoDelete"/>
+                                    <MenuItem Header="Sort by Time Descending"  Click="SortTimeDescending"/>
+                                    <MenuItem Header="Sort by Time Ascending" Click="SortTimeAscending"/>
+                                    <MenuItem Header="Sort Alphabetically" Click="SortAlphaAscending"/>
+                                    <MenuItem Header="Sort Desc. Alphabetically" Click="SortAlphaDescending"/>
                                 </MenuFlyout>
                             </Button.ContextFlyout>
                             <Image Source="avares://HaveItMain/Assets/3SIDEDOTSS.png"

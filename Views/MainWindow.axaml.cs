@@ -114,21 +114,34 @@ public partial class MainWindow : Window
 
     private void LEFTMENUBAR_OnDoubleTapped(object? sender, TappedEventArgs e)
     {
+        ToggleSidebar();
+    }
+    
+    private void ExpandHandle_OnPointerPressed(object? sender, PointerPressedEventArgs e)
+    {
+        if (_sidebarCollapsed) ToggleSidebar();
+    }
+    
+    private void ToggleSidebar()
+    {
         var sidebarColumn = Windowgrid.ColumnDefinitions[0];
 
         if (_sidebarCollapsed)
         {
             LeftMenuContent.IsVisible = true;
-            sidebarColumn.Width = new GridLength(72); // expanded width
+            ExpandHandle.IsVisible = false; // Hide the arc
+            sidebarColumn.Width = new GridLength(72);
         }
         else
         {
             LeftMenuContent.IsVisible = false;
-            sidebarColumn.Width = new GridLength(10); // collapsed width
+            ExpandHandle.IsVisible = true; // Show the arc
+            sidebarColumn.Width = new GridLength(15); // Slightly wider to show the arc
         }
 
         _sidebarCollapsed = !_sidebarCollapsed;
     }
+    
 
     private async void NEW_ROUTINE(object? sender, RoutedEventArgs e)
     {

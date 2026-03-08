@@ -133,15 +133,15 @@
                              Content="Terms &amp; Conditions"
                              GroupName="AccountTabs"
                              Classes="sidebar-tab"/>
-                <!--
-                <RadioButton x:Name="TabPlans"
-                             Content="Plans &amp; Pricing"
-                             GroupName="AccountTabs"
-                             Classes="sidebar-tab"/> -->
                 <RadioButton x:Name="TabHelpDesk"
                              Content="Help Desk"
                              GroupName="AccountTabs"
                              Classes="sidebar-tab"/>
+                <!--
+                <RadioButton x:Name="TabPlans"
+                             Content="Contact"
+                             GroupName="AccountTabs"
+                             Classes="sidebar-tab"/> -->
             </StackPanel>
         </Border>
         <Panel Grid.Column="1">

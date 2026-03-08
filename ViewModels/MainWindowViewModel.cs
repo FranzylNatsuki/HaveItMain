@@ -39,10 +39,6 @@ namespace HaveItMain.ViewModels
         public MainWindowViewModel(AppState state)
         {
             State = state ?? throw new ArgumentNullException(nameof(state));
-            State.NotificationService?.ShowNotification(
-                "Welcome to HaveIt!", 
-                "Your productivity journey starts now."
-            );
             
             var accountPersistence = new AccountPersistenceService();
             var allAccountsList = accountPersistence.Load();

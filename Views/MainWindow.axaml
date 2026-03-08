@@ -36,20 +36,66 @@
                     OffsetY="0"
                     Opacity="0.25"/>
             </Border.Effect>
-            <Grid x:Name="LeftMenuContent" RowDefinitions="72,*,73">
-                <Border Grid.Row="0">
-                    <Border PointerPressed="InputElement_OnPointerPressed" Cursor="Hand" ToolTip.Tip="Dashboard (D)">
-                            <Image Source="avares://HaveItMain/Assets/INVERTED LOGO.png"
-                                   Width="50"
-                                   Height="50"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Bottom"
-                                   Stretch="Uniform"/>
-                    </Border>
-                </Border> <!-- LOGO -->
-                <Border Grid.Row="1">
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="15">
-                        <Button ToolTip.Tip="Streak (S)" Classes="round-button" Click="Streak_Click">
+            <Grid>
+                <Grid x:Name="LeftMenuContent" RowDefinitions="72,*,73">
+                    <Border Grid.Row="0">
+                        <Border PointerPressed="InputElement_OnPointerPressed" Cursor="Hand" ToolTip.Tip="Dashboard (D)">
+                                <Image Source="avares://HaveItMain/Assets/INVERTED LOGO.png"
+                                       Width="50"
+                                       Height="50"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Bottom"
+                                       Stretch="Uniform"/>
+                        </Border>
+                    </Border> <!-- LOGO -->
+                    <Border Grid.Row="1">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="15">
+                            <Button ToolTip.Tip="Streak (S)" Classes="round-button" Click="Streak_Click">
+                                <Button.Effect>
+                                    <DropShadowEffect Color="Black" 
+                                                      BlurRadius="4" 
+                                                      OffsetX="-3"
+                                                      OffsetY="3"
+                                                      Opacity="0.25"/>
+                                </Button.Effect>
+                                <Image Source="avares://HaveItMain/Assets/smenu.png"
+                                       Margin="5"
+                                       Stretch="Uniform"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            </Button>
+                            <Button ToolTip.Tip="Timer (T)" Classes="round-button" Click="Timer_Click">
+                                <Button.Effect>
+                                    <DropShadowEffect Color="Black" 
+                                                      BlurRadius="4" 
+                                                      OffsetX="-3"
+                                                      OffsetY="3"
+                                                      Opacity="0.25"/>
+                                </Button.Effect>
+                                <Image Source="avares://HaveItMain/Assets/tmenu.png"
+                                       Margin="7"
+                                       Stretch="Uniform"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            </Button>
+                            <Button ToolTip.Tip="Settings (Ctrl + S)" Classes="round-button" Click="Settings_Click">
+                                <Button.Effect>
+                                    <DropShadowEffect Color="Black" 
+                                                      BlurRadius="4" 
+                                                      OffsetX="-3"
+                                                      OffsetY="3"
+                                                      Opacity="0.25"/>
+                                </Button.Effect>
+                                <Image Source="avares://HaveItMain/Assets/setmenu.png"
+                                       Margin="4"
+                                       Stretch="Uniform"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            </Button>
+                        </StackPanel>
+                    </Border> <!-- 3 Buttons -->
+                    <Border Grid.Row="2">
+                        <Button Classes="round-button" VerticalAlignment="Top" ToolTip.Tip="New Routine (Ctrl + N)" Click="NEW_ROUTINE">
                             <Button.Effect>
                                 <DropShadowEffect Color="Black" 
                                                   BlurRadius="4" 
@@ -57,58 +103,28 @@
                                                   OffsetY="3"
                                                   Opacity="0.25"/>
                             </Button.Effect>
-                            <Image Source="avares://HaveItMain/Assets/smenu.png"
-                                   Margin="5"
+                            <Image Source="avares://HaveItMain/Assets/WriteMenu.png"
+                                   Margin="9"
                                    Stretch="Uniform"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>
                         </Button>
-                        <Button ToolTip.Tip="Timer (T)" Classes="round-button" Click="Timer_Click">
-                            <Button.Effect>
-                                <DropShadowEffect Color="Black" 
-                                                  BlurRadius="4" 
-                                                  OffsetX="-3"
-                                                  OffsetY="3"
-                                                  Opacity="0.25"/>
-                            </Button.Effect>
-                            <Image Source="avares://HaveItMain/Assets/tmenu.png"
-                                   Margin="7"
-                                   Stretch="Uniform"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
-                        </Button>
-                        <Button ToolTip.Tip="Settings (Ctrl + S)" Classes="round-button" Click="Settings_Click">
-                            <Button.Effect>
-                                <DropShadowEffect Color="Black" 
-                                                  BlurRadius="4" 
-                                                  OffsetX="-3"
-                                                  OffsetY="3"
-                                                  Opacity="0.25"/>
-                            </Button.Effect>
-                            <Image Source="avares://HaveItMain/Assets/setmenu.png"
-                                   Margin="4"
-                                   Stretch="Uniform"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
-                        </Button>
-                    </StackPanel>
-                </Border> <!-- 3 Buttons -->
-                <Border Grid.Row="2">
-                    <Button Classes="round-button" VerticalAlignment="Top" ToolTip.Tip="New Routine (Ctrl + N)" Click="NEW_ROUTINE">
-                        <Button.Effect>
-                            <DropShadowEffect Color="Black" 
-                                              BlurRadius="4" 
-                                              OffsetX="-3"
-                                              OffsetY="3"
-                                              Opacity="0.25"/>
-                        </Button.Effect>
-                        <Image Source="avares://HaveItMain/Assets/WriteMenu.png"
-                               Margin="9"
-                               Stretch="Uniform"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"/>
-                    </Button>
-                </Border> <!-- NEW ROUTINE -->
+                    </Border> <!-- NEW ROUTINE -->
+                </Grid>
+                <Path x:Name="ExpandHandle"
+                      Fill="{StaticResource ColorPrimary}"
+                      IsVisible="False"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Left"
+                      Margin="14,0,0,0" 
+                      Cursor="Hand"
+                      PointerPressed="ExpandHandle_OnPointerPressed"
+          
+                      Data="M 0,0 A 20,20 0 0 1 0,40 Z"> 
+                    <Path.Effect>
+                        <DropShadowEffect Color="Black" BlurRadius="5" Opacity="0.3" OffsetX="2"/>
+                    </Path.Effect>
+                </Path>
             </Grid>
         </Border> <!-- LEFT BORDER-->
         <Border Grid.Column="2" Background="{StaticResource ColorBackground}" ZIndex="0"> <!-- RIGHT BORDER MAIN CONTENT-->

@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Text.Json;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Reactive;
 using System.Reactive.Linq;
 using HaveItMain.Services;
@@ -81,6 +82,10 @@ public class Dashboard : ViewModelBase, IHasTitle
     public void AddTask(TaskItemViewModel task)
     {
         Tasks.Add(task);
+        
+        var sorted = Tasks.OrderBy(t => t.Date).ToList();
+        Tasks.Clear();
+        foreach (var t in sorted) Tasks.Add(t);
     }
 
     public void AddTimer(TimerViewModel timer)
@@ -124,5 +129,46 @@ public class Dashboard : ViewModelBase, IHasTitle
     {
         var streakLogic = new Streak(_state);
         streakLogic.StartNewStreakFourteen();
+    }
+    
+    public void SortTimeAscending()
+    {
+        var sorted = Tasks.OrderBy(t => t.Date).ToList();
+        Tasks.Clear();
+        foreach (var t in sorted) Tasks.Add(t);
+        SaveData(); 
+    }
+
+// 2. Time: Night -> Morning
+    public void SortTimeDescending()
+    {
+        var sorted = Tasks.OrderByDescending(t => t.Date).ToList();
+        Tasks.Clear();
+        foreach (var t in sorted) Tasks.Add(t);
+        SaveData();
+    }
+
+// 3. Alpha: A -> Z
+    public void SortAlphaAscending()
+    {
+        var sorted = Tasks.OrderBy(t => t.Title, StringComparer.OrdinalIgnoreCase).ToList();
+        Tasks.Clear();
+        foreach (var t in sorted) Tasks.Add(t);
+        SaveData();
+    }
+
+// 4. Alpha: Z -> A
+    public void SortAlphaDescending()
+    {
+        var sorted = Tasks.OrderByDescending(t => t.Title, StringComparer.OrdinalIgnoreCase).ToList();
+        Tasks.Clear();
+        foreach (var t in sorted) Tasks.Add(t);
+        SaveData();
+    }
+
+// Helper to keep the JSON in sync with the new order
+    private void SaveData()
+    {
+        new PersistenceService().Save(_state);
     }
 }

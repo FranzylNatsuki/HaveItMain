@@ -140,6 +140,50 @@ public class AppState : ReactiveObject
         }
     }
     
+    public void SortAscending()
+    {
+        if (Tasks.Count == 0) return;
+
+        // Morning -> Night (08:00 before 17:00)
+        var sorted = Tasks.OrderBy(t => t.Date).ToList();
+    
+        Tasks.Clear();
+        foreach (var t in sorted) Tasks.Add(t);
+    }
+
+    public void SortDescending()
+    {
+        if (Tasks.Count == 0) return;
+
+        // Night -> Morning (17:00 before 08:00)
+        var sorted = Tasks.OrderByDescending(t => t.Date).ToList();
+    
+        Tasks.Clear();
+        foreach (var t in sorted) Tasks.Add(t);
+    }
+    
+    public void SortAlphabetical()
+    {
+        if (Tasks.Count == 0) return;
+
+        // A -> Z
+        var sorted = Tasks.OrderBy(t => t.Title).ToList();
+    
+        Tasks.Clear();
+        foreach (var t in sorted) Tasks.Add(t);
+    }
+
+    public void SortAlphabeticalDescending()
+    {
+        if (Tasks.Count == 0) return;
+
+        // Z -> A
+        var sorted = Tasks.OrderByDescending(t => t.Title).ToList();
+    
+        Tasks.Clear();
+        foreach (var t in sorted) Tasks.Add(t);
+    }
+    
     
     public async Task ExportTasks(string destinationPath)
     {
