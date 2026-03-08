@@ -8,21 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/App.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/AppState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/AppState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/AccountSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/AccountSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/MainWindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MainWindowViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Settings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AddTaskMessage.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AddTaskMessage.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/dashboard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/dashboard__.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HaveItMain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/HaveItMain.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/Dashboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/Dashboard.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Settings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Settings.axaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Settings.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Settings.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Streak.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Streak.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Streak.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Streak.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +128,7 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;WindowsOnlyRevision&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -142,7 +140,7 @@
 }</component>
   <component name="RunManager" selected="Publish to folder.HaveItBetaVersion_v1">
     <configuration name="HaveItBetaVersion_v1" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" self_contained="true" target_folder="D:/HaveItAlpha v1.0.0" target_framework="net8.0-windows10.0.19041.0" uuid_high="-2601847115462324676" uuid_low="-5405147854215226407">
+      <riderPublish configuration="Release" platform="Any CPU" self_contained="true" target_folder="D:/Have-It/Have-It_Alpha_v1" target_framework="net8.0-windows10.0.19041.0" uuid_high="-2601847115462324676" uuid_low="-5405147854215226407">
         <runtimes>
           <item value="win-x64" />
         </runtimes>
@@ -238,7 +236,8 @@
       <workItem from="1772890600175" duration="4169000" />
       <workItem from="1772935247784" duration="17000" />
       <workItem from="1772937638106" duration="12586000" />
-      <workItem from="1772958952535" duration="9949000" />
+      <workItem from="1772958952535" duration="10942000" />
+      <workItem from="1772976860368" duration="3285000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -536,7 +535,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772964944851</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="FINALLY OVER!">
+      <option name="closed" value="true" />
+      <created>1772970294833</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1772970294833</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +564,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Windows Video Player Works" />
     <MESSAGE value="no more storage" />
     <MESSAGE value="TIMER OFFICIALLY DONE (REMEMBER TO CHANGE WINDOWS NOTIFICATION BACKEND)" />
     <MESSAGE value="ss" />
@@ -582,7 +588,8 @@
     <MESSAGE value="SFX WORKS" />
     <MESSAGE value="\" />
     <MESSAGE value="98% DONE" />
-    <option name="LAST_COMMIT_MESSAGE" value="98% DONE" />
+    <MESSAGE value="FINALLY OVER!" />
+    <option name="LAST_COMMIT_MESSAGE" value="FINALLY OVER!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -120,7 +120,7 @@ public class Dashboard : ViewModelBase, IHasTitle
 // Inside DashboardViewModel.cs
     public void StartNewStreak()
     {
-        // Use the AppState you already have to start the streak
+
         var streakLogic = new Streak(_state); 
         streakLogic.StartNewStreak();
     }

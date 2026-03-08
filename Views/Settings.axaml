@@ -175,12 +175,17 @@
                 <ComboBox  Grid.Row="0" Grid.Column="1" x:Name="FontSizePicker" 
                           SelectedValue="{Binding State.CurrentFontSize, Mode=TwoWay}"
                           SelectedValueBinding="{Binding $self.Tag}"
+                          SelectionChanged="FontSizePicker_SelectionChanged"
                           Width="80">
                     <ComboBoxItem Content="12" Tag="12"/>
                     <ComboBoxItem Content="14" Tag="14"/>
                     <ComboBoxItem Content="16" Tag="16"/>
                     <ComboBoxItem Content="20" Tag="20"/>
                     <ComboBoxItem Content="24" Tag="24"/>
+                    <ComboBoxItem Content="26" Tag="26"/>
+                    <ComboBoxItem Content="28" Tag="28"/>
+                    <ComboBoxItem Content="30" Tag="30"/>
+                    <ComboBoxItem Content="32" Tag="32"/>
                 </ComboBox>
 
                 <Grid Grid.Row="0"
