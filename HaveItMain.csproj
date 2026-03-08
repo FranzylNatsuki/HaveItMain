@@ -48,6 +48,9 @@
     </PropertyGroup>
     
     <ItemGroup>
+      <Compile Update="Views\Confirmation.axaml.cs">
+        <DependentUpon>Confirmation.axaml</DependentUpon>
+      </Compile>
       <Compile Update="Views\Streak.axaml.cs">
         <DependentUpon>Streak.axaml</DependentUpon>
         <SubType>Code</SubType>

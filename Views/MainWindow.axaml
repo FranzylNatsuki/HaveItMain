@@ -16,7 +16,9 @@
         x:Class="HaveItMain.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="avares://HaveItMain/Assets/Icon-ForDocker.png"
-        Title="Have-It">
+        Title="Have-It"
+        KeyDown="Keydown"
+        Focusable="True">
     <Panel>
         <Grid x:Name="Windowgrid" Focusable="True" ColumnDefinitions="72,87,* ,30" PointerPressed="MainContainer_PointerPressed" Background="{StaticResource BrushBackground}">
         <Border 
@@ -171,11 +173,12 @@
                                 <Button.ContextFlyout>
                                     <MenuFlyout>
                                         <MenuItem Header="Account Settings" PointerPressed="AccountSettings_Click"/>
-                                        <MenuItem Header="Log Out" Click="SignOut_Click"/>
                                         <MenuItem Header="Export" Click="Export_Click"/>
                                         <MenuItem Header="Import" Click="Import_Click"/>
                                         <MenuItem Header="Demo Video" Click="Demo_VideoClick"/>
                                         <MenuItem Header="About" Click="Landing"/>
+                                        <MenuItem Header="Log Out" Click="SignOut_Click"/>
+                                        <MenuItem Header="Close" Click="POWEROFF"></MenuItem>
                                     </MenuFlyout>
                                 </Button.ContextFlyout>
                                 <Image Source="avares://HaveItMain/Assets/SANDWHICHbutton.png"

@@ -117,12 +117,11 @@ public partial class DashboardView : UserControl
 
         if (!vm.CanUndo) // nothing to undo
         {
-            var message = new SimpleMessageDialog("No task to undo");
-            await message.ShowDialog((Window)this.VisualRoot!);
+            NotificationService.Show("No task to undo");
             return;
         }
 
-        vm.UndoDelete();
+        vm.UndoDelete(); 
     }
 
     private void Expand(object? sender, RoutedEventArgs e)
@@ -152,8 +151,7 @@ public partial class DashboardView : UserControl
         var selectedTask = TASKLISTCONTAINER.SelectedItem as TaskItemViewModel;
         if (selectedTask == null)
         {
-            var message = new SimpleMessageDialog("No Task Selected");
-            await message.ShowDialog((Window)this.VisualRoot);
+            NotificationService.Show("No Task Selected");
             return;
         }
 
@@ -171,16 +169,21 @@ public partial class DashboardView : UserControl
         }
     }
 
-    private void DeleteSelectedTask(object? sender, RoutedEventArgs e)
+    private async void DeleteSelectedTask(object? sender, RoutedEventArgs e)
     {
         var selectedTask = TASKLISTCONTAINER.SelectedItem as TaskItemViewModel;
+        var window = (Window)this.VisualRoot!;
+
         if (selectedTask == null)
         {
-            var message = new SimpleMessageDialog("No Task Selected");
-            message.ShowDialog((Window)this.VisualRoot);
+            NotificationService.Show("No Task Selected");
+            window.Focus(); // Grab focus back for shortcuts
             return;
         }
+    
+        // Optional: Add a confirmation here so they don't accidental-delete!
         (DataContext as Dashboard)?.RemoveTask(selectedTask);
+        window.Focus();
     }
 
     private void ComboBoxClick(object? sender, RoutedEventArgs e)

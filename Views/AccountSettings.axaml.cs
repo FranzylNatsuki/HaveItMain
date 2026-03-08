@@ -16,16 +16,40 @@ public partial class AccountSettingsView : UserControl
         InitializeComponent();
     }
 
-    private void EraseJson(object? sender, RoutedEventArgs e)
+    private async void EraseJson(object? sender, RoutedEventArgs e)
     {
         if (DataContext is AccountSettings vm)
         {
-            vm.EraseAllData();
-            warning();
-            Console.WriteLine("Data wiped successfully.");
+            // 1. Setup the Confirmation Dialog
+            var confirmDialog = new ConfirmationDialog("Are you sure? This will wipe all tasks and streaks!");
+            var topLevel = TopLevel.GetTopLevel(this);
+
+            if (topLevel is Window parentWindow)
+            {
+                // 2. Wait for the user to click a button
+                // The result will be whatever you passed into Close()
+                var result = await confirmDialog.ShowDialog<bool>(parentWindow);
+
+                if (result == true)
+                {
+                    // 3. User clicked "Proceed"
+                    vm.EraseAllData();
+
+                    // Show the success message using your existing simple dialog
+                    var successDialog = new SimpleMessageDialog("Successfully Deleted!");
+                    await successDialog.ShowDialog(parentWindow);
+
+                    Console.WriteLine("Data wiped successfully.");
+                }
+                else
+                {
+                    // User clicked "Cancel"
+                    Console.WriteLine("Wipe cancelled by user.");
+                }
+            }
         }
     }
-    
+
     private async void warning()
     {
         var dialog = new SimpleMessageDialog("Successfully Deleted!");

@@ -12,6 +12,7 @@
         <entry key="Views/AddTaskMessage.axaml" value="HaveItMain.csproj" />
         <entry key="Views/AddTimerMessage.axaml" value="HaveItMain.csproj" />
         <entry key="Views/BaseDialogue.axaml" value="HaveItMain.csproj" />
+        <entry key="Views/Confirmation.axaml" value="HaveItMain.csproj" />
         <entry key="Views/CustomMessageBox.axaml" value="HaveItMain.csproj" />
         <entry key="Views/Dashboard.axaml" value="HaveItMain.csproj" />
         <entry key="Views/DashboardView.axaml" value="HaveItMain.csproj" />

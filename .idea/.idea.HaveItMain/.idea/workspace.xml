@@ -8,10 +8,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Views/Confirmation.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/Confirmation.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/Account.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/Account.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/AccountSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/AccountSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HaveItMain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/HaveItMain.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/AddTaskMessage.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AddTaskMessage.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/AddTimerMessage.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AddTimerMessage.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/BaseDialogue.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/BaseDialogue.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Settings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Settings.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +237,9 @@
       <workItem from="1772871290580" duration="2185000" />
       <workItem from="1772889706716" duration="112000" />
       <workItem from="1772889838879" duration="741000" />
-      <workItem from="1772890600175" duration="4152000" />
+      <workItem from="1772890600175" duration="4169000" />
+      <workItem from="1772935247784" duration="17000" />
+      <workItem from="1772937638106" duration="4091000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -481,7 +497,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772893306136</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="ux stuff">
+      <option name="closed" value="true" />
+      <created>1772895618543</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1772895618543</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -502,7 +526,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="FINISHED MOST OF THE TASK BACKEND" />
     <MESSAGE value="Edit Fix + Dialogue" />
     <MESSAGE value="Finished Task Backend + Timer backend start" />
     <MESSAGE value="Cool Sauce" />
@@ -527,7 +550,8 @@
     <MESSAGE value="WORKING VERSION for PUBLISH" />
     <MESSAGE value="savefile" />
     <MESSAGE value="asdasd" />
-    <option name="LAST_COMMIT_MESSAGE" value="asdasd" />
+    <MESSAGE value="ux stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="ux stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -544,6 +568,19 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Views/MainWindow.axaml.cs</url>
+          <line>30</line>
+          <properties documentPath="C:\Users\Natsuki\RiderProjects\HaveItMain\Views\MainWindow.axaml.cs" containingFunctionPresentation="Method 'TriggerSnackbar'">
+            <startOffsets>
+              <option value="818" />
+            </startOffsets>
+            <endOffsets>
+              <option value="819" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

@@ -227,7 +227,7 @@
                                 <DatePicker FontSize="{DynamicResource FontSizeNormal}" 
                                             HorizontalAlignment="Stretch"
                                             SelectedDate="{Binding EditableAccount.BirthDate}"
-                                            IsEnabled="{Binding !EditableAccount.IsBirthDateEditing}">
+                                            IsEnabled="{Binding EditableAccount.IsBirthDateEditing}">
                                 </DatePicker>
                                 <Button Grid.Column="1"  Classes="null_for_image"
                                         Command="{Binding ToggleBdayEdit}">
@@ -246,7 +246,7 @@
                                           ItemsSource="{Binding GenderOptions}"
                                           HorizontalAlignment="Stretch"
                                           SelectedValue="{Binding EditableAccount.Gender}"
-                                          IsEnabled="{Binding EditableAccount.IsFirstNameEditing}">
+                                          IsEnabled="{Binding EditableAccount.IsGenderEditing}">
                                 </ComboBox>
                                 <Button Grid.Column="1"  Classes="null_for_image"
                                         Command="{Binding ToggleGenderEdit}">
@@ -379,18 +379,9 @@
                     <Grid ColumnDefinitions="220, Auto"
                           RowDefinitions="Auto, Auto">
                         <TextBlock Grid.Row="0" Grid.Column="0"
-                                   Text="Notifications"
-                                   VerticalAlignment="Center"
-                                   Margin="0,0,0,10"/>
-                        <CheckBox Grid.Row="0" Grid.Column="1"
-                                  Classes="yellow-check"
-                                  IsChecked="{Binding State.TermsAndConditions, Mode=TwoWay}"
-                                  Margin="0,0,0,10"/>
-
-                        <TextBlock Grid.Row="1" Grid.Column="0"
                                    Text="Storage Access"
                                    VerticalAlignment="Center"/>
-                        <CheckBox Grid.Row="1" Grid.Column="1"
+                        <CheckBox Grid.Row="0" Grid.Column="1"
                                   IsChecked="True"
                                   Classes="yellow-check"/>
                     </Grid>

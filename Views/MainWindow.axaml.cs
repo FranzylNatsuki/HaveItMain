@@ -54,6 +54,7 @@ public partial class MainWindow : Window
     {
         var videoWindow = new Video();
         videoWindow.Show(); // or ShowDialog(this) if modal
+        
     }
     
     private void Dashboard_Click(object? sender, RoutedEventArgs e)
@@ -62,6 +63,7 @@ public partial class MainWindow : Window
         if (DataContext is MainWindowViewModel vm)
         {
             vm.CurrentViewModel = new Dashboard(vm.State); // show dashboard
+            this.Focus();
         }
     }
 
@@ -71,6 +73,7 @@ public partial class MainWindow : Window
         {
             var timerVM = new Timer(App.ServiceState.Timers);
             vm.CurrentViewModel = timerVM;
+            this.Focus();
         }
     }
     private void Streak_Click(object? sender, RoutedEventArgs e)
@@ -78,6 +81,7 @@ public partial class MainWindow : Window
         if (DataContext is MainWindowViewModel vm)
         {
             vm.CurrentViewModel = new Streak(vm.State);
+            this.Focus();
         }
     }
 
@@ -86,6 +90,7 @@ public partial class MainWindow : Window
         if (DataContext is MainWindowViewModel vm)
         {
             vm.CurrentViewModel = new Settings(vm.State);
+            this.Focus();
         }
     }
 
@@ -94,6 +99,7 @@ public partial class MainWindow : Window
         if (DataContext is MainWindowViewModel vm)
         {
             vm.CurrentViewModel = new AccountSettings(vm.State);
+            this.Focus();
         }
     }
 
@@ -102,6 +108,7 @@ public partial class MainWindow : Window
         if (DataContext is MainWindowViewModel vm)
         {
             vm.CurrentViewModel = new Dashboard(vm.State);
+            this.Focus();
         }
     }
 
@@ -341,6 +348,77 @@ public partial class MainWindow : Window
             // Path.LocalPath is the cleanest way to get the string for File.Copy
             string selectedFilePath = result[0].Path.LocalPath;
             await App.ServiceState.ImportTasks(selectedFilePath);
+        }
+    }
+
+    private void Keydown(object? sender, KeyEventArgs e)
+    {
+        var focus = this.FocusManager?.GetFocusedElement();
+        if (focus is TextBox || focus is AutoCompleteBox) return;
+        if (e.Key == Key.Enter && (focus is Button || focus is MenuItem)) return;
+        bool isCtrlPressed = e.KeyModifiers.HasFlag(KeyModifiers.Control);
+        // --- CTRL KEY COMBOS ---
+        if (isCtrlPressed)
+        {
+            switch (e.Key)
+            {
+                case Key.S:
+                    Settings_Click(null, new RoutedEventArgs());
+                    break;
+                case Key.N:
+                    NEW_ROUTINE(null, new RoutedEventArgs());
+                    break;
+                case Key.T:
+                    NEW_TIMER(null, new RoutedEventArgs());
+                    break;
+                case Key.B:
+                    LEFTMENUBAR_OnDoubleTapped(null, null);
+                    break;
+                case Key.H:
+                    Demo_VideoClick(null, new RoutedEventArgs());
+                    break;
+            }
+        }
+        else
+        {
+            switch (e.Key)
+            {
+                case Key.D:
+                    Dashboard_Click(null, new RoutedEventArgs());
+                    break;
+                case Key.S:
+                    Streak_Click(null, new RoutedEventArgs());
+                    break;
+                case Key.T:
+                    Timer_Click(null, new RoutedEventArgs());
+                    break;
+                case Key.A:
+                    AccountSettings_Click(null, new RoutedEventArgs());
+                    break;
+                case Key.H:
+                    AccountSettings_Click(null, new RoutedEventArgs());
+                    break;
+                case Key.Escape:
+                    this.Focus();
+                    break;
+            }
+        }
+    }
+
+    private async void POWEROFF(object? sender, RoutedEventArgs e)
+    {
+        var window = (Window)this.VisualRoot!;
+        
+        var dialog = new ConfirmationDialog("Are you sure you want to exit Have-It?");
+        var result = await dialog.ShowDialog<bool>(window);
+
+        if (result)
+        {
+            window.Close();
+        }
+        else
+        {
+            window.Focus();
         }
     }
 }

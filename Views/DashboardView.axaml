@@ -6,7 +6,8 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="HaveItMain.Views.DashboardView"
              xmlns:conv="clr-namespace:HaveItMain.Converters"
-             x:DataType="vm:Dashboard">
+             x:DataType="vm:Dashboard"
+             Focusable="True">
     <UserControl.Styles>
         <Style Selector="ListBox">
             <Setter Property="BorderThickness" Value="0"/>

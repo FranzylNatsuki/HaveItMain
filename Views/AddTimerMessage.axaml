@@ -6,6 +6,7 @@
             CanResize="False"
             WindowStartupLocation="CenterOwner"
             SystemDecorations="None"
+            Focusable="True"
             Background="{StaticResource BrushBackground}">
 
     <Window.Styles>
@@ -69,10 +70,10 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Spacing="20">
-                <Button Click="Add" Classes="Primary">
+                <Button Click="Add" Classes="Primary" IsDefault="True">
                     Add
                 </Button>
-                <Button Click="Discard" Classes="Closing">
+                <Button Click="Discard" Classes="Closing" IsCancel="True">
                     Cancel
                 </Button>
             </StackPanel>
