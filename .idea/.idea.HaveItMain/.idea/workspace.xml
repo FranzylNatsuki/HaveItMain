@@ -8,24 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Views/Confirmation.axaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/Confirmation.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HaveItMain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/HaveItMain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AddTaskMessage.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AddTaskMessage.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AddTimerMessage.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AddTimerMessage.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/BaseDialogue.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/BaseDialogue.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Settings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Settings.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/SimpleMessageDialogue.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/AppState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/AppState.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +47,7 @@
     <setting file="file://$PROJECT_DIR$/Services/Account.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/AccountPersistence.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/AppState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/AudioService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/PersistenceService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/STREAK.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/SessionData.cs" root0="FORCE_HIGHLIGHTING" />
@@ -239,7 +224,7 @@
       <workItem from="1772889838879" duration="741000" />
       <workItem from="1772890600175" duration="4169000" />
       <workItem from="1772935247784" duration="17000" />
-      <workItem from="1772937638106" duration="4091000" />
+      <workItem from="1772937638106" duration="12564000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -505,7 +490,23 @@
       <option name="project" value="LOCAL" />
       <updated>1772895618543</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="KEYBOARD SHORTCUTS DONE!">
+      <option name="closed" value="true" />
+      <created>1772941764159</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1772941764159</updated>
+    </task>
+    <task id="LOCAL-00035" summary="SFX WORKS">
+      <option name="closed" value="true" />
+      <created>1772954896827</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1772954896827</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,8 +527,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Edit Fix + Dialogue" />
-    <MESSAGE value="Finished Task Backend + Timer backend start" />
     <MESSAGE value="Cool Sauce" />
     <MESSAGE value="latest" />
     <MESSAGE value="Windows Video Player Works" />
@@ -551,7 +550,9 @@
     <MESSAGE value="savefile" />
     <MESSAGE value="asdasd" />
     <MESSAGE value="ux stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="ux stuff" />
+    <MESSAGE value="KEYBOARD SHORTCUTS DONE!" />
+    <MESSAGE value="SFX WORKS" />
+    <option name="LAST_COMMIT_MESSAGE" value="SFX WORKS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

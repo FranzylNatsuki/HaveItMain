@@ -21,16 +21,14 @@ public class AppState : ReactiveObject
         get => _streakStarted;
         set => this.RaiseAndSetIfChanged(ref _streakStarted, value);
     }
-
-    // 3. Current Streak Property
+    
     private STREAK? _currentStreak;
     public STREAK? CurrentStreak
     {
         get => _currentStreak;
         set => this.RaiseAndSetIfChanged(ref _currentStreak, value);
     }
-
-    // Collections and Services
+    
     public ObservableCollection<TimerViewModel> Timers { get; } = new();
     public ObservableCollection<TaskItemViewModel> Tasks { get; } = new();
     public INotificationService? NotificationService { get; set; }
@@ -69,7 +67,6 @@ public class AppState : ReactiveObject
     public int SfxVolume
     {
         get => _sfxVolume;
-        // This ensures that when the slider moves, the UI and Logic stay in sync
         set => this.RaiseAndSetIfChanged(ref _sfxVolume, value);
     }
     
@@ -87,7 +84,6 @@ public class AppState : ReactiveObject
             if (value != _isDyslexicEnabled)
             {
                 _isDyslexicEnabled = value;
-                // This is the C# logic we had earlier, moved into the Setter
                 UpdateAppFont(value);
                 this.RaisePropertyChanged(nameof(IsDyslexicEnabled));
             }
@@ -101,7 +97,6 @@ public class AppState : ReactiveObject
         var res = Application.Current.Resources;
     
         res["AppFont"] = enabled ? res["DyslexicFont"] : res["NunitoFont"];
-        // Optional: Add your font size scaling here too!
     }
     
     public void LoadAccounts()
@@ -110,40 +105,38 @@ public class AppState : ReactiveObject
         {
             try
             {
-                // 1. Load all accounts
                 string json = System.IO.File.ReadAllText("accounts.json");
                 var loadedAccounts = System.Text.Json.JsonSerializer.Deserialize<List<Account>>(json);
                 if (loadedAccounts != null)
                 {
                     AllAccounts = new ObservableCollection<Account>(loadedAccounts);
-
-                    // 2. NEW: Check the SessionService to see who was last here
+                    
                     var sessionService = new SessionService();
                     var session = sessionService.LoadSession();
 
                     if (session.IsSignedIn && !string.IsNullOrEmpty(session.LastUsername))
                     {
-                        // 3. Try to find that specific user
                         var savedUser = AllAccounts.FirstOrDefault(a => a.Username == session.LastUsername);
                         if (savedUser != null)
                         {
                             UserAccount = savedUser;
                             IsLoggedIn = true;
                         }
-                        else 
+                        else
                         {
-                            // Fallback: Session user exists but isn't in accounts.json anymore
                             UserAccount = AllAccounts.FirstOrDefault() ?? new Account();
                         }
                     }
                     else
                     {
-                        // Fallback: No session saved, just grab the first one
                         UserAccount = AllAccounts.FirstOrDefault() ?? new Account();
                     }
                 }
             }
-            catch { /* Handle corrupted JSON */ }
+            catch
+            {
+                
+            }
         }
     }
     
@@ -152,14 +145,16 @@ public class AppState : ReactiveObject
     {
         try
         {
-            // Just copy the existing file to the user's chosen location
             if (File.Exists("tasks.json"))
             {
                 File.Copy("tasks.json", destinationPath, true);
                 NotificationService?.ShowNotification("Export Success", "Backup created!");
             }
         }
-        catch (Exception ex) { /* handle error */ }
+        catch (Exception ex)
+        {
+            
+        }
     }
 
     public async Task ImportTasks(string sourcePath)
@@ -167,15 +162,8 @@ public class AppState : ReactiveObject
         try
         {
             string destinationPath = "tasks.json";
-    
-            // 1. Copy the imported file over the current one
             File.Copy(sourcePath, destinationPath, true);
-
-            // 2. Use YOUR existing Load method
-            // It already clears this.Tasks and adds the new ones!
             var persistence = new PersistenceService(); 
-        
-            // Pass 'this' (the AppState) into the method
             persistence.Load(this); 
 
             NotificationService?.ShowNotification("Import Success", "Tasks updated!");
