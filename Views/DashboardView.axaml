@@ -280,6 +280,7 @@
                                     </Grid>
                                 </Border>
                                 <Border Grid.Column="1">
+                                    <ScrollViewer>
                                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
                                         <TextBlock Text="Streak Report:" HorizontalAlignment="Center" FontWeight="UltraBold"></TextBlock>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30,0,0">
@@ -290,6 +291,7 @@
                                             <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" FontSize="{DynamicResource FontSizeNormal}"> Start Date:</TextBlock>
                                             <TextBlock HorizontalAlignment="Center" FontSize="{DynamicResource FontSizeNormal}" FontWeight="DemiBold" Text="{Binding FormattedStartDate}"></TextBlock>
                                     </StackPanel>
+                                    </ScrollViewer>
                                 </Border>
                             </Grid>
                         </Grid>
@@ -332,7 +334,9 @@
                         </StackPanel>
                     </Grid>
                     <Grid Grid.Row="1">
+                        <ScrollViewer>
                         <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" IsVisible="{Binding HasNoTimers}" Text="No timers running. Use the + button to add a timer."/>
+                        </ScrollViewer>
                         <ListBox Margin="0,10,0,10"
                                  Padding="5"
                                  x:Name="TIMERLISTCONTAINER"

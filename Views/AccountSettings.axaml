@@ -425,8 +425,11 @@
                           VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="4,0,16,24" Spacing="0">
 
-                    <TextBlock Text="Terms and Conditions: Last updated 03/01/2026"
+                    <HyperlinkButton Content="Terms and Conditions: Last updated 03/01/2026"
                                FontWeight="Bold"
+                               FontFamily="{DynamicResource AppFont}"
+                               Foreground="{StaticResource BrushForeground}"
+                               FontSize="{DynamicResource FontSizeNormal}"
                                Margin="0,0,0,14"/>
 
                     <TextBlock Text="Acceptance of Terms" Classes="section-header"/>

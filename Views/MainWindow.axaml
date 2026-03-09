@@ -19,6 +19,15 @@
         Title="Have-It"
         KeyDown="Keydown"
         Focusable="True">
+    <Window.Styles>
+        <Style Selector="AutoCompleteBox#GlobalSearch /template/ TextBox">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+
+        <Style Selector="AutoCompleteBox#GlobalSearch /template/ TextBox /template/ TextBlock#PART_Watermark">
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Window.Styles>
     <Window.KeyBindings>
         <KeyBinding Gesture="Ctrl+Add" Command="{Binding IncreaseFontCommand}"/>
         <KeyBinding Gesture="Ctrl+OemPlus" Command="{Binding IncreaseFontCommand}"/>
