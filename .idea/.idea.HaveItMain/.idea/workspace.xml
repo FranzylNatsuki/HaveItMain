@@ -9,9 +9,12 @@
   <component name="ChangeListManager">
     <list default="true" id="633b2002-f64a-4769-8cfa-1b9a2c6b3777" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HaveItMain/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/AccountSettings.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/DashboardView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/DashboardView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Video.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Video.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/HaveItMain.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
@@ -131,9 +134,9 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected=".NET Project.HaveItMain">
+  <component name="RunManager" selected="Publish to folder.HaveItBetaVersion_v1">
     <configuration name="HaveItBetaVersion_v1" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" platform="Any CPU" self_contained="true" target_folder="D:/Have-It/Have-It_Alpha_v1" target_framework="net8.0-windows10.0.19041.0" uuid_high="-2601847115462324676" uuid_low="-5405147854215226407">
+      <riderPublish configuration="Release" platform="Any CPU" self_contained="true" target_folder="D:/Have-It/FINAL PUBLISH/Have-It_Release_v1.0.01" target_framework="net8.0-windows10.0.19041.0" uuid_high="-2601847115462324676" uuid_low="-5405147854215226407">
         <runtimes>
           <item value="win-x64" />
         </runtimes>
@@ -232,7 +235,10 @@
       <workItem from="1772958952535" duration="10942000" />
       <workItem from="1772976860368" duration="3285000" />
       <workItem from="1772981827419" duration="99000" />
-      <workItem from="1773066609416" duration="2775000" />
+      <workItem from="1773066609416" duration="2795000" />
+      <workItem from="1773135763346" duration="1825000" />
+      <workItem from="1773155108501" duration="1483000" />
+      <workItem from="1773157283790" duration="1084000" />
     </task>
     <task id="LOCAL-00001" summary="assa">
       <option name="closed" value="true" />
@@ -546,7 +552,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772981910894</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="HCI STUFF">
+      <option name="closed" value="true" />
+      <created>1773069764554</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1773069764554</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -567,7 +581,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="TIMER OFFICIALLY DONE (REMEMBER TO CHANGE WINDOWS NOTIFICATION BACKEND)" />
     <MESSAGE value="ss" />
     <MESSAGE value="POLISHED DASHBOARD, just needs streak" />
     <MESSAGE value="Before i end up destroying this shit" />
@@ -592,7 +605,8 @@
     <MESSAGE value="98% DONE" />
     <MESSAGE value="FINALLY OVER!" />
     <MESSAGE value="last minute" />
-    <option name="LAST_COMMIT_MESSAGE" value="last minute" />
+    <MESSAGE value="HCI STUFF" />
+    <option name="LAST_COMMIT_MESSAGE" value="HCI STUFF" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

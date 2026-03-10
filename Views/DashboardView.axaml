@@ -242,20 +242,22 @@
                     </Grid>
                     <Grid Grid.Row="1">
                         <Grid VerticalAlignment="Center">
-                            <StackPanel HorizontalAlignment="Center" Orientation="Vertical" IsVisible="{Binding !StreakStarted}">
-                                <TextBlock TextWrapping="Wrap"  Text="No Streak Started" HorizontalAlignment="Center" FontSize="{DynamicResource FontSizeNormal}"/>
-                                <TextBlock TextWrapping="Wrap"  Text="Ready to commit to your habits?" HorizontalAlignment="Center" Foreground="Gray"/>
-                                <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" ItemSpacing="30" Margin="0,30,0,0">
-                                    <Button Content="7-Day Streak" 
-                                            Command="{Binding StartNewStreak}"
-                                            HorizontalAlignment="Center"
-                                            Classes="Primary"/>
-                                    <Button Content="14-Day Streak" 
-                                            Command="{Binding StartNewStreakFourteen}"
-                                            HorizontalAlignment="Center"
-                                            Classes="Secondary"/>
-                                </WrapPanel>
-                            </StackPanel>
+                            <ScrollViewer>
+                                <StackPanel HorizontalAlignment="Center" Orientation="Vertical" IsVisible="{Binding !StreakStarted}">
+                                    <TextBlock TextWrapping="Wrap"  Text="No Streak Started" HorizontalAlignment="Center" FontSize="{DynamicResource FontSizeNormal}"/>
+                                    <TextBlock TextWrapping="Wrap"  Text="Ready to commit to your habits?" HorizontalAlignment="Center" Foreground="Gray"/>
+                                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" ItemSpacing="30" Margin="0,30,0,0">
+                                        <Button Content="7-Day Streak" 
+                                                Command="{Binding StartNewStreak}"
+                                                HorizontalAlignment="Center"
+                                                Classes="Primary"/>
+                                        <Button Content="14-Day Streak" 
+                                                Command="{Binding StartNewStreakFourteen}"
+                                                HorizontalAlignment="Center"
+                                                Classes="Secondary"/>
+                                    </WrapPanel>
+                                </StackPanel>
+                            </ScrollViewer>
                             <Grid ColumnDefinitions="200, *" IsVisible="{Binding StreakStarted}">
                                 <Border Grid.Column="0">
                                     <Grid>

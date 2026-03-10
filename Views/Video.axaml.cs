@@ -130,14 +130,19 @@ public partial class Video : Window
             playButton.IsVisible = true;
         };
 
-        // Auto reset when video ends
         mediaPlayer.EndReached += (s, e) =>
         {
-            mediaPlayer.Stop();
+            // Important: Don't call mediaPlayer.Stop() inside EndReached! 
+            // It's already stopping.
+    
             Dispatcher.UIThread.Post(() =>
             {
+                // Reset the UI buttons
                 pauseButton.IsVisible = false;
                 playButton.IsVisible = true;
+        
+                // Seek back to the start so the user can just hit 'Play' again
+                mediaPlayer.Position = 0; 
             });
         };
     }
@@ -157,21 +162,19 @@ public partial class Video : Window
             no_video();
             return;
         }
-        
-        if (!File.Exists(videoPath))
-        {
-            Console.WriteLine("Video file not found!");
-            no_video();
-            return;
-        }
 
-        if (mediaPlayer.IsPlaying)
-            mediaPlayer.Stop();
+        // 1. Fully Stop first
+        mediaPlayer.Stop();
 
-        // Dispose previous media to avoid crashes
-        mediaPlayer.Media?.Dispose();
+        // 2. Clear the current media safely
+        var oldMedia = mediaPlayer.Media;
+        mediaPlayer.Media = null;
+        oldMedia?.Dispose();
 
+        // 3. Create NEW media instance
         var media = new Media(libVLC, videoPath, FromType.FromPath);
+    
+        // 4. Play the new instance
         mediaPlayer.Play(media);
     }
 

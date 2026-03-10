@@ -133,7 +133,6 @@ public partial class AccountSettingsView : UserControl
 
     private async void Logout_OnClick(object? sender, RoutedEventArgs e)
     {
-// 1. Get the parent window (The "VisualRoot")
         var window = (Window)this.VisualRoot!;
 
         // 2. Pop the Confirmation Dialog
@@ -143,9 +142,6 @@ public partial class AccountSettingsView : UserControl
 
         if (result)
         {
-            // --- PROCEED WITH LOGOUT ---
-        
-            // 3. Clear Session & State
             var sessionService = new SessionService();
             sessionService.ClearSession();
             App.ServiceState.IsLoggedIn = false;
@@ -153,17 +149,14 @@ public partial class AccountSettingsView : UserControl
             // 4. Open Landing
             var landing = new Landing
             {
-                // Make sure the ViewModel matches what Landing expects
                 DataContext = new Landing() 
             };
             landing.Show();
-
-            // 5. Close the Main Window
+            
             window.Close();
         }
         else
         {
-            // User chickened out! Return focus to the window
             window.Focus();
         }
     }
